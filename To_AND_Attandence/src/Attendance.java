@@ -1,9 +1,11 @@
 public class Attendance {
 
     public  Attendance() {
-        System.out.println("Attendance");
+        System.out.println("hellow world");
     }
+
     public static void main(String[] args) {
-        System.out.print("hellow world");
+        Attendance a = new Attendance();
+        System.out.println("kkk");
     }
 }
