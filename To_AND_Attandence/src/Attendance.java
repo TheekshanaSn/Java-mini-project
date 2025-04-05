@@ -8,5 +8,6 @@ public class Attendance {
         Attendance a = new Attendance();
         System.out.println("kkk");
         System.out.println(a.toString());
+        System.out.println(a.getClass());
     }
 }
