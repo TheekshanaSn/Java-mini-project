@@ -7,5 +7,6 @@ public class Attendance {
     public static void main(String[] args) {
         Attendance a = new Attendance();
         System.out.println("kkk");
+        System.out.println(a.toString());
     }
 }
