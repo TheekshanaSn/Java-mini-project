@@ -1,6 +1,10 @@
 public class Attendance {
 
     public  Attendance() {
-        System.out.println("My attendance");
+
+    }
+
+    public static void main(String[] args) {
+        System.out.print("hellow world");
     }
 }
