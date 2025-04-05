@@ -1,4 +1,6 @@
 public class Attendance {
-    public Attendance() {
+
+    public  Attendance() {
+        System.out.println("My attendance");
     }
 }
