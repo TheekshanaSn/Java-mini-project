@@ -9,5 +9,7 @@ public class Attendance {
         System.out.println("kkk");
         System.out.println(a.toString());
         System.out.println(a.getClass());
+
+        System.out.println("wjbb");
     }
 }
