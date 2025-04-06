@@ -13,5 +13,6 @@ public class Attendance {
         System.out.println("wjbb");
         System.out.println("tuyttgtgt");
         System.out.println(a.getClass());
+        System.out.println();
     }
 }
