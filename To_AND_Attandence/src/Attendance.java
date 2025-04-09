@@ -13,10 +13,10 @@ public class Attendance {
         System.out.println("wjbb");
         System.out.println("tuyttgtgt");
         System.out.println(a.getClass());
-        for (){
+        for (int i=0;i>8;i++){
             System.out.println("ferj");
             System.out.println("hwgjbjdnkqw");
-            System.out.println("hwhifhj");
+            System.out.println("hwhifhjk");
 
         }
         }
