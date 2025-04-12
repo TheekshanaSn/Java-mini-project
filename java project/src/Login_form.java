@@ -7,6 +7,10 @@ public class Login_form {
     private JButton loginButton;
     private JButton cancelButton;
 
+    public static void main(String[] args) {
+        Login_form lg = new Login_form();
+    }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
