@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class user_profile_form {
+public class user_profile {
     private JButton userButton;
     private JButton courseButton;
     private JButton noticeButton;
