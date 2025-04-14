@@ -1,3 +1,5 @@
+package Admin;
+
 import javax.swing.*;
 
 public class Course_unit {
