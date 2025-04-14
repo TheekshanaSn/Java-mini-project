@@ -2,7 +2,7 @@ package Admin;
 
 import javax.swing.*;
 
-public class Login_form {
+public class Login {
     private JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -10,7 +10,7 @@ public class Login_form {
     private JButton cancelButton;
 
     public static void main(String[] args) {
-        Login_form lg = new Login_form();
+        Login lg = new Login();
     }
 
     private void createUIComponents() {

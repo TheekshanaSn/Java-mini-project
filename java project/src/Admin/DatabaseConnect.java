@@ -2,51 +2,58 @@ package Admin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;     // ✅ Add this
 import java.sql.SQLException;
+import java.sql.Statement;     // ✅ Add this
 
-/**
- * Database connection utility class for managing database connections
- */
 public class DatabaseConnect {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/teclmsk";
-    private static final String DB_USER = "root"; // Replace with your DB username
-    private static final String DB_PASSWORD = ""; // Replace with your DB password
 
-    private Connection connection;
+    // Database credentials
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/techlmsk";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
-    /**
-     * Constructor - establishes a database connection
-     * @throws SQLException if connection fails
-     */
-    public DatabaseConnect() throws SQLException {
+    // Method to get connection
+    public static Connection getConnection() throws SQLException {
         try {
-            // Load JDBC driver (optional for newer JDBC versions)
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // Create the connection
-            this.connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found: " + e.getMessage());
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            throw new RuntimeException("Database connection failed: " + e.getMessage(), e);
         }
     }
 
-    /**
-     * Get the database connection
-     * @return an active database connection
-     */
-    public Connection getConnection() {
-        return connection;
-    }
 
-    /**
-     * Close the database connection
-     */
-    public void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                System.out.println("Error closing connection: " + e.getMessage());
-            }
+    // Method to display lecturers
+//    public static void displaylecturer() {
+//        String sql = "SELECT * FROM lecturer"; // ✅ Make sure the table name is correct
+//
+//        try (Connection conn = getConnection();
+//             Statement stmt = conn.createStatement();
+//             ResultSet rs = stmt.executeQuery(sql)) {
+//
+//            System.out.println("ID\tDepartment");
+//            System.out.println("------------------------------------------------------------");
+//
+//            while (rs.next()) {
+//                String lecturer_id = rs.getString("lecturer_id");
+//                String department = rs.getString("department");
+//
+//                System.out.printf("%s\t%s%n", lecturer_id, department);
+//            }
+//
+//        } catch (SQLException e) {
+//            System.out.println("Error fetching lecturers: " + e.getMessage());
+//        }
+//    }
+
+    //     Main method to test
+    public static void main(String[] args) {
+        try (Connection conn = getConnection()) {
+//           displaylecturer();
+            System.out.println("succesfully connected to database");
+        } catch (SQLException e) {
+            System.out.println("Database connection error: " + e.getMessage());
         }
     }
 }
+
