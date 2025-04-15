@@ -1,25 +1,26 @@
-package Admin;
+package ADMIN;
 
 import javax.swing.*;
 
-public class Timetable extends JFrame{
-    private JComboBox comboBox1;
-    private JButton addNewButton;
-    private JButton updateButton;
-    private JButton deleteButton;
+
+public class User_profile extends JFrame{
+    private JButton undergraduateButton;
+    private JButton lecturerButton;
+    private JButton technicalOfficerButton;
     private JTable table1;
+    private JButton addNewButton;
+    private JPanel JPanel1;
+    private JPanel JPanel2;
+    private JPanel JPanelMain;
     private JButton userButton;
     private JButton courseButton;
     private JButton noticeButton;
     private JButton timetableButton;
     private JButton singOutButton;
-    private JPanel JPanelMain;
-    private JPanel JPanel1;
-    private JPanel JPanel2;
 
 
-    public Timetable() {
-        setTitle("Timetable");
+    public User_profile() {
+        setTitle("User");
         setContentPane(JPanelMain);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
@@ -27,6 +28,11 @@ public class Timetable extends JFrame{
     }
 
     public static void main(String[] args) {
-        Timetable t= new Timetable();
+        User_profile user = new User_profile();
     }
 }
+
+
+
+
+

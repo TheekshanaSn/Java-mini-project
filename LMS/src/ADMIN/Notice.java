@@ -1,4 +1,4 @@
-package Admin;
+package ADMIN;
 
 import javax.swing.*;
 

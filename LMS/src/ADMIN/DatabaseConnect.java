@@ -1,10 +1,8 @@
-package Admin;
+package ADMIN;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;     // ✅ Add this
 import java.sql.SQLException;
-import java.sql.Statement;     // ✅ Add this
 
 public class DatabaseConnect {
 
