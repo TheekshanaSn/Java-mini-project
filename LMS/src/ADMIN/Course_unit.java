@@ -41,18 +41,26 @@ public class Course_unit extends JFrame {
             model.addRow(new Object[]{"round", "red"});
             model.addRow(new Object[]{"square", "green"});
 
-            setLocationRelativeTo(null);
-            setVisible(true);
+
+        comboBox1.removeAllItems();
+        String[] types = {"TP", "T", "P"};
+        for (String type : types) {
+            comboBox1.addItem(type);
+        }
+
+        // Update the existing comboBox2 with values
+        comboBox2.removeAllItems();
+        String[] credits = {"1", "2", "3"};
+        for (String credit : credits) {
+            comboBox2.addItem(credit);
+        }
+
+        setLocationRelativeTo(null);
+        setVisible(true);
 
     }
 
     private void createUIComponents() {
-        // Initialize table with the column names shown in your GUI image
-
-
-        // Initialize combo boxes
-        comboBox1 = new JComboBox(new String[]{"TP", "T", "P"});
-        comboBox2 = new JComboBox(new String[]{"1", "2", "3"});
 
         // Initialize panels
         JPanel1 = new JPanel();
@@ -60,7 +68,6 @@ public class Course_unit extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Create an instance of Course_unit which will initialize everything
         SwingUtilities.invokeLater(() -> {
             new Course_unit();
         });
