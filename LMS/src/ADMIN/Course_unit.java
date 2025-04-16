@@ -1,14 +1,14 @@
 package ADMIN;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-
 
 public class Course_unit extends JFrame {
     private JPanel rootPanel; // This will be automatically linked with the form's root panel
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField5;
+    private JTextField textField1; // course_code field
+    private JTextField textField2; // name field
+    private JTextField textField5; // c_lecturer_id field
     private JButton addNewCourseButton;
     private JButton updateButton;
     private JButton deleteButton;
@@ -18,36 +18,51 @@ public class Course_unit extends JFrame {
     private JButton timetableButton;
     private JButton signOutButton;
     private JTable table1;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
+    private JComboBox comboBox1; // type combobox
+    private JComboBox comboBox2; // credit combobox
     private JPanel JPanel1;
     private JPanel JPanel2;
+    private JScrollPane JScrollPane;
 
     // Constructor
     public Course_unit() {
         setTitle("Course Unit");
-        setContentPane(rootPanel); // rootPanel should already be initialized by IntelliJ's GUI designer
+        setContentPane(rootPanel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
-        setVisible(true); // Center the window
+//        setLocationRelativeTo(null); // Center the window
+//        setVisible(true);
+
+            // Update table model after form initialization
+            DefaultTableModel model = new DefaultTableModel(new Object[]{"Course ID", "Course name","Course type","credit","C_lecture ID"}, 0);
+            table1.setModel(model);
+
+            // Add some sample data
+            model.addRow(new Object[]{"round", "red"});
+            model.addRow(new Object[]{"square", "green"});
+
+            setLocationRelativeTo(null);
+            setVisible(true);
+
     }
 
-
     private void createUIComponents() {
-        // Example: Initialize a custom table model for table1
-        table1 = new JTable(new DefaultTableModel(new Object[]{"Course_id", "Course_name", "Type","credit"}, 0));
+        // Initialize table with the column names shown in your GUI image
 
-        // Example: Initialize a custom ComboBox (if comboBox1 is a custom JComboBox in the form)
+
+        // Initialize combo boxes
         comboBox1 = new JComboBox(new String[]{"TP", "T", "P"});
         comboBox2 = new JComboBox(new String[]{"1", "2", "3"});
 
-        // Example: If you have custom panels like JPanel1 and JPanel2
+        // Initialize panels
         JPanel1 = new JPanel();
         JPanel2 = new JPanel();
     }
 
     public static void main(String[] args) {
-        Course_unit courseUnit = new Course_unit();
-
+        // Create an instance of Course_unit which will initialize everything
+        SwingUtilities.invokeLater(() -> {
+            new Course_unit();
+        });
     }
 }

@@ -171,7 +171,7 @@
             </constraints>
             <properties/>
           </component>
-          <scrollpane id="786f6">
+          <scrollpane id="786f6" binding="JScrollPane">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="8" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
