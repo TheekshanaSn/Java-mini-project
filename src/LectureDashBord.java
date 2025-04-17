@@ -27,7 +27,7 @@ public class LectureDashBord extends JFrame {
         setTitle("Lecturer Dashboard");
         setContentPane(main);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 500);
+        setSize(1000, 500);
         setResizable(false);
 
         getUsername(user_id);
@@ -42,6 +42,12 @@ public class LectureDashBord extends JFrame {
         });
 
         setVisible(true);
+        btnExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     public void getUsername(String user_id) {

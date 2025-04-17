@@ -66,6 +66,10 @@ public class LectureProfile extends JFrame {
                 role = comRole.getSelectedItem().toString();
 
                 try {
+                    if (email.isEmpty() || fullname.isEmpty() || phone.isEmpty() || username.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Please fill in all fields.");
+                        return;
+                    }
                     pst = conn.c.prepareStatement("UPDATE  User SET email=?, Name=?, phone=?, username=?, role=? WHERE user_id=?");
                     pst.setString(1, email);
                     pst.setString(2, fullname);
@@ -106,6 +110,7 @@ public class LectureProfile extends JFrame {
                 txtPhone.setText(phone);
                 txtPassword.setText(password);
                 comRole.setSelectedItem(role);
+                txtUserName.requestFocus();
             }
         } catch (Exception e) {
             System.out.println("Error fetching username: " + e.getMessage());
