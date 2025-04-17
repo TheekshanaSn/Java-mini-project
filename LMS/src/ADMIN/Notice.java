@@ -3,6 +3,10 @@ package ADMIN;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Notice extends JFrame {
     private JButton userButton;
@@ -26,17 +30,46 @@ public class Notice extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
 
-        // Update table model after form initialization
-        DefaultTableModel model = new DefaultTableModel(new Object[]{"Notice Content"}, 0);
-        table1.setModel(model);
 
-        // Add some sample data
-        model.addRow(new Object[]{"round"});
-        model.addRow(new Object[]{"square"});
+        setupTable();
+
+        loadCourseData();
 
         setVisible(true); // Center the window
     }
 
+    private void setupTable() {
+        DefaultTableModel model = new DefaultTableModel(new Object[]{"Id","Title","Content"}, 0);
+        table1.setModel(model);
+    }
+
+    private Object loadCourseData() {
+        DefaultTableModel model = (DefaultTableModel) table1.getModel();
+        model.setRowCount(0); // Clear existing data
+
+
+        try (Connection conn = DatabaseConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice");
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                        rs.getString("notice_id"),
+                        rs.getString("title"),
+                        rs.getString("content")
+                });
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error loading course data: " + ex.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
     public static void main(String[] args) {
 
         Notice n= new Notice();
