@@ -1,8 +1,10 @@
 package ADMIN;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.sql.*;
+
 
 public class Course_unit extends JFrame {
     private JPanel rootPanel; // This will be automatically linked with the form's root panel
@@ -30,46 +32,81 @@ public class Course_unit extends JFrame {
         setContentPane(rootPanel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
-//        setLocationRelativeTo(null); // Center the window
-//        setVisible(true);
 
-            // Update table model after form initialization
-            DefaultTableModel model = new DefaultTableModel(new Object[]{"Course ID", "Course name","Course type","credit","C_lecture ID"}, 0);
-            table1.setModel(model);
+        setupComboBoxes();
+        setupTable();
 
-            // Add some sample data
-            model.addRow(new Object[]{"round", "red"});
-            model.addRow(new Object[]{"square", "green"});
+        loadCourseData();
 
 
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+
+    private void setupComboBoxes() {
+        // Set up course type combobox
         comboBox1.removeAllItems();
         String[] types = {"TP", "T", "P"};
         for (String type : types) {
             comboBox1.addItem(type);
         }
 
-        // Update the existing comboBox2 with values
+        // Set up credits combobox
         comboBox2.removeAllItems();
         String[] credits = {"1", "2", "3"};
         for (String credit : credits) {
             comboBox2.addItem(credit);
         }
-
-        setLocationRelativeTo(null);
-        setVisible(true);
-
     }
 
-    private void createUIComponents() {
+    private void setupTable() {
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[]{"Course ID", "Course Name", "Course Type", "Credit", "Lecturer ID"}, 0);
+        table1.setModel(model);
+    }
 
+    private Object loadCourseData() {
+        DefaultTableModel model = (DefaultTableModel) table1.getModel();
+        model.setRowCount(0); // Clear existing data
+
+
+        try (Connection conn = DatabaseConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM course_unit");
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                        rs.getString("course_code"),
+                        rs.getString("name"),
+                        rs.getString("type"),
+                        rs.getString("credit"),
+                        rs.getString("c_lecturer_id")
+                });
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error loading course data: " + ex.getMessage(),
+                    "Database Error",
+                    JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+
+
+    private void createUIComponents() {
         // Initialize panels
         JPanel1 = new JPanel();
         JPanel2 = new JPanel();
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Course_unit();
-        });
+        SwingUtilities.invokeLater(() -> {new Course_unit();});
+
+//        DatabaseConnect db = new DatabaseConnect();
     }
+
 }
