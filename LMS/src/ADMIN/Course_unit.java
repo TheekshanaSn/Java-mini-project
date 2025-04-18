@@ -196,6 +196,7 @@ public class Course_unit extends JFrame {
         try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
+
             pstmt.setString(1, name);
             pstmt.setString(2, type);
             pstmt.setString(3, credit);
