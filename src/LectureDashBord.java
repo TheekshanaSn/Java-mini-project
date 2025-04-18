@@ -28,6 +28,7 @@ public class LectureDashBord extends JFrame {
         setContentPane(main);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 500);
+        setLocationRelativeTo(null);
         setResizable(false);
 
         getUsername(user_id);
@@ -46,6 +47,13 @@ public class LectureDashBord extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+        btnCourseMaterial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new CourseMaterials().setVisible(true);
             }
         });
     }

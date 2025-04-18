@@ -32,6 +32,7 @@ public class LectureProfile extends JFrame {
         setContentPane(formLectureProfile);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(600, 600);
+        setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
 
@@ -64,6 +65,8 @@ public class LectureProfile extends JFrame {
                 phone = txtPhone.getText();
                 username = txtUserName.getText();
                 role = comRole.getSelectedItem().toString();
+
+
 
                 try {
                     if (email.isEmpty() || fullname.isEmpty() || phone.isEmpty() || username.isEmpty()) {
