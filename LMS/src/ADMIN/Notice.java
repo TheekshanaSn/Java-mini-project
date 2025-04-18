@@ -1,12 +1,9 @@
 package ADMIN;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.awt.event.*;
 
 public class Notice extends JFrame {
     private JButton userButton;
@@ -22,6 +19,9 @@ public class Notice extends JFrame {
     private JPanel JPanel2;
     private JTable table1;
     private JScrollPane JScrollPane;
+    private JTextField textField1;
+//    private JTextField textField3;
+    private JTextField textField2;
 
 
     public Notice() {
@@ -30,23 +30,121 @@ public class Notice extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
 
-
         setupTable();
+        loadNotices();
 
-        loadCourseData();
+        // Handle table row click
+        table1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int row = table1.getSelectedRow();
+                if (row >= 0) {
+                    //textField3.setText(table1.getValueAt(row, 1).toString());
+                    textField1.setText(table1.getValueAt(row, 1).toString());
+                    textField2.setText(table1.getValueAt(row, 2).toString());
+                }
+            }
+        });
 
-        setVisible(true); // Center the window
+        addNewButton.addActionListener(e -> {
+//            String ID= textField3.getText().trim();
+            String title = textField1.getText().trim();
+            String content = textField2.getText().trim();
+
+            if (title.isEmpty() || content.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+                return;
+            }
+
+            try (Connection conn = DatabaseConnect.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(
+                         "INSERT INTO notice (title, content) VALUES (?, ?)")) {
+
+                stmt.setString(1, title);
+                stmt.setString(2, content);
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Notice added successfully!");
+                loadNotices();
+                clearFields();
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            }
+        });
+
+        // Update notice
+        updateButton.addActionListener(e -> {
+            int row = table1.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(this, "Select a notice to update.");
+                return;
+            }
+
+            int id = Integer.parseInt(table1.getValueAt(row, 0).toString());
+//            String ID = textField3.getText().trim();
+            String title = textField1.getText().trim();
+            String content = textField2.getText().trim();
+
+            try (Connection conn = DatabaseConnect.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(
+                         "UPDATE notice SET title = ?, content = ? WHERE notice_id = ?")) {
+
+                stmt.setString(1, title);
+                stmt.setString(2, content);
+                stmt.setInt(3, id);
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Notice updated.");
+                loadNotices();
+                clearFields();
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            }
+        });
+
+        // Delete notice
+        deleteButton.addActionListener(e -> {
+            int row = table1.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(this, "Select a notice to delete.");
+                return;
+            }
+
+            int id = Integer.parseInt(table1.getValueAt(row, 0).toString());
+
+           int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Notice?",
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            if (confirm != JOptionPane.YES_OPTION) return;
+
+            try (Connection conn = DatabaseConnect.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement("DELETE FROM notice WHERE notice_id = ?")) {
+
+                stmt.setInt(1, id);
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Notice deleted.");
+                loadNotices();
+                clearFields();
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            }
+        });
+
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
+
     private void setupTable() {
-        DefaultTableModel model = new DefaultTableModel(new Object[]{"Id","Title","Content"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new Object[]{"Id", "Title", "Content"}, 0);
         table1.setModel(model);
     }
 
-    private Object loadCourseData() {
+    private void loadNotices() {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.setRowCount(0); // Clear existing data
-
+        model.setRowCount(0); // Clear existing rows
 
         try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice");
@@ -62,16 +160,20 @@ public class Notice extends JFrame {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,
-                    "Error loading course data: " + ex.getMessage(),
+                    "Error loading notice data: " + ex.getMessage(),
                     "Database Error",
                     JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
-
-        return null;
     }
-    public static void main(String[] args) {
 
-        Notice n= new Notice();
+    private void clearFields() {
+        textField1.setText("");
+        textField2.setText("");
+        table1.clearSelection();
+    }
+
+    public static void main(String[] args) {
+        new Notice();
     }
 }
