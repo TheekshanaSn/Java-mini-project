@@ -2,7 +2,6 @@ package ADMIN;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.sql.*;
 
 
@@ -20,6 +19,10 @@ public class User_profile extends JFrame{
     private JButton timetableButton;
     private JButton singOutButton;
     private JTable table1;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JButton deleteButton;
+    private JButton updateButton;
 
 
     public User_profile() {
@@ -32,12 +35,6 @@ public class User_profile extends JFrame{
 
         loadCourseData();
 
-//        DefaultTableModel model = new DefaultTableModel(new Object[]{"ID", "Department"}, 0);
-//        table1.setModel(model);
-//
-//        // Add some sample data
-//        model.addRow(new Object[]{"round", "red"});
-//        model.addRow(new Object[]{"square", "green"});
 
         setVisible(true); // Center the window
     }
