@@ -46,7 +46,6 @@ public class Notice extends JFrame {
         });
 
         addNewButton.addActionListener(e -> {
-//            String ID= textField3.getText().trim();
             String title = textField1.getText().trim();
             String content = textField2.getText().trim();
 
@@ -55,14 +54,39 @@ public class Notice extends JFrame {
                 return;
             }
 
-            try (Connection conn = DatabaseConnect.getConnection();
-                 PreparedStatement stmt = conn.prepareStatement(
-                         "INSERT INTO notice (title, content) VALUES (?, ?)")) {
+            try (Connection conn = DatabaseConnect.getConnection()) {
 
-                stmt.setString(1, title);
-                stmt.setString(2, content);
+
+                int id = 1;
+                PreparedStatement findMissingID = conn.prepareStatement(
+                        "SELECT t1.notice_id + 1 AS missing_id " +
+                                "FROM notice t1 " +
+                                "LEFT JOIN notice t2 ON t1.notice_id + 1 = t2.notice_id " +
+                                "WHERE t2.notice_id IS NULL " +
+                                "AND t1.notice_id + 1 NOT IN (SELECT MAX(notice_id) FROM notice) " +
+                                "ORDER BY t1.notice_id LIMIT 1"
+                );
+                ResultSet rs = findMissingID.executeQuery();
+
+                if (rs.next()) {
+                    id = rs.getInt("missing_id");
+                } else {
+                    // If no missing IDs, use max(notice_id) + 1
+                    PreparedStatement getMaxID = conn.prepareStatement("SELECT IFNULL(MAX(notice_id), 0) + 1 AS next_id FROM notice");
+                    ResultSet rsMax = getMaxID.executeQuery();
+                    if (rsMax.next()) {
+                        id = rsMax.getInt("next_id");
+                    }
+                }
+
+                // Insert notice
+                PreparedStatement stmt = conn.prepareStatement("INSERT INTO notice (notice_id, title, content) VALUES (?, ?, ?)");
+                stmt.setInt(1, id);
+                stmt.setString(2, title);
+                stmt.setString(3, content);
                 stmt.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Notice added successfully!");
+
+                JOptionPane.showMessageDialog(this, "Notice added successfully with ID: " + id);
                 loadNotices();
                 clearFields();
 
@@ -71,6 +95,32 @@ public class Notice extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
             }
         });
+
+//        addNewButton.addActionListener(e -> {
+//            String title = textField1.getText().trim();
+//            String content = textField2.getText().trim();
+//
+//            if (title.isEmpty() || content.isEmpty()) {
+//                JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+//                return;
+//            }
+//
+//            try (Connection conn = DatabaseConnect.getConnection();
+//                 PreparedStatement stmt = conn.prepareStatement(
+//                         "INSERT INTO notice (title, content) VALUES (?, ?)")) {
+//
+//                stmt.setString(1, title);
+//                stmt.setString(2, content);
+//                stmt.executeUpdate();
+//                JOptionPane.showMessageDialog(this, "Notice added successfully!");
+//                loadNotices();
+//                clearFields();
+//
+//            } catch (SQLException ex) {
+//                ex.printStackTrace();
+//                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+//            }
+//        });
 
         // Update notice
         updateButton.addActionListener(e -> {
