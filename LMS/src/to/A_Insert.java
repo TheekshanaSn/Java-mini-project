@@ -9,11 +9,12 @@ public class A_Insert {
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
+    private JComboBox comboBox1;
     private JTextField textField4;
+    private JComboBox comboBox2;
+    private JTextField textField5;
+    private JSpinner spinner1;
     private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JTextField textField9;
 
     JFrame frame;
     public A_Insert() {
