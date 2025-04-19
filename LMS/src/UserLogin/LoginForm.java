@@ -46,7 +46,7 @@ public class LoginForm extends JDialog {
                 if (validateLogin(username, password, role)) {
                     JOptionPane.showMessageDialog(LoginForm.this, "Login successful!");
 
-                    dispose(); // close login window
+                    dispose();
                     openDashboard(role); // open dashboard window based on role
                 } else {
                     JOptionPane.showMessageDialog(LoginForm.this, "Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -95,24 +95,29 @@ public class LoginForm extends JDialog {
     }
 
     private void openDashboard(String role) {
-        JFrame dasboard;
+        JFrame dashboard;
 
         switch (role) {
             case "Admin":
-                dasboard = new JFrame("Admin Dashboard");
+                dashboard = new JFrame("Admin Dashboard");
                 break;
             case "Lecture":
-                dasboard = new JFrame("Lecture Dashboard");
+                dashboard = new JFrame("Lecture Dashboard");
                 break;
             case "Technical Officer":
-                dasboard = new JFrame("Technical Officer Dashboard");
+                dashboard = new JFrame("Technical Officer Dashboard");
                 break;
             case "Undergraduate":
-                dasboard = new JFrame("Undergraduate Dashboard");
+                dashboard = new JFrame("Undergraduate Dashboard");
                 break;
-           // default:
-             //   return "";
+           default:
+             return;
         }
+
+        dashboard.setSize(500, 400);
+        dashboard.setLocationRelativeTo(null);
+        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        dashboard.setVisible(true);
     }
 
 
