@@ -244,7 +244,7 @@ INSERT INTO Medical (medical_id, med_undergraduate_id, date) VALUES
 -- Starting date: 03.02.2025, Weekly sessions
 
 -- Week 1 (February 3, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00001', 'UG001', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
 ('AT00002', 'UG002', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
 ('AT00003', 'UG003', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
