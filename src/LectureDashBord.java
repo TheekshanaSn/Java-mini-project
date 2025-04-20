@@ -53,7 +53,7 @@ public class LectureDashBord extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CourseMaterials().setVisible(true);
+                new CourseMaterials(user_id).setVisible(true);
             }
         });
     }
@@ -74,6 +74,6 @@ public class LectureDashBord extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LectureDashBord("LEC001", "pass123");
+        new LectureDashBord("LEC002", "pass123");
     }
 }

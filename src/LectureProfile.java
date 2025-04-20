@@ -83,6 +83,8 @@ public class LectureProfile extends JFrame {
 
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Lecturer Profile Updated");
+                    setVisible(false);
+                    new LectureProfile(user_id, password).setVisible(true);
                 } catch (SQLException ex) {
                     System.out.println(ex);
                 }

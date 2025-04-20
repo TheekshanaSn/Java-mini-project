@@ -17,17 +17,26 @@ public class CourseMaterials extends JFrame {
     private JButton OPenButton;
     private JButton Back;
     private JButton Exit;
-
+    private JLabel lblCourseName;
+    private String user_id;
     private PreparedStatement pst;
+    private String corse_code;
+    private String corse_Name;
+    public CourseMaterials(String user_id) {
+         this.user_id = user_id;
 
-    public CourseMaterials() {
-        setTitle("Lecturer Dashboard");
+        setTitle("Course Metirial");
         setContentPane(panelMain);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
         setLocationRelativeTo(null);
-        setVisible(true);
+
+        getLecturerCorsecode(user_id);
         table_load();
+
+        setVisible(true);
+
+
 
 
         materialsTable.addMouseListener(new MouseAdapter() {
@@ -70,10 +79,32 @@ public class CourseMaterials extends JFrame {
         });
     }
 
+
+    private void getLecturerCorsecode(String user_id) {
+        try {
+            Conn conn = new Conn();
+            pst=conn.c.prepareStatement("select course_code,name from course_unit where c_lecturer_id=?");
+            pst.setString(1, user_id);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()) {
+                corse_code = rs.getString(1);
+                courseCodeField.setText(corse_code);
+                corse_Name=rs.getString(2);
+                lblCourseName.setText(corse_Name);
+
+            }
+
+        }catch (Exception e){
+
+        }
+
+
+    }
     void table_load() {
         try {
             Conn conn = new Conn();
-            pst = conn.c.prepareStatement("SELECT id,course_code, file_name FROM course_materials ");
+            pst = conn.c.prepareStatement("SELECT id,course_code, file_name FROM course_materials where course_code = ? ");
+            pst.setString(1, corse_code);
             ResultSet rs = pst.executeQuery();
             materialsTable.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
@@ -209,6 +240,6 @@ public class CourseMaterials extends JFrame {
 
 
     public static void main(String[] args) {
-       new CourseMaterials();
+       new CourseMaterials("");
     }
 }
