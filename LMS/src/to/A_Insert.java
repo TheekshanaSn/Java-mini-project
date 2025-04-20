@@ -45,7 +45,7 @@ public class A_Insert {
             frame.setLocationRelativeTo(null);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setContentPane(panel1);
-            frame.setSize(800, 600);
+            frame.setSize(1080, 600);
 
 
             String [] course_type={"T","P","TP"};
