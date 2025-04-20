@@ -1,4 +1,4 @@
-package attendance;
+package Medical;
 
 import MyCon.MyConnection;
 import to.To_Profile;
@@ -12,15 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Attendance {
-    private JPanel panel1;
+public class Medical {
     private JTable showTable;
     private JPanel Main_panel;
     private JButton HOMEButton;
 
     JFrame frame;
 
-    public Attendance() {
+    public Medical() {
         frame = new JFrame();
         frame.setTitle("TO Profile");
         frame.setContentPane(Main_panel);
@@ -34,29 +33,22 @@ public class Attendance {
 
         try {
             Connection conn = MyConnection.getConnection();
-            String query = "SELECT * FROM Attendance";
+            String query = "SELECT * FROM Medical";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             DefaultTableModel model = (DefaultTableModel) showTable.getModel();
 
             String[] columnNames = {
-                    "attendance_id", "at_undergraduate_id", "at_course_code", "at_course_type",
-                    "date", "attendance", "medical_status", "session_no", "at_to_id"
+                    "medical_id", "med_undergraduate_id", "date"
             };
             model.setColumnIdentifiers(columnNames);
 
             while (rs.next()) {
                 Object[] rowData = {
-                        rs.getString("attendance_id"),
-                        rs.getString("at_undergraduate_id"),
-                        rs.getString("at_course_code"),
-                        rs.getString("at_course_type"),
+                        rs.getString("medical_id"),
+                        rs.getString("med_undergraduate_id"),
                         rs.getString("date"),
-                        rs.getString("attendance"),
-                        rs.getString("medical_status"),
-                        rs.getInt("session_no"),
-                        rs.getString("at_to_id")
                 };
                 model.addRow(rowData);
             }
@@ -82,6 +74,8 @@ public class Attendance {
 
 
     public static void main(String[] args) {
-        new Attendance();
+        new Medical();
+
     }
 }
+
