@@ -267,7 +267,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00020', 'UG020', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001');
 
 -- Week 2 (February 10, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00021', 'UG001', 'ICT2113', 'TP', '2025-02-10', 'present', NULL, 2, 'TCO001'),
 ('AT00022', 'UG002', 'ICT2113', 'TP', '2025-02-10', 'present', NULL, 2, 'TCO001'),
 ('AT00023', 'UG003', 'ICT2113', 'TP', '2025-02-10', 'absent', 'MED001', 2, 'TCO001'),
@@ -290,7 +290,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00040', 'UG020', 'ICT2113', 'TP', '2025-02-10', 'absent', NULL, 2, 'TCO001');
 
 -- Week 3 (February 17, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00041', 'UG001', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
 ('AT00042', 'UG002', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
 ('AT00043', 'UG003', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
@@ -313,7 +313,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00060', 'UG020', 'ICT2113', 'TP', '2025-02-17', 'absent', NULL, 3, 'TCO001');
 
 -- Week 4 (February 24, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00061', 'UG001', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
 ('AT00062', 'UG002', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
 ('AT00063', 'UG003', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
@@ -336,7 +336,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00080', 'UG020', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001');
 
 -- Week 5 (March 3, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00081', 'UG001', 'ICT2113', 'TP', '2025-03-03', 'present', NULL, 5, 'TCO001'),
 ('AT00082', 'UG002', 'ICT2113', 'TP', '2025-03-03', 'present', NULL, 5, 'TCO001'),
 ('AT00083', 'UG003', 'ICT2113', 'TP', '2025-03-03', 'absent', 'MED002', 5, 'TCO001'),
@@ -360,7 +360,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 
 -- Continue with remaining weeks for ICT2113...
 -- Week 6 (March 10, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00101', 'UG001', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
 ('AT00102', 'UG002', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
 ('AT00103', 'UG003', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
@@ -383,7 +383,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00120', 'UG020', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001');
 
 -- Week 7 (March 17, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00121', 'UG001', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
 ('AT00122', 'UG002', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
 ('AT00123', 'UG003', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
@@ -406,7 +406,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00140', 'UG020', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001');
 
 -- Week 8 (March 24, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00141', 'UG001', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
 ('AT00142', 'UG002', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
 ('AT00143', 'UG003', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
@@ -429,7 +429,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00160', 'UG020', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001');
 
 -- Week 9 (March 31, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00161', 'UG001', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
 ('AT00162', 'UG002', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
 ('AT00163', 'UG003', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
@@ -452,7 +452,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00180', 'UG020', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001');
 
 -- Week 10 (April 7, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00181', 'UG001', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
 ('AT00182', 'UG002', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
 ('AT00183', 'UG003', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
@@ -475,7 +475,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00200', 'UG020', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001');
 
 -- Week 11 (April 14, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00201', 'UG001', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
 ('AT00202', 'UG002', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
 ('AT00203', 'UG003', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
@@ -498,7 +498,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00220', 'UG020', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001');
 
 -- Week 12 (April 21, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00221', 'UG001', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
 ('AT00222', 'UG002', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
 ('AT00223', 'UG003', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
@@ -521,7 +521,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00240', 'UG020', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001');
 
 -- Week 13 (April 28, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00241', 'UG001', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
 ('AT00242', 'UG002', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
 ('AT00243', 'UG003', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
@@ -544,7 +544,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00260', 'UG020', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001');
 
 -- Week 14 (May 5, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00261', 'UG001', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
 ('AT00262', 'UG002', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
 ('AT00263', 'UG003', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
@@ -567,7 +567,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00280', 'UG020', 'ICT2113', 'TP', '2025-05-05', 'absent', NULL, 14, 'TCO001');
 
 -- Week 15 (May 12, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00281', 'UG001', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00282', 'UG002', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00283', 'UG003', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
