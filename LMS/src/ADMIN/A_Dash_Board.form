@@ -1,118 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ADMIN.A_Dash_Board">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="6" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="Main" layout-manager="GridLayoutManager" row-count="3" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="5" left="10" bottom="5" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="453" height="400"/>
+      <xy x="20" y="20" width="451" height="400"/>
     </constraints>
     <properties>
       <foreground color="-7142490"/>
     </properties>
     <border type="none"/>
     <children>
-      <component id="2f597" class="javax.swing.JButton" binding="backButton" default-binding="true">
+      <grid id="fc848" binding="Botom" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <text value="Back"/>
-        </properties>
-      </component>
-      <component id="6527b" class="javax.swing.JButton" binding="exitButton" default-binding="true">
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="59075" class="javax.swing.JButton" binding="signOutButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="100" height="20"/>
+                <preferred-size width="100" height="20"/>
+                <maximum-size width="100" height="20"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-3401184"/>
+              <text value="Sign out"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="c534a" binding="Heder" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="5" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <text value="Exit"/>
-        </properties>
-      </component>
-      <component id="251b8" class="javax.swing.JLabel">
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="41839" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Segoe Print" size="24" style="1"/>
+              <text value="ADMIN Dash Board"/>
+            </properties>
+          </component>
+          <component id="3c11b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="ADMIN/profile.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="272e9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Admin User"/>
+            </properties>
+          </component>
+          <vspacer id="1da92">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+      <grid id="ce87c" binding="Midele" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="-1"/>
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="150" height="-1"/>
-          </grid>
+          <grid row="1" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties>
-          <background color="-7142490"/>
-          <text value="Courses Manage"/>
-        </properties>
-      </component>
-      <component id="1d62a" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="-1"/>
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-7142490"/>
-          <text value="User Profile Manage"/>
-        </properties>
-      </component>
-      <component id="ca81" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="-1"/>
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-7142490"/>
-          <text value="Time Table Manage"/>
-        </properties>
-      </component>
-      <component id="812b2" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="150" height="-1"/>
-            <preferred-size width="150" height="-1"/>
-            <maximum-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-7142490"/>
-          <text value="Notice Manage"/>
-        </properties>
-      </component>
-      <component id="16cc8" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="2" row-span="2" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Comic Sans MS" size="24" style="1"/>
-          <text value="ADMIN Dash Board"/>
-        </properties>
-      </component>
-      <component id="59c8f" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <icon value="ADMIN/profile.png"/>
-          <text value="HI Krishani"/>
-        </properties>
-      </component>
-      <component id="19bdb" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Profile"/>
-        </properties>
-      </component>
-      <vspacer id="5a635">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="100" height="-1"/>
-            <preferred-size width="100" height="-1"/>
-            <maximum-size width="100" height="-1"/>
-          </grid>
-        </constraints>
-      </vspacer>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d956d" class="javax.swing.JButton" binding="userProfileButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+                <preferred-size width="-1" height="50"/>
+                <maximum-size width="-1" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-7142490"/>
+              <text value="User profile"/>
+            </properties>
+          </component>
+          <component id="e45f8" class="javax.swing.JButton" binding="courseButton" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+                <preferred-size width="-1" height="50"/>
+                <maximum-size width="-1" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-7142490"/>
+              <text value="Course"/>
+            </properties>
+          </component>
+          <component id="ffeae" class="javax.swing.JButton" binding="noticeButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+                <preferred-size width="-1" height="50"/>
+                <maximum-size width="-1" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-7142490"/>
+              <text value="Notice"/>
+            </properties>
+          </component>
+          <component id="43b64" class="javax.swing.JButton" binding="timetableButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+                <preferred-size width="-1" height="50"/>
+                <maximum-size width="-1" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-7142490"/>
+              <text value="Timetable"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
