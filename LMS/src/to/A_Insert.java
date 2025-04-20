@@ -118,20 +118,31 @@ public class A_Insert {
 
 
 
-                try{
+                try {
                     Connection conn = MyConnection.getConnection();
+
+                    String medical_status_value;
+                    if (medical_status.isEmpty()) {
+                        medical_status_value = "NULL";
+                    } else {
+                        medical_status_value = "'" + medical_status + "'";
+                    }
+
                     String query = "INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) " +
                             "VALUES ('" + attendence_id + "', '" + at_undergraduate_id + "', '" + at_corse_code + "', '" + at_corse_type + "', '" +
-                            date + "', '" + attendance + "', '" + medical_status + "', '" + session + "', '" + at_to_id + "')";
+                            date + "', '" + attendance + "', " + medical_status_value + ", '" + session + "', '" + at_to_id + "')";
 
                     Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery(query);
+                    int result = stmt.executeUpdate(query);
 
+                    stmt.close();
+                    conn.close();
 
-
-                }catch (Exception s){
-                    JOptionPane.showMessageDialog(frame, "Something went wrong");
+                } catch (Exception s) {
+                    s.printStackTrace();
+                    JOptionPane.showMessageDialog(frame, "Something went wrong: " + s.getMessage());
                 }
+
 
                 model.addRow(rowData);
 
@@ -146,16 +157,6 @@ public class A_Insert {
                 spinner1.setValue(1);
             }
         });
-
-
-
-
-
-
-
-
-
-
 
 
 
