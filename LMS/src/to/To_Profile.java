@@ -1,10 +1,16 @@
 package to;
 
+import Medical.Medical;
+import MyCon.MyConnection;
+import attendance.Attendance;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import static sun.tools.jconsole.inspector.XDataViewer.dispose;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 //import static sun.tools.jconsole.inspector.XDataViewer.dispose;
 
@@ -23,6 +29,9 @@ public class To_Profile {
     private JButton VIEWButton1;
     private JButton VIEWButton;
     private JPanel Main_panel;
+    private JButton A_VIEWButton2;
+    private JButton M_VIEWButton;
+    private JPanel A_VIEWButton;
 
     JFrame frame;
 
@@ -31,7 +40,7 @@ public class To_Profile {
         frame.setTitle("TO Profile");
         frame.setContentPane(Main_panel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(900, 600);
+        frame.setSize(1080, 600);
         frame.setVisible(true);
 
 
@@ -103,6 +112,25 @@ public class To_Profile {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 //time table view
+            }
+        });
+
+        A_VIEWButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+               frame.dispose();
+                Attendance attendance = new Attendance();
+
+            }
+        });
+
+        M_VIEWButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                frame.dispose();
+                Medical medical = new Medical();
             }
         });
     }
