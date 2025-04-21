@@ -97,31 +97,6 @@ public class Notice extends JFrame {
             }
         });
 
-//        addNewButton.addActionListener(e -> {
-//            String title = textField1.getText().trim();
-//            String content = textField2.getText().trim();
-//
-//            if (title.isEmpty() || content.isEmpty()) {
-//                JOptionPane.showMessageDialog(this, "Please fill in all fields.");
-//                return;
-//            }
-//
-//            try (Connection conn = DatabaseConnect.getConnection();
-//                 PreparedStatement stmt = conn.prepareStatement(
-//                         "INSERT INTO notice (title, content) VALUES (?, ?)")) {
-//
-//                stmt.setString(1, title);
-//                stmt.setString(2, content);
-//                stmt.executeUpdate();
-//                JOptionPane.showMessageDialog(this, "Notice added successfully!");
-//                loadNotices();
-//                clearFields();
-//
-//            } catch (SQLException ex) {
-//                ex.printStackTrace();
-//                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
-//            }
-//        });
 
         // Update notice
         updateButton.addActionListener(e -> {
