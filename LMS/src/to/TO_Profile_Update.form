@@ -94,11 +94,12 @@
                       <text value="PASSWORD : "/>
                     </properties>
                   </component>
-                  <component id="5f8a8" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+                  <component id="c2d" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="500" height="30"/>
                         <preferred-size width="150" height="-1"/>
+                        <maximum-size width="500" height="30"/>
                       </grid>
                     </constraints>
                     <properties/>
@@ -194,14 +195,6 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="40d70" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="USERNAME : "/>
-                    </properties>
-                  </component>
                   <component id="f5ecc" class="javax.swing.JTextField" binding="textField5" default-binding="true">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -210,6 +203,14 @@
                       </grid>
                     </constraints>
                     <properties/>
+                  </component>
+                  <component id="40d70" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="USERNAME : "/>
+                    </properties>
                   </component>
                 </children>
               </grid>
