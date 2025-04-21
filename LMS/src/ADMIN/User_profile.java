@@ -264,9 +264,10 @@ public class User_profile extends JFrame {
         try (Connection conn = DatabaseConnect.getConnection()) {
             conn.setAutoCommit(false);
 
-            // Insert into User table
-            try (PreparedStatement pstmt = conn.prepareStatement(
-                    "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+            try {
+                // Insert into User table
+                PreparedStatement pstmt = conn.prepareStatement(
+                        "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
                 pstmt.setString(1, userId);
                 pstmt.setString(2, email);
@@ -277,39 +278,56 @@ public class User_profile extends JFrame {
                 pstmt.setString(7, role);
 
                 pstmt.executeUpdate();
-            }
+                pstmt.close();
 
-            // Insert into role-specific table if department is provided
-            if (!department.isEmpty()) {
-                PreparedStatement roleStmt = null;
-
+                // Insert into role-specific table
                 if ("undergraduate".equals(role)) {
-                    roleStmt = conn.prepareStatement(
+                    // Always insert into undergraduate table when role is undergraduate
+                    PreparedStatement ugStmt = conn.prepareStatement(
                             "INSERT INTO undergraduate (undergraduate_id, department) VALUES (?, ?)");
-                } else if ("lecturer".equals(role)) {
-                    roleStmt = conn.prepareStatement(
+                    ugStmt.setString(1, userId);
+                    ugStmt.setString(2, department);
+                    ugStmt.executeUpdate();
+                    ugStmt.close();
+
+                }else if ("lecturer".equals(role)) {
+                    PreparedStatement lecStmt = conn.prepareStatement(
                             "INSERT INTO lecturer (lecturer_id, department) VALUES (?, ?)");
-                } else if ("technicalOfficer".equals(role)) {
-                    roleStmt = conn.prepareStatement(
-                            "INSERT INTO technical_officer (to_id, department) VALUES (?, ?)");
-                }
+                    lecStmt.setString(1, userId);
+                    lecStmt.setString(2, department);
+                    lecStmt.executeUpdate();
+                    lecStmt.close();
 
-                if (roleStmt != null) {
-                    roleStmt.setString(1, userId);
-                    roleStmt.setString(2, department);
-                    roleStmt.executeUpdate();
-                    roleStmt.close();
-                }
+                } else {
+                        PreparedStatement toStmt = conn.prepareStatement(
+                                "INSERT INTO technical_officer (to_id) VALUES (?)");
+                        toStmt.setString(1, userId);
+                        toStmt.executeUpdate();
+                        toStmt.close();
+                    }
+//                } else if ("technicalOfficer".equals(role)) {
+//                    PreparedStatement toStmt = conn.prepareStatement(
+//                            "INSERT INTO technical_officer (to_id) VALUES (?)");
+//                    toStmt.setString(1, userId);
+//                    toStmt.executeUpdate();
+//                    toStmt.close();
+//                }
+
+                conn.commit();
+                JOptionPane.showMessageDialog(this, "User added successfully.");
+                loadUsersByRole(role);
+                clearFields();
+
+            } catch (SQLException ex) {
+                conn.rollback();
+                JOptionPane.showMessageDialog(this,
+                        "Error adding user: " + ex.getMessage(),
+                        "Database Error", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
             }
-
-            conn.commit();
-            JOptionPane.showMessageDialog(this, "User added successfully.");
-            loadUsersByRole(role);
-            clearFields();
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,
-                    "Error adding user: " + ex.getMessage(),
+                    "Database connection error: " + ex.getMessage(),
                     "Database Error", JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
         }
