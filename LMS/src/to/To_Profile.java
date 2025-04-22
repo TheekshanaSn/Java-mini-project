@@ -1,5 +1,7 @@
 package to;
 
+import ADMIN.Notice;
+import ADMIN.Timetable;
 import Medical.Medical;
 import MyCon.MyConnection;
 import attendance.Attendance;
@@ -42,6 +44,7 @@ public class To_Profile {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(1080, 600);
         frame.setVisible(true);
+        frame.setResizable(false);
 
 
         EDITFROFILEButton.addActionListener(new ActionListener() {
@@ -131,6 +134,23 @@ public class To_Profile {
 
                 frame.dispose();
                 Medical medical = new Medical();
+            }
+        });
+        //see the notice
+        VIEWButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Notice notice = new Notice();
+            }
+        });
+
+        //see the Time table
+        VIEWButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Timetable timetable = new Timetable();
             }
         });
     }
