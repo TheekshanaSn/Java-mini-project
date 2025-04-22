@@ -30,7 +30,6 @@ public class M_Delete {
 
 
 
-
         try {
             Connection conn = MyConnection.getConnection();
             String query = "select medical_id from Medical order by medical_id";
