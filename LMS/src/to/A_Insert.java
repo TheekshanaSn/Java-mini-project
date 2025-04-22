@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class A_Insert {
+public class A_Insert  extends JFrame {
     private JPanel panel1;
     private JButton HOMEButton;
     private JButton INSERTButton;
@@ -46,6 +46,7 @@ public class A_Insert {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setContentPane(panel1);
             frame.setSize(1080, 600);
+            frame.setResizable(false);
 
 
             String [] course_type={"T","P","TP"};
