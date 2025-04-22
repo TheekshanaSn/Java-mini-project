@@ -103,6 +103,7 @@ public class User_profile extends JFrame {
         userButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 SwingUtilities.invokeLater(() -> {
                     new User_profile();
                 });
@@ -112,7 +113,9 @@ public class User_profile extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new Course_unit();
+
             }
         });
 

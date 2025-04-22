@@ -45,6 +45,7 @@ public class Notice extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new Course_unit();
             }
         });
@@ -52,7 +53,6 @@ public class Notice extends JFrame {
         noticeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 SwingUtilities.invokeLater(() -> {
                    loadNotices();
                 });
