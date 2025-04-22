@@ -33,17 +33,17 @@ public class LoginForm extends JDialog {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = textField1.getText();
+                String userId = textField1.getText();
                 String password = String.valueOf(passwordField1.getPassword());
                 String role = (String) comboBox1.getSelectedItem();
 
-                if (username.isEmpty() || password.isEmpty()) {
+                if (userId.isEmpty() || password.isEmpty()) {
                     JOptionPane.showMessageDialog(LoginForm.this, "Please enter all fields.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
                 // Validate login
-                if (validateLogin(username, password, role)) {
+                if (validateLogin(userId, password, role)) {
                     JOptionPane.showMessageDialog(LoginForm.this, "Login successful!");
 
                     dispose();
@@ -62,7 +62,7 @@ public class LoginForm extends JDialog {
         });
     }
 
-    private boolean validateLogin(String username, String password, String role) {
+    private boolean validateLogin(String userId, String password, String role) {
         boolean isValid = false;
 
         String DB_URL = "jdbc:mysql://localhost:3306/techlms";
@@ -71,9 +71,9 @@ public class LoginForm extends JDialog {
 
         try {
             Connection conn =  DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND role = ?";
+            String sql = "SELECT * FROM user WHERE user_id = ? AND password = ? AND role = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, username);
+            ps.setString(1, userId);
             ps.setString(2, password);
             ps.setString(3, role);
 
