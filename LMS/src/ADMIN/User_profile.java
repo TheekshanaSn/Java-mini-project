@@ -100,6 +100,53 @@ public class User_profile extends JFrame {
             }
         });
 
+        userButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> {
+                    new User_profile();
+                });
+            }
+        });
+
+        courseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Course_unit();
+            }
+        });
+
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Notice();
+                });
+            }
+        });
+
+        timetableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Timetable();
+                });
+            }
+        });
+
+        singOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Login();
+                });
+            }
+        });
+
+
         // Mouse click to populate fields
         table1.addMouseListener(new MouseAdapter() {
             @Override
@@ -305,13 +352,6 @@ public class User_profile extends JFrame {
                         toStmt.executeUpdate();
                         toStmt.close();
                     }
-//                } else if ("technicalOfficer".equals(role)) {
-//                    PreparedStatement toStmt = conn.prepareStatement(
-//                            "INSERT INTO technical_officer (to_id) VALUES (?)");
-//                    toStmt.setString(1, userId);
-//                    toStmt.executeUpdate();
-//                    toStmt.close();
-//                }
 
                 conn.commit();
                 JOptionPane.showMessageDialog(this, "User added successfully.");

@@ -20,61 +20,20 @@ public class A_Dash_Board extends JFrame {
     public A_Dash_Board() {
         // Set up the main frame properties
         setTitle("ADMIN Dashboard");
-        setSize(600, 400);
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Initialize components if they're not being auto-created by the form
         initComponents();
-
-        // Set the main content pane
         setContentPane(Main);
 
-        // Add action listeners to the buttons
         addActionListeners();
-
-        // Display the frame
         setVisible(true);
     }
 
     // Add this method to manually initialize components if needed
     private void initComponents() {
-        // Only uncomment these if your form is not properly initializing the components
-        // Otherwise, leave this method empty or remove it
 
-        /*
-        if (Main == null) Main = new JPanel(new BorderLayout());
-
-        if (signOutButton == null) {
-            signOutButton = new JButton("Sign Out");
-            signOutButton.setBackground(Color.RED);
-            signOutButton.setForeground(Color.WHITE);
-        }
-
-        if (userProfileButton == null) {
-            userProfileButton = new JButton("User Profile");
-            userProfileButton.setBackground(new Color(128, 0, 128));
-            userProfileButton.setForeground(Color.WHITE);
-        }
-
-        if (courseButton == null) {
-            courseButton = new JButton("Course");
-            courseButton.setBackground(new Color(128, 0, 128));
-            courseButton.setForeground(Color.WHITE);
-        }
-
-        if (noticeButton == null) {
-            noticeButton = new JButton("Notice");
-            noticeButton.setBackground(new Color(128, 0, 128));
-            noticeButton.setForeground(Color.WHITE);
-        }
-
-        if (timetableButton == null) {
-            timetableButton = new JButton("Timetable");
-            timetableButton.setBackground(new Color(128, 0, 128));
-            timetableButton.setForeground(Color.WHITE);
-        }
-        */
     }
 
     private void addActionListeners() {

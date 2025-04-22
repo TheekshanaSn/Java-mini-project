@@ -62,6 +62,55 @@ public class Course_unit extends JFrame {
         });
 
 
+        userButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new User_profile();
+                });
+            }
+        });
+
+        courseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> {
+                    loadCourseData();
+                });
+            }
+        });
+
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Notice();
+                });
+            }
+        });
+
+        timetableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Timetable();
+                });
+            }
+        });
+
+        signOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Login();
+                });
+            }
+        });
+
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();

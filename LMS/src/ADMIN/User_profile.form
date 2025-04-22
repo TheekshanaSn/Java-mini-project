@@ -28,27 +28,9 @@
               <text value="ADMIN"/>
             </properties>
           </component>
-          <component id="fe125" class="javax.swing.JButton" binding="userButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Consolas" size="18" style="1"/>
-              <text value="User"/>
-            </properties>
-          </component>
-          <component id="3a114" class="javax.swing.JButton" binding="courseButton" default-binding="true">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font name="Consolas" size="18" style="1"/>
-              <text value="Course"/>
-            </properties>
-          </component>
           <component id="9b735" class="javax.swing.JButton" binding="noticeButton" default-binding="true">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Consolas" size="18" style="1"/>
@@ -57,7 +39,7 @@
           </component>
           <component id="11b2f" class="javax.swing.JButton" binding="timetableButton" default-binding="true">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Consolas" size="18" style="1"/>
@@ -66,11 +48,31 @@
           </component>
           <component id="8359d" class="javax.swing.JButton" binding="singOutButton" default-binding="true">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Consolas" size="18" style="1"/>
               <text value="Sing out"/>
+            </properties>
+          </component>
+          <component id="fe125" class="javax.swing.JButton" binding="userButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15712668"/>
+              <font name="Consolas" size="18" style="1"/>
+              <foreground color="-1"/>
+              <text value="User"/>
+            </properties>
+          </component>
+          <component id="3a114" class="javax.swing.JButton" binding="courseButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Consolas" size="18" style="1"/>
+              <text value="Course"/>
             </properties>
           </component>
         </children>
@@ -87,10 +89,10 @@
         <children>
           <scrollpane id="95dc5">
             <constraints>
-              <grid row="13" column="0" row-span="1" col-span="16" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="400"/>
-                <preferred-size width="-1" height="400"/>
-                <maximum-size width="-1" height="400"/>
+              <grid row="13" column="0" row-span="1" col-span="16" vsize-policy="7" hsize-policy="7" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="200"/>
+                <preferred-size width="-1" height="200"/>
+                <maximum-size width="-1" height="200"/>
               </grid>
             </constraints>
             <properties/>

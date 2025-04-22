@@ -32,14 +32,60 @@ public class Notice extends JFrame {
         setupTable();
         loadNotices();
 
-        // Handle table row click
+        userButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new User_profile();
+                });
+            }
+        });
+
+        courseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Course_unit();
+            }
+        });
+
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                SwingUtilities.invokeLater(() -> {
+                   loadNotices();
+                });
+            }
+        });
+
+        timetableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Timetable();
+                });
+            }
+        });
+
+        singOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Login();
+                });
+            }
+        });
+
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int row = table1.getSelectedRow();
                 if (row >= 0) {
-                    textField3.setText(table1.getValueAt(row, 0).toString()); // ID
-                    textField1.setText(table1.getValueAt(row, 1).toString()); // Title
-                    textField2.setText(table1.getValueAt(row, 2).toString()); // Content
+                    textField3.setText(table1.getValueAt(row, 0).toString());
+                    textField1.setText(table1.getValueAt(row, 1).toString());
+                    textField2.setText(table1.getValueAt(row, 2).toString());
                 }
             }
         });

@@ -2,6 +2,7 @@ package ADMIN;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -25,12 +26,13 @@ public class Timetable extends JFrame {
     private JPanel JPanel1;
     private JPanel JPanel2;
     private JScrollPane JScrollPane;
-    private JTextField textField1; // Timetable_id
-    private JTextField textField2; // day
-    private JTextField textField3; // time
-    private JTextField textField4; // course_code
-    private JTextField textField5; // course_type
-    private JTextField textField6; // lecturer_id
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+
 
     public Timetable() {
         setTitle("Timetable");
@@ -72,6 +74,53 @@ public class Timetable extends JFrame {
                 }
             }
         });
+
+        userButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new User_profile();
+                });
+            }
+        });
+
+        courseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Course_unit();
+            }
+        });
+
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Notice();
+                });
+            }
+        });
+
+        timetableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(() -> {
+                    loadTimetableData();
+                });
+            }
+        });
+
+        singOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Login();
+                });
+            }
+        });
+
 
         // Mouse click to populate fields
         table1.addMouseListener(new MouseAdapter() {
