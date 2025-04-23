@@ -86,7 +86,7 @@
                       <defaultCapable value="true"/>
                       <enabled value="true"/>
                       <focusPainted value="false"/>
-                      <icon value="attendance/button_more-than-attendance.png"/>
+                      <icon value="resources/button_more-than-attendance.png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -103,14 +103,14 @@
                   <component id="aa45e" class="javax.swing.JButton" binding="lessThan80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="350" height="70"/>
-                        <maximum-size width="350" height="70"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
                       <borderPainted value="false"/>
                       <contentAreaFilled value="false"/>
-                      <icon value="attendance/button_less-than-attendance-without-medicals (2).png"/>
+                      <icon value="resources/button_less-than-attendance-without-medicals (2).png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -127,14 +127,14 @@
                   <component id="74deb" class="javax.swing.JButton" binding="exactly80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="350" height="70"/>
-                        <maximum-size width="350" height="70"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
                       <borderPainted value="false"/>
                       <contentAreaFilled value="false"/>
-                      <icon value="attendance/button_exactly-attendance.png"/>
+                      <icon value="resources/button_exactly-attendance.png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -151,15 +151,15 @@
                   <component id="49d04" class="javax.swing.JButton" binding="moreThan80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="350" height="70"/>
-                        <maximum-size width="350" height="70"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
                       <borderPainted value="false"/>
                       <contentAreaFilled value="false"/>
-                      <icon value="attendance/button_less-than-attendance-with-medicals.png"/>
-                      <text value="more than 80% attendance with medicals "/>
+                      <icon value="resources/button_more-than-attendance-with-medicals.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -175,14 +175,14 @@
                   <component id="6a02c" class="javax.swing.JButton" binding="lessThan80AttendanceButton1" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="350" height="70"/>
-                        <maximum-size width="350" height="70"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
                       <borderPainted value="false"/>
                       <contentAreaFilled value="false"/>
-                      <icon value="attendance/button_less-than-attendance-with-medicals.png"/>
+                      <icon value="resources/button_less-than-attendance-with-medicals.png"/>
                       <text value=""/>
                     </properties>
                   </component>
@@ -199,14 +199,14 @@
                   <component id="a5741" class="javax.swing.JButton" binding="attendanceIndividualsButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="350" height="70"/>
-                        <maximum-size width="350" height="70"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
                       <borderPainted value="false"/>
                       <contentAreaFilled value="false"/>
-                      <icon value="attendance/button_attendance-individuals.png"/>
+                      <icon value="resources/button_attendance-individuals.png"/>
                       <text value=""/>
                     </properties>
                   </component>

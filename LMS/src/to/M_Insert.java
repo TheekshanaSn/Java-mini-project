@@ -24,6 +24,8 @@ public class M_Insert {
     private JButton INSERTButton;
     private JTable showTable;
     private JScrollPane Jpane;
+    private JTextField textField4;
+    private JTextField textField5;
 
 
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,9 +53,11 @@ public class M_Insert {
             public void actionPerformed(ActionEvent e) {
                 String medical_id = textField1.getText();
                 String med_undergraduate_id = textField2.getText();
+                String med_course_code = textField4.getText();
                 String date = textField3.getText();
+                String reason = textField5.getText();
 
-                if (medical_id.isEmpty() || med_undergraduate_id.isEmpty() || date.isEmpty()) {
+                if (medical_id.isEmpty() || med_undergraduate_id.isEmpty() || date.isEmpty()||reason.isEmpty() || med_course_code.isEmpty()) {
                     JOptionPane.showMessageDialog(frame, "Please fill all the fields");
                     return;
                 }
@@ -63,13 +67,13 @@ public class M_Insert {
 
                 if (model.getColumnCount() == 0) {
                     String[] columnNames = {
-                            "Medical_id","Med_undergraduate_id","Date"
+                            "Medical_id","Med_undergraduate_id","Course_code","Date","Reason"
                     };
                     model.setColumnIdentifiers(columnNames);
                 }
 
                 Object[] rowData = {
-                        medical_id, med_undergraduate_id, date
+                        medical_id, med_undergraduate_id, med_course_code, date, reason
                 };
 
 
@@ -77,8 +81,8 @@ public class M_Insert {
                 try {
                     Connection conn = MyConnection.getConnection();
 
-                    String query = "INSERT INTO Medical (medical_id, med_undergraduate_id, date) " +
-                            "VALUES ('" + medical_id + "', '" + med_undergraduate_id + "', '" + date + "')";
+                    String query = "INSERT INTO Medical (medical_id, med_undergraduate_id,med_course_code, date,reason) " +
+                            "VALUES ('" + medical_id + "', '" + med_undergraduate_id + "', '" + med_course_code + "','" + date + "', '" + reason + "')";
 
                     Statement stmt = conn.createStatement();
                     int result = stmt.executeUpdate(query);
@@ -95,6 +99,8 @@ public class M_Insert {
                 textField1.setText("");
                 textField2.setText("");
                 textField3.setText("");
+                textField4.setText("");
+                textField5.setText("");
 
             }
         });
