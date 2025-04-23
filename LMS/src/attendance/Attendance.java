@@ -1,5 +1,4 @@
 package attendance;
-
 import MyCon.MyConnection;
 import to.To_Profile;
 
@@ -13,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Attendance {
+public class Attendance extends JFrame{
     private JPanel panel1;
     private JTable showTable;
     private JPanel Main_panel;
