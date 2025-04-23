@@ -1,9 +1,7 @@
 package to;
-
 import MyCon.MyConnection;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
