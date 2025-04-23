@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class A_Update {
+public class A_Update extends JFrame {
     private final Object AutoCompleteDecorator = null;
     JFrame frame;
     private JPanel panel1;
@@ -35,6 +35,7 @@ public class A_Update {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(panel1);
         frame.setSize(1080, 600);
+        frame.setResizable(false);
 
        // AutoCompleteDecorator.decorate(comboBox3);
 
@@ -49,7 +50,7 @@ public class A_Update {
 
                 try {
                     Connection conn = MyConnection.getConnection();
-                    String query = "select attendance_id from Attendance";
+                    String query = "select attendance_id from Attendance ORDER BY attendance_id";
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
                    // stmt = conn.createStatement();

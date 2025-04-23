@@ -38,6 +38,7 @@ public class M_Insert {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(Main_panel);
         frame.setSize(1080, 600);
+        frame.setResizable(false);
 
 
         initComponents();
