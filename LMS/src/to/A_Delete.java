@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class A_Delete {
+public class A_Delete extends JFrame {
     private final Object AutoCompleteDecorator = null;
     JFrame frame;
     private JPanel panel1;
@@ -34,6 +34,7 @@ public class A_Delete {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(panel1);
         frame.setSize(1080, 600);
+        frame.setResizable(false);
 
         // AutoCompleteDecorator.decorate(comboBox3);
 

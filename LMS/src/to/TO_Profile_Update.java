@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TO_Profile_Update {
+public class TO_Profile_Update extends JFrame {
     private JPanel panel1;
     private JTextField textField2;
     private JTextField textField3;

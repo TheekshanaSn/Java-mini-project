@@ -26,7 +26,7 @@ public class M_Delete {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(panel1);
         frame.setSize(1080, 600);
-
+        frame.setResizable(false);
 
 
 

@@ -1,5 +1,5 @@
 package to;
-
+import ADMIN.Login;
 import ADMIN.Notice;
 import ADMIN.Timetable;
 import Medical.Medical;
@@ -18,7 +18,7 @@ import java.sql.Statement;
 
 //import static sun.tools.jconsole.inspector.XDataViewer.dispose;
 
-public class To_Profile {
+public class To_Profile extends JFrame {
     private JPanel panel1;
     private JButton EDITFROFILEButton;
     private JButton LOGOUTButton;
@@ -103,20 +103,6 @@ public class To_Profile {
                 M_Delete frame = new M_Delete();
             }
         });
-        VIEWButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                // Notice page view
-            }
-        });
-        VIEWButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                //time table view
-            }
-        });
 
         A_VIEWButton2.addActionListener(new ActionListener() {
             @Override
@@ -151,6 +137,15 @@ public class To_Profile {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 Timetable timetable = new Timetable();
+            }
+        });
+
+
+        LOGOUTButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Login login = new Login();
             }
         });
     }
