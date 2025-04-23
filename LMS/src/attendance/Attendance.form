@@ -3,12 +3,12 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="954" height="400"/>
+      <xy x="20" y="20" width="1114" height="701"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="83a6f" binding="Main_panel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="83a6f" binding="Main_panel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="true" hgap="-1" vgap="-1">
         <margin top="5" left="5" bottom="5" right="5"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -29,23 +29,30 @@
               </component>
             </children>
           </scrollpane>
-          <grid id="5f616" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="5f616" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <focusCycleRoot value="true"/>
+              <focusTraversalPolicyProvider value="false"/>
+              <focusable value="false"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="7d9e" class="javax.swing.JButton" binding="HOMEButton" default-binding="true">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="200" height="30"/>
-                    <maximum-size width="200" height="30"/>
+                    <minimum-size width="200" height="50"/>
+                    <maximum-size width="200" height="50"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="HOME"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="false"/>
+                  <icon value="to/button_home.png"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
@@ -69,12 +76,18 @@
                   <component id="d6095" class="javax.swing.JButton" binding="button1" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="300" height="50"/>
+                        <maximum-size width="300" height="50"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <text value=" more than 80% attendance"/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <defaultCapable value="true"/>
+                      <enabled value="true"/>
+                      <focusPainted value="false"/>
+                      <icon value="attendance/button_more-than-attendance.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -90,12 +103,15 @@
                   <component id="aa45e" class="javax.swing.JButton" binding="lessThan80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="350" height="70"/>
+                        <maximum-size width="350" height="70"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <text value="less than 80% attendance without medicals "/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="attendance/button_less-than-attendance-without-medicals (2).png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -111,12 +127,15 @@
                   <component id="74deb" class="javax.swing.JButton" binding="exactly80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="350" height="70"/>
+                        <maximum-size width="350" height="70"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <text value="exactly 80% attendance "/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="attendance/button_exactly-attendance.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -132,11 +151,14 @@
                   <component id="49d04" class="javax.swing.JButton" binding="moreThan80AttendanceButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="350" height="70"/>
+                        <maximum-size width="350" height="70"/>
                       </grid>
                     </constraints>
                     <properties>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="attendance/button_less-than-attendance-with-medicals.png"/>
                       <text value="more than 80% attendance with medicals "/>
                     </properties>
                   </component>
@@ -153,12 +175,15 @@
                   <component id="6a02c" class="javax.swing.JButton" binding="lessThan80AttendanceButton1" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="350" height="70"/>
+                        <maximum-size width="350" height="70"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <text value="less than 80% attendance with medicals "/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="attendance/button_less-than-attendance-with-medicals.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
@@ -174,12 +199,15 @@
                   <component id="a5741" class="javax.swing.JButton" binding="attendanceIndividualsButton" default-binding="true">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <minimum-size width="300" height="30"/>
-                        <maximum-size width="300" height="30"/>
+                        <minimum-size width="350" height="70"/>
+                        <maximum-size width="350" height="70"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <text value="Attendance Individuals"/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="attendance/button_attendance-individuals.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
