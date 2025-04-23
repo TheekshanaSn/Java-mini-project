@@ -37,7 +37,7 @@ public class CAMark extends JFrame {
         table_load();
 
 
-        setTitle("Lecturer Dashboard");
+        setTitle("CA Mark Profile");
         setContentPane(CAMark);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);

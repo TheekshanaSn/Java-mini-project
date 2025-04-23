@@ -30,7 +30,7 @@ public class LectureProfile extends JFrame {
         this.user_id = user_id;
         this.password = password;
 
-        setTitle("Lecturer Profile");
+        setTitle("Lecturer Profile:");
         setContentPane(formLectureProfile);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(600, 600);

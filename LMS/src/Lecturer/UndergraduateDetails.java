@@ -23,7 +23,7 @@ public class UndergraduateDetails extends JFrame {
     PreparedStatement pst;
 
     UndergraduateDetails() {
-        setTitle("Lecturer Dashboard");
+        setTitle("Undergraduate Details:");
         setContentPane(UndergraduateDetails);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
