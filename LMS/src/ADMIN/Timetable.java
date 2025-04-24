@@ -91,6 +91,7 @@ public class Timetable extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new Course_unit();
             }
         });
