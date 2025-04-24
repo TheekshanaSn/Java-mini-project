@@ -96,6 +96,10 @@ public class LectureDashBord extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LectureDashBord("LEC005", "pass123");
+        new LectureDashBord("LEC006", "pass123");
     }
+
+
+
+
 }
