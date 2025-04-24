@@ -200,6 +200,9 @@ public class Course_unit extends JFrame {
         if (course_code.isEmpty() || name.isEmpty() || lecturer_id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
+        }else if (!course_code.matches("^ICT\\d{4}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid course code format.");
+            return;
         }
 
         String sql = "INSERT INTO course_unit (course_code, name, type, credit, c_lecturer_id) VALUES (?, ?, ?, ?, ?)";
@@ -223,7 +226,8 @@ public class Course_unit extends JFrame {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: LEC id is not initilize in DB" );
+            //+ e.getMessage()
             e.printStackTrace();
         }
     }
@@ -235,7 +239,7 @@ public class Course_unit extends JFrame {
         String credit = comboBox2.getSelectedItem().toString();
         String lecturer_id = textField5.getText().trim();
 
-        if (course_code.isEmpty()) {
+        if (course_code.isEmpty() ) {
             JOptionPane.showMessageDialog(this, "Select a course to update.");
             return;
         }
@@ -258,11 +262,11 @@ public class Course_unit extends JFrame {
                 loadCourseData();
                 clearFields();
             } else {
-                JOptionPane.showMessageDialog(this, "Update failed.");
+                JOptionPane.showMessageDialog(this, "Update failed.L");
             }
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: "+ e.getMessage());
             e.printStackTrace();
         }
     }
