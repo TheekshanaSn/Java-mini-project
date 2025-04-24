@@ -37,7 +37,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    User_profile userProfile = new User_profile();
+                    new User_profile();
                 });
             }
         });

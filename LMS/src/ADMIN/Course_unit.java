@@ -320,7 +320,9 @@ public class Course_unit extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {new Course_unit();});
+        SwingUtilities.invokeLater(() -> {
+            new Course_unit();
+        });
 
     }
 

@@ -144,7 +144,7 @@ public class User_profile extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    LoginForm loginForm = new LoginForm();
+                    new LoginForm();
                 });
             }
         });
