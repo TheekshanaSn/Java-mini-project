@@ -11,6 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
 
 public class Timetable extends JFrame {
     private JButton addNewButton;
@@ -143,7 +146,7 @@ public class Timetable extends JFrame {
 
     private void setupTable() {
         DefaultTableModel model = new DefaultTableModel(
-                new Object[]{"ID", "Day", "Time", "Course Code", "Type", "Lecturer ID"}, 0);
+                new Object[]{"ID", "Day", "Time_range", "Course Code", "Type", "Lecturer ID"}, 0);
         table1.setModel(model);
     }
 
@@ -159,7 +162,7 @@ public class Timetable extends JFrame {
                 model.addRow(new Object[]{
                         rs.getString("Timetable_id"),
                         rs.getString("day"),
-                        rs.getString("time"),
+                        rs.getString("time_range"),
                         rs.getString("course_code"),
                         rs.getString("course_type"),
                         rs.getString("lecturer_id")
@@ -184,7 +187,7 @@ public class Timetable extends JFrame {
             if (rs.next()) {
                 // Populate fields with data
                 textField2.setText(rs.getString("day"));
-                textField3.setText(rs.getString("time"));
+                textField3.setText(rs.getString("time_range"));
                 textField4.setText(rs.getString("course_code"));
                 textField5.setText(rs.getString("course_type"));
                 textField6.setText(rs.getString("lecturer_id"));
@@ -208,25 +211,71 @@ public class Timetable extends JFrame {
     private void addNewButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time = textField3.getText().trim();
+        String time_range= textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
 
-        if (timetableId.isEmpty() || day.isEmpty() || time.isEmpty() ||
+        if (timetableId.isEmpty() || day.isEmpty() ||  time_range.isEmpty() ||
                 courseCode.isEmpty() || courseType.isEmpty() || lecturerId.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
+        } if (!timetableId.matches("^Tt\\d{3}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Timetable ID format.");
+            return;
+        }
+        String[] validDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+
+        boolean validDay = false;
+        for (String validDayName : validDays) {
+            if (day.equalsIgnoreCase(validDayName)) {
+                validDay = true;
+                break;
+            }
+        }
+        if (!validDay) {
+            JOptionPane.showMessageDialog(this, "Invalid day. Must be a weekday (Monday to Friday).");
+            return;
         }
 
-        String sql = "INSERT INTO Timetable (Timetable_id, day, time, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            SimpleDateFormat parser = new SimpleDateFormat("h:mm a");
+            Date enteredTime = parser.parse( time_range);
+
+            Date eightAM = parser.parse("8:00 AM");
+            Date fivePM = parser.parse("5:00 PM");
+
+            if (enteredTime.before(eightAM) || enteredTime.after(fivePM)) {
+                JOptionPane.showMessageDialog(this, "Invalid time. Must  lec on between 8:00 AM and 5:00 PM.");
+                return;
+            }
+
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Invalid time format.format like 08:00 AM -17:00 PM.");
+            return;
+        }
+
+        if (!courseCode.matches("^ICT\\d{4}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid course code format.");
+            return;
+        }if(!courseType.equals("T")&& !courseType.equals("P")&& !courseType.equals("TP")){
+            JOptionPane.showMessageDialog(this, "Invalid course type format.");
+            return;
+        }if (!lecturerId.matches("^LEC\\d{3}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Lec id format.");
+            return;
+        }
+
+
+
+        String sql = "INSERT INTO Timetable (Timetable_id, day, time_range, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
             pstmt.setString(2, day);
-            pstmt.setString(3, time);
+            pstmt.setString(3, time_range);
             pstmt.setString(4, courseCode);
             pstmt.setString(5, courseType);
             pstmt.setString(6, lecturerId);
@@ -249,7 +298,7 @@ public class Timetable extends JFrame {
     private void updateButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time = textField3.getText().trim();
+        String time_range = textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
@@ -259,13 +308,13 @@ public class Timetable extends JFrame {
             return;
         }
 
-        String sql = "UPDATE Timetable SET day = ?, time = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
+        String sql = "UPDATE Timetable SET day = ?, time_range = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
 
         try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, day);
-            pstmt.setString(2, time);
+            pstmt.setString(2, time_range);
             pstmt.setString(3, courseCode);
             pstmt.setString(4, courseType);
             pstmt.setString(5, lecturerId);
