@@ -45,7 +45,7 @@ public class A_Dash_Board extends JFrame {
                     dispose(); // Close the current dashboard
                     // Open the login screen
                     SwingUtilities.invokeLater(() -> {
-                        new Login(); // Navigate to the Login class
+                        new LoginForm(); // Navigate to the Login class
                     });
                 }
             });

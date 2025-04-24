@@ -106,7 +106,7 @@ public class Course_unit extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Login();
+                    new LoginForm();
                 });
             }
         });
@@ -200,7 +200,7 @@ public class Course_unit extends JFrame {
         if (course_code.isEmpty() || name.isEmpty() || lecturer_id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
-        }else if (!course_code.matches("^ICT\\d{4}$")) {
+        }else if (!course_code.matches("^ICT\\d+$")) {
             JOptionPane.showMessageDialog(this, "Invalid course code format.");
             return;
         }
@@ -227,7 +227,6 @@ public class Course_unit extends JFrame {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error: LEC id is not initilize in DB" );
-            //+ e.getMessage()
             e.printStackTrace();
         }
     }
