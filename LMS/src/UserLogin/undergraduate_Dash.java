@@ -8,7 +8,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.sql.*;
 
-public class undergraduate_Dash {
+public class undergraduate_Dash extends JFrame {
     private JPanel ugDashBoard;
     private JButton exitButton;
     private JButton profileButton;
@@ -23,7 +23,14 @@ public class undergraduate_Dash {
     private JLabel nameLabel;
     private JLabel profilePicLabel;
 
-    public undergraduate_Dash() {
+    private String userId;
+    private String password;
+
+    public undergraduate_Dash(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+
+
         JFrame frame = new JFrame("Undergraduate Dashboard");
         frame.setContentPane(ugDashBoard);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,7 +42,7 @@ public class undergraduate_Dash {
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                new ProfileEditForm();
+                new undergraduateProfile(userId, password);
             }
         });
 
@@ -47,7 +54,15 @@ public class undergraduate_Dash {
             }
         });
 
-        coursesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Courses feature coming soon..."));
+        coursesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new courseDetails(userId, password);
+            }
+        });
+
+
+        //coursesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Courses feature coming soon..."));
         timeTableButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Timetable feature coming soon..."));
         noticesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Notices feature coming soon..."));
         medicalButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Medical records feature coming soon..."));
@@ -60,7 +75,7 @@ public class undergraduate_Dash {
     private void loadUserDetails() {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techlms", "root", "");
-            String sql = "SELECT Name, profile_pic FROM user WHERE user_id = ?";
+            String sql = "SELECT Name, profile_picture FROM user WHERE user_id = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, Session.userId);
             ResultSet rs = pst.executeQuery();
@@ -90,8 +105,8 @@ public class undergraduate_Dash {
     }
 
     public static void main(String[] args) {
-        Session.userId = "UG001";
-        new undergraduate_Dash();
+       // Session.userId = "UG001";
+        new undergraduate_Dash("UG001", "pass123");
     }
 }
 

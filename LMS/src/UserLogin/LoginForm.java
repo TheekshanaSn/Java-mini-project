@@ -14,6 +14,9 @@ public class LoginForm extends JDialog {
     private JButton cancelButton;
     private JPanel loginPanel;
 
+    private String userId;
+    private String password;
+
     public LoginForm(JFrame parent) {
 
         super(parent);
@@ -33,8 +36,8 @@ public class LoginForm extends JDialog {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String userId = textField1.getText();
-                String password = String.valueOf(passwordField1.getPassword());
+                userId = textField1.getText();
+                password = String.valueOf(passwordField1.getPassword());
                 String role = (String) comboBox1.getSelectedItem();
 
                 if (userId.isEmpty() || password.isEmpty()) {
@@ -107,13 +110,14 @@ public class LoginForm extends JDialog {
                 dashboard = new JFrame("Admin Dashboard");
                 break;
             case "Lecture":
+
                 dashboard = new JFrame("Lecture Dashboard");
                 break;
             case "Technical Officer":
                 dashboard = new JFrame("Technical Officer Dashboard");
                 break;
             case "Undergraduate":
-                new undergraduate_Dash();
+                new undergraduate_Dash(userId, password);
                 break;
            default:
              return;
