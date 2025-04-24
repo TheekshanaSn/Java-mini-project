@@ -80,6 +80,11 @@ public class LoginForm extends JDialog {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 isValid = true;
+
+                Session.userId = rs.getString("user_id");
+                Session.role = rs.getString("role");
+                Session.name = rs.getString("Name");
+                Session.username = rs.getString("Name");
             }
 
             rs.close();
@@ -108,16 +113,16 @@ public class LoginForm extends JDialog {
                 dashboard = new JFrame("Technical Officer Dashboard");
                 break;
             case "Undergraduate":
-                dashboard = new JFrame("Undergraduate Dashboard");
+                new undergraduate_Dash();
                 break;
            default:
              return;
         }
 
-        dashboard.setSize(500, 400);
-        dashboard.setLocationRelativeTo(null);
-        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dashboard.setVisible(true);
+//        dashboard.setSize(500, 400);
+//        dashboard.setLocationRelativeTo(null);
+//        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        dashboard.setVisible(true);
     }
 
 
