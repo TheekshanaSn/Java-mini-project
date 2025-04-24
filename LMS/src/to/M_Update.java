@@ -21,6 +21,8 @@ public class M_Update {
     private JScrollPane Jpane;
     private JTable showTable;
     private JComboBox comboBox1;
+    private JTextField textField1;
+    private JTextField textField4;
 
     public M_Update() {
         frame = new JFrame();

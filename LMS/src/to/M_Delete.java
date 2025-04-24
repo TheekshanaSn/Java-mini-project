@@ -18,6 +18,8 @@ public class M_Delete {
     private JTextField textField2;
     private JButton HOMEButton;
     private JButton DELETEButton;
+    private JTextField textField3;
+    private JTextField textField4;
 
     public M_Delete() {
         frame = new JFrame();
@@ -67,6 +69,8 @@ public class M_Delete {
                     while (rs2.next()) {
                         textField1.setText(rs2.getString("med_undergraduate_id"));
                         textField2.setText(rs2.getString("date"));
+                        textField3.setText(rs2.getString("med_course_code"));
+                        textField4.setText(rs2.getString("reason"));
 
 
                     }
@@ -98,6 +102,8 @@ public class M_Delete {
                     comboBox1.setSelectedIndex(0);
                     textField1.setText("");
                     textField2.setText("");
+                    textField3.setText("");
+                    textField4.setText("");
 
                 }catch (SQLException ex) {
                     throw new RuntimeException(ex);

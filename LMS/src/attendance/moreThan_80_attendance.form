@@ -40,7 +40,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <text value="Preview"/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <icon value="to/button_preview.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>

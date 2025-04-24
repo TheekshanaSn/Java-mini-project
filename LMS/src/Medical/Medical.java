@@ -40,7 +40,7 @@ public class Medical {
             DefaultTableModel model = (DefaultTableModel) showTable.getModel();
 
             String[] columnNames = {
-                    "medical_id", "med_undergraduate_id", "date"
+                    "medical_id", "med_undergraduate_id", "course_code","date","reason",
             };
             model.setColumnIdentifiers(columnNames);
 
@@ -48,7 +48,10 @@ public class Medical {
                 Object[] rowData = {
                         rs.getString("medical_id"),
                         rs.getString("med_undergraduate_id"),
+                        rs.getString("med_course_code"),
                         rs.getString("date"),
+                        rs.getString("reason"),
+
                 };
                 model.addRow(rowData);
             }
