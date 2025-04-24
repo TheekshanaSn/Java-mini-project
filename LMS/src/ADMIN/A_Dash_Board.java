@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class A_Dash_Board extends JFrame {
-    // These should match EXACTLY the names in your form file
-    private JButton signOutButton; // Note: Check if it's signOutButton or singOutButton in your form
+    private JButton signOutButton;
     private JButton userProfileButton;
     private JButton courseButton;
     private JButton noticeButton;
@@ -37,15 +36,14 @@ public class A_Dash_Board extends JFrame {
     }
 
     private void addActionListeners() {
-        // Check if button exists before adding listener
+
         if (signOutButton != null) {
             signOutButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
-                    // Open the login screen
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new LoginForm(); // Navigate to the Login class
+                        new LoginForm();  //call the loginform interface
                     });
                 }
             });
@@ -57,9 +55,9 @@ public class A_Dash_Board extends JFrame {
             userProfileButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose(); // Close the current interface
                     SwingUtilities.invokeLater(() -> {
-                        new User_profile(); // Navigate to your existing User_profile class
+                        new User_profile();
                     });
                 }
             });
@@ -69,9 +67,9 @@ public class A_Dash_Board extends JFrame {
             courseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new Course_unit(); // Navigate to your existing Course class
+                        new Course_unit();
                     });
                 }
             });
@@ -81,9 +79,9 @@ public class A_Dash_Board extends JFrame {
             noticeButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new Notice(); // Navigate to your existing Notice class
+                        new Notice();
                     });
                 }
             });
@@ -93,9 +91,9 @@ public class A_Dash_Board extends JFrame {
             timetableButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose(); // Close the current display interface
                     SwingUtilities.invokeLater(() -> {
-                        new Timetable(); // Navigate to your existing Timetable class
+                        new Timetable();
                     });
                 }
             });

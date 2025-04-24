@@ -141,7 +141,6 @@ public class Notice extends JFrame {
                     }
                 }
 
-                // Insert notice
                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO notice (notice_id, title, content) VALUES (?, ?, ?)");
                 stmt.setInt(1, id);
                 stmt.setString(2, title);
@@ -158,7 +157,6 @@ public class Notice extends JFrame {
             }
         });
 
-        // Update notice
         updateButton.addActionListener(e -> {
             String idText = textField3.getText().trim();
             if (idText.isEmpty()) {

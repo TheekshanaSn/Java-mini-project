@@ -185,7 +185,6 @@ public class Course_unit extends JFrame {
 
 
     private void createUIComponents() {
-        // Initialize panels
         JPanel1 = new JPanel();
         JPanel2 = new JPanel();
     }
@@ -200,8 +199,16 @@ public class Course_unit extends JFrame {
         if (course_code.isEmpty() || name.isEmpty() || lecturer_id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
-        }else if (!course_code.matches("^ICT\\d+$")) {
+        }else if (!course_code.matches("^ICT\\d{4}$")) {
             JOptionPane.showMessageDialog(this, "Invalid course code format.");
+            return;
+        }
+
+        char lastDigit =course_code.charAt(course_code.length() - 1);
+        String lastDigitStr =String.valueOf(lastDigit);
+
+        if(!lastDigitStr.equals(credit)) {
+            JOptionPane.showMessageDialog(this, "The last digit of course code not match the credit value ");
             return;
         }
 
