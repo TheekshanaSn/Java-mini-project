@@ -37,7 +37,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new User_profile();
+                    User_profile userProfile = new User_profile();
                 });
             }
         });
@@ -64,7 +64,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Timetable();
+                    Timetable timetable = new Timetable();
                 });
             }
         });
@@ -74,7 +74,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new LoginForm();
+                    LoginForm loginForm = new LoginForm();
                 });
             }
         });

@@ -105,7 +105,7 @@ public class User_profile extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new User_profile();
+                    User_profile userProfile = new User_profile();
                 });
             }
         });
@@ -124,7 +124,7 @@ public class User_profile extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Notice();
+                    Notice notice = new Notice();
                 });
             }
         });
@@ -134,7 +134,7 @@ public class User_profile extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Timetable();
+                    Timetable timetable = new Timetable();
                 });
             }
         });
@@ -144,7 +144,7 @@ public class User_profile extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new LoginForm();
+                    LoginForm loginForm = new LoginForm();
                 });
             }
         });
