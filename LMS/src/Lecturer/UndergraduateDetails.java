@@ -97,6 +97,7 @@ public class UndergraduateDetails extends JFrame {
 
 
     public static void main(String[] args) {
+
         new UndergraduateDetails();
     }
 }
