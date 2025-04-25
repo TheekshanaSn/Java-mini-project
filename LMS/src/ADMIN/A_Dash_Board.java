@@ -1,6 +1,5 @@
 package ADMIN;
 
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +15,7 @@ public class A_Dash_Board extends JFrame {
     private JPanel Midele;
     private JPanel Main;
     private JButton profileEditButton;
+    private JLabel profile;
 
     public A_Dash_Board() {
         // Set up the main frame properties
