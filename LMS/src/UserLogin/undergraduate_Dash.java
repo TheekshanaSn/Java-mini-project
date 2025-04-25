@@ -75,12 +75,18 @@ public class undergraduate_Dash extends JFrame {
             }
         });
 
+        attendenceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new undergraduateAttendence(userId, password);
+            }
+        });
 
-        //coursesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Courses feature coming soon..."));
-        //timeTableButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Timetable feature coming soon..."));
-        //noticesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Notices feature coming soon..."));
+
+
+
         medicalButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Medical records feature coming soon..."));
-        attendenceButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Attendance feature coming soon..."));
+        //attendenceButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Attendance feature coming soon..."));
         resultsButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Results feature coming soon..."));
 
         frame.setVisible(true);
