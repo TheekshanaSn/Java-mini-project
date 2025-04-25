@@ -33,11 +33,11 @@ public class LectureDashBord extends JFrame {
     public String getUser_id() {
         return user_id;
     }
-     LectureDashBord() {
+     public LectureDashBord() {
 
      }
 
-    LectureDashBord(String user_id, String password) {
+     public  LectureDashBord(String user_id, String password) {
 
         this.user_id = user_id;
         this.password = password;
