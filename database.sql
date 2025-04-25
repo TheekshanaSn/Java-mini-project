@@ -62,8 +62,11 @@ CREATE TABLE undergraduate_course_unit (
 CREATE TABLE Medical (
     medical_id VARCHAR(15),
     med_undergraduate_id VARCHAR(15),
+    med_course_code VARCHAR(15),
     date DATE,
+    reason VARCHAR(255),
     PRIMARY KEY(medical_id),
+    FOREIGN KEY (med_course_code) REFERENCES course_unit(course_code) ON DELETE CASCADE,
     FOREIGN KEY (med_undergraduate_id) REFERENCES Undergraduate(undergraduate_id) ON DELETE CASCADE
 );
 
@@ -74,7 +77,7 @@ CREATE TABLE Attendance (
     at_course_code VARCHAR(15),
     at_course_type VARCHAR(10),
     date DATE,
-    attendence VARCHAR(20),
+    attendance VARCHAR(20),
     medical_status VARCHAR(15),
     session_no INT NOT NULL,
     at_to_id VARCHAR(15),
@@ -120,9 +123,6 @@ CREATE TABLE marks (
 --     FOREIGN KEY (course_code) REFERENCES course_unit(course_code) ON DELETE CASCADE
 -- );
 
--- note ******************************************************************************************************************************
-ALTER TABLE attendance
-CHANGE attendence attendance VARCHAR(20);
 
 --Insert dta into user table
 -- Admin
@@ -223,28 +223,33 @@ VALUES
 
  ---Update this table *************************************************************************************************************************************************** 
 -- First add sample medical data
-INSERT INTO Medical (medical_id, med_undergraduate_id, date) VALUES
--- UG003 with medicals
-('MED001', 'UG003', '2025-02-10'),
-('MED002', 'UG003', '2025-03-03'),
--- UG008 with medicals
-('MED003', 'UG008', '2025-02-17'),
-('MED004', 'UG008', '2025-03-10'),
-('MED005', 'UG008', '2025-03-24'),
--- UG012 with medicals (still below 80%)
-('MED006', 'UG012', '2025-02-24'),
-('MED007', 'UG012', '2025-03-17'),
--- UG016 with medicals
-('MED008', 'UG016', '2025-02-12'),
-('MED009', 'UG016', '2025-03-05'),
-('MED010', 'UG016', '2025-03-26');
+INSERT INTO Medical (medical_id, med_undergraduate_id,med_course_code, date,reason) VALUES
+
+('MED001', 'UG003','ICT2113', '2025-02-10','Cold'),
+('MED002', 'UG003','ICT2113', '2025-03-03','Back pain'),
+('MED003', 'UG008','ICT2113', '2025-02-17','Headache'),
+('MED004', 'UG008','ICT2113', '2025-03-10','Fever'),
+('MED005', 'UG008','ICT2113', '2025-03-24','Injury'),
+('MED006', 'UG012','ICT2113', '2025-02-24','Fever'),
+('MED007', 'UG012','ICT2113', '2025-03-17','Headache'),
+('MED008', 'UG016','ICT2113', '2025-02-10','Cold'),
+('MED009', 'UG016','ICT2113', '2025-03-03','Fever'),
+('MED010', 'UG016','ICT2113', '2025-04-28','Migraine'),
+('MED011', 'UG001','ICT2122', '2025-02-04','Migraine'),
+('MED012', 'UG004','ICT2122', '2025-02-25','Cold'),
+('MED013', 'UG004','ICT2122', '2025-02-17','Headache'),
+('MED014', 'UG010','ICT2133', '2025-02-05','Sore Throat'),
+('MED015', 'UG002','ICT2133', '2025-03-19','Headache'),
+('MED016', 'UG020','ICT2152', '2025-04-01','Stomach Ache');
+
+
 
 
 -- Attendance data for ICT2113 (Data Structures and Algorithms) - TP
 -- Starting date: 03.02.2025, Weekly sessions
 
 -- Week 1 (February 3, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type,date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00001', 'UG001', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
 ('AT00002', 'UG002', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
 ('AT00003', 'UG003', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001'),
@@ -267,7 +272,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00020', 'UG020', 'ICT2113', 'TP', '2025-02-03', 'present', NULL, 1, 'TCO001');
 
 -- Week 2 (February 10, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00021', 'UG001', 'ICT2113', 'TP', '2025-02-10', 'present', NULL, 2, 'TCO001'),
 ('AT00022', 'UG002', 'ICT2113', 'TP', '2025-02-10', 'present', NULL, 2, 'TCO001'),
 ('AT00023', 'UG003', 'ICT2113', 'TP', '2025-02-10', 'absent', 'MED001', 2, 'TCO001'),
@@ -290,7 +295,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00040', 'UG020', 'ICT2113', 'TP', '2025-02-10', 'absent', NULL, 2, 'TCO001');
 
 -- Week 3 (February 17, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00041', 'UG001', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
 ('AT00042', 'UG002', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
 ('AT00043', 'UG003', 'ICT2113', 'TP', '2025-02-17', 'present', NULL, 3, 'TCO001'),
@@ -313,7 +318,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00060', 'UG020', 'ICT2113', 'TP', '2025-02-17', 'absent', NULL, 3, 'TCO001');
 
 -- Week 4 (February 24, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00061', 'UG001', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
 ('AT00062', 'UG002', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
 ('AT00063', 'UG003', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001'),
@@ -336,7 +341,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00080', 'UG020', 'ICT2113', 'TP', '2025-02-24', 'present', NULL, 4, 'TCO001');
 
 -- Week 5 (March 3, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00081', 'UG001', 'ICT2113', 'TP', '2025-03-03', 'present', NULL, 5, 'TCO001'),
 ('AT00082', 'UG002', 'ICT2113', 'TP', '2025-03-03', 'present', NULL, 5, 'TCO001'),
 ('AT00083', 'UG003', 'ICT2113', 'TP', '2025-03-03', 'absent', 'MED002', 5, 'TCO001'),
@@ -360,7 +365,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 
 -- Continue with remaining weeks for ICT2113...
 -- Week 6 (March 10, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00101', 'UG001', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
 ('AT00102', 'UG002', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
 ('AT00103', 'UG003', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001'),
@@ -383,7 +388,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00120', 'UG020', 'ICT2113', 'TP', '2025-03-10', 'present', NULL, 6, 'TCO001');
 
 -- Week 7 (March 17, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00121', 'UG001', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
 ('AT00122', 'UG002', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
 ('AT00123', 'UG003', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001'),
@@ -406,7 +411,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00140', 'UG020', 'ICT2113', 'TP', '2025-03-17', 'present', NULL, 7, 'TCO001');
 
 -- Week 8 (March 24, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00141', 'UG001', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
 ('AT00142', 'UG002', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
 ('AT00143', 'UG003', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001'),
@@ -429,8 +434,8 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00160', 'UG020', 'ICT2113', 'TP', '2025-03-24', 'present', NULL, 8, 'TCO001');
 
 -- Week 9 (March 31, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
-('AT00161', 'UG001', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00161', 'UG001', 'ICT2113', 'TP', '2025-03-31', 'absent', NULL, 9, 'TCO001'),
 ('AT00162', 'UG002', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
 ('AT00163', 'UG003', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
 ('AT00164', 'UG004', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001'),
@@ -452,7 +457,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00180', 'UG020', 'ICT2113', 'TP', '2025-03-31', 'present', NULL, 9, 'TCO001');
 
 -- Week 10 (April 7, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00181', 'UG001', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
 ('AT00182', 'UG002', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
 ('AT00183', 'UG003', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001'),
@@ -475,7 +480,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00200', 'UG020', 'ICT2113', 'TP', '2025-04-07', 'present', NULL, 10, 'TCO001');
 
 -- Week 11 (April 14, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00201', 'UG001', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
 ('AT00202', 'UG002', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
 ('AT00203', 'UG003', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001'),
@@ -498,7 +503,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00220', 'UG020', 'ICT2113', 'TP', '2025-04-14', 'present', NULL, 11, 'TCO001');
 
 -- Week 12 (April 21, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00221', 'UG001', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
 ('AT00222', 'UG002', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
 ('AT00223', 'UG003', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001'),
@@ -521,7 +526,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00240', 'UG020', 'ICT2113', 'TP', '2025-04-21', 'present', NULL, 12, 'TCO001');
 
 -- Week 13 (April 28, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00241', 'UG001', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
 ('AT00242', 'UG002', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
 ('AT00243', 'UG003', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001'),
@@ -544,7 +549,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00260', 'UG020', 'ICT2113', 'TP', '2025-04-28', 'present', NULL, 13, 'TCO001');
 
 -- Week 14 (May 5, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00261', 'UG001', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
 ('AT00262', 'UG002', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
 ('AT00263', 'UG003', 'ICT2113', 'TP', '2025-05-05', 'present', NULL, 14, 'TCO001'),
@@ -567,7 +572,7 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00280', 'UG020', 'ICT2113', 'TP', '2025-05-05', 'absent', NULL, 14, 'TCO001');
 
 -- Week 15 (May 12, 2025)
-INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendence, medical_status, session_no, at_to_id) VALUES
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
 ('AT00281', 'UG001', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00282', 'UG002', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00283', 'UG003', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
@@ -588,3 +593,1341 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00298', 'UG018', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00299', 'UG019', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00300', 'UG020', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001');
+
+
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+
+('AT00301', 'UG001', 'ICT2122', 'T', '2025-02-04', 'absent', 'MED011', 1, 'TCO002'),
+('AT00302', 'UG002', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00303', 'UG003', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00304', 'UG004', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00305', 'UG005', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00306', 'UG006', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00307', 'UG007', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00308', 'UG008', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00309', 'UG009', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00310', 'UG010', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00311', 'UG011', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00312', 'UG012', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00313', 'UG013', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00314', 'UG014', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00315', 'UG015', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00316', 'UG016', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00317', 'UG017', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00318', 'UG018', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00319', 'UG019', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00320', 'UG020', 'ICT2122', 'T', '2025-02-04', 'present', NULL, 1, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00321', 'UG001', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00322', 'UG002', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00323', 'UG003', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00324', 'UG004', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00325', 'UG005', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00326', 'UG006', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00327', 'UG007', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00328', 'UG008', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00329', 'UG009', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00330', 'UG010', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00331', 'UG011', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00332', 'UG012', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00333', 'UG013', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00334', 'UG014', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00335', 'UG015', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00336', 'UG016', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00337', 'UG017', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00338', 'UG018', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00339', 'UG019', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00340', 'UG020', 'ICT2122', 'T', '2025-02-11', 'present', NULL, 2, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00341', 'UG001', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00342', 'UG002', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00343', 'UG003', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00344', 'UG004', 'ICT2122', 'T', '2025-02-18', 'absent', 'MED013', 3, 'TCO002'),
+('AT00345', 'UG005', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00346', 'UG006', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00347', 'UG007', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00348', 'UG008', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00349', 'UG009', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00350', 'UG010', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00351', 'UG011', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00352', 'UG012', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00353', 'UG013', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00354', 'UG014', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00355', 'UG015', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00356', 'UG016', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00357', 'UG017', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00358', 'UG018', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00359', 'UG019', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+('AT00360', 'UG020', 'ICT2122', 'T', '2025-02-18', 'present', NULL, 3, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00361', 'UG001', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00362', 'UG002', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00363', 'UG003', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00364', 'UG004', 'ICT2122', 'T', '2025-02-25', 'absent', 'MED012', 4, 'TCO002'),
+('AT00365', 'UG005', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00366', 'UG006', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00367', 'UG007', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00368', 'UG008', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00369', 'UG009', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00370', 'UG010', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00371', 'UG011', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00372', 'UG012', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00373', 'UG013', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00374', 'UG014', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00375', 'UG015', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00376', 'UG016', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00377', 'UG017', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00378', 'UG018', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00379', 'UG019', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+('AT00380', 'UG020', 'ICT2122', 'T', '2025-02-25', 'present', NULL, 4, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00381', 'UG001', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00382', 'UG002', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00383', 'UG003', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00384', 'UG004', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00385', 'UG005', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00386', 'UG006', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00387', 'UG007', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00388', 'UG008', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00389', 'UG009', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00390', 'UG010', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00391', 'UG011', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00392', 'UG012', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00393', 'UG013', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00394', 'UG014', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00395', 'UG015', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00396', 'UG016', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00397', 'UG017', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00398', 'UG018', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00399', 'UG019', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00400', 'UG020', 'ICT2122', 'T', '2025-03-04', 'present', NULL, 5, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00401', 'UG001', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00402', 'UG002', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00403', 'UG003', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00404', 'UG004', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00405', 'UG005', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00406', 'UG006', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00407', 'UG007', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00408', 'UG008', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00409', 'UG009', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00410', 'UG010', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00411', 'UG011', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00412', 'UG012', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00413', 'UG013', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00414', 'UG014', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00415', 'UG015', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00416', 'UG016', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00417', 'UG017', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00418', 'UG018', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00419', 'UG019', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+('AT00420', 'UG020', 'ICT2122', 'T', '2025-03-11', 'present', NULL, 6, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00421', 'UG001', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00422', 'UG002', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00423', 'UG003', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00424', 'UG004', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00425', 'UG005', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00426', 'UG006', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00427', 'UG007', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00428', 'UG008', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00429', 'UG009', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00430', 'UG010', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00431', 'UG011', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00432', 'UG012', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00433', 'UG013', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00434', 'UG014', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00435', 'UG015', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00436', 'UG016', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00437', 'UG017', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00438', 'UG018', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00439', 'UG019', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00440', 'UG020', 'ICT2122', 'T', '2025-03-18', 'present', NULL, 7, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00441', 'UG001', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00442', 'UG002', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00443', 'UG003', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00444', 'UG004', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00445', 'UG005', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00446', 'UG006', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00447', 'UG007', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00448', 'UG008', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00449', 'UG009', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00450', 'UG010', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00451', 'UG011', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00452', 'UG012', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00453', 'UG013', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00454', 'UG014', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00455', 'UG015', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00456', 'UG016', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00457', 'UG017', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00458', 'UG018', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00459', 'UG019', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00460', 'UG020', 'ICT2122', 'T', '2025-03-25', 'present', NULL, 8, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code,at_course_type, date, attendance, medical_status,session_no, at_to_id) VALUES
+      ('AT00461', 'UG001', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00462', 'UG002', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00463', 'UG003', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00464', 'UG004', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00465', 'UG005', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00466', 'UG006', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00467', 'UG007', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00468', 'UG008', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00469', 'UG009', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00470', 'UG010', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00471', 'UG011', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00472', 'UG012', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00473', 'UG013', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00474', 'UG014', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00475', 'UG015', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00476', 'UG016', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00477', 'UG017', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00478', 'UG018', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00479', 'UG019', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+      ('AT00480', 'UG020', 'ICT2122', 'T', '2025-04-01', 'present', NULL, 9, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00481', 'UG001', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00482', 'UG002', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00483', 'UG003', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00484', 'UG004', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00485', 'UG005', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00486', 'UG006', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00487', 'UG007', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00488', 'UG008', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00489', 'UG009', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00490', 'UG010', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00491', 'UG011', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00492', 'UG012', 'ICT2122', 'T', '2025-04-08', 'absent', NULL, 10, 'TCO002'),
+('AT00493', 'UG013', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00494', 'UG014', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00495', 'UG015', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00496', 'UG016', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00497', 'UG017', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00498', 'UG018', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00499', 'UG019', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00500', 'UG020', 'ICT2122', 'T', '2025-04-08', 'present', NULL, 10, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00501', 'UG001', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00502', 'UG002', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00503', 'UG003', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00504', 'UG004', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00505', 'UG005', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00506', 'UG006', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00507', 'UG007', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00508', 'UG008', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00509', 'UG009', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00510', 'UG010', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00511', 'UG011', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00512', 'UG012', 'ICT2122', 'T', '2025-04-15', 'absent', NULL, 11, 'TCO002'),
+('AT00513', 'UG013', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00514', 'UG014', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00515', 'UG015', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00516', 'UG016', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00517', 'UG017', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00518', 'UG018', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00519', 'UG019', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00520', 'UG020', 'ICT2122', 'T', '2025-04-15', 'present', NULL, 11, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+    ('AT00521', 'UG001', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00522', 'UG002', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00523', 'UG003', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00524', 'UG004', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00525', 'UG005', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00526', 'UG006', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00527', 'UG007', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00528', 'UG008', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00529', 'UG009', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00530', 'UG010', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00531', 'UG011', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00532', 'UG012', 'ICT2122', 'T', '2025-04-22', 'absent', NULL, 12, 'TCO002'),
+    ('AT00533', 'UG013', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00534', 'UG014', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00535', 'UG015', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00536', 'UG016', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00537', 'UG017', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00538', 'UG018', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00539', 'UG019', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+    ('AT00540', 'UG020', 'ICT2122', 'T', '2025-04-22', 'present', NULL, 12, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00541', 'UG001', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00542', 'UG002', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00543', 'UG003', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00544', 'UG004', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00545', 'UG005', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00546', 'UG006', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00547', 'UG007', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00548', 'UG008', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00549', 'UG009', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00550', 'UG010', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00551', 'UG011', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00552', 'UG012', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00553', 'UG013', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00554', 'UG014', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00555', 'UG015', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00556', 'UG016', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00557', 'UG017', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00558', 'UG018', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00559', 'UG019', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00560', 'UG020', 'ICT2122', 'T', '2025-04-29', 'present', NULL, 13, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00561', 'UG001', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00562', 'UG002', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00563', 'UG003', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00564', 'UG004', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00565', 'UG005', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00566', 'UG006', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00567', 'UG007', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00568', 'UG008', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00569', 'UG009', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00570', 'UG010', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00571', 'UG011', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00572', 'UG012', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00573', 'UG013', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00574', 'UG014', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00575', 'UG015', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00576', 'UG016', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00577', 'UG017', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00578', 'UG018', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00579', 'UG019', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00580', 'UG020', 'ICT2122', 'T', '2025-05-06', 'present', NULL, 14, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00581', 'UG001', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00582', 'UG002', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00583', 'UG003', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00584', 'UG004', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00585', 'UG005', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00586', 'UG006', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00587', 'UG007', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00588', 'UG008', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00589', 'UG009', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00590', 'UG010', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00591', 'UG011', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00592', 'UG012', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00593', 'UG013', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00594', 'UG014', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00595', 'UG015', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00596', 'UG016', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00597', 'UG017', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00598', 'UG018', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00599', 'UG019', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00600', 'UG020', 'ICT2122', 'T', '2025-05-13', 'present', NULL, 15, 'TCO002');
+
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00601', 'UG001', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00602', 'UG002', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00603', 'UG003', 'ICT2142', 'P', '2025-02-04', 'absent', NULL, 1, 'TCO002'),
+('AT00604', 'UG004', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00605', 'UG005', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00606', 'UG006', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00607', 'UG007', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00608', 'UG008', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00609', 'UG009', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00610', 'UG010', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00611', 'UG011', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00612', 'UG012', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00613', 'UG013', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00614', 'UG014', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00615', 'UG015', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00616', 'UG016', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00617', 'UG017', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00618', 'UG018', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00619', 'UG019', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002'),
+('AT00620', 'UG020', 'ICT2142', 'P', '2025-02-04', 'present', NULL, 1, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00621', 'UG001', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00622', 'UG002', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00623', 'UG003', 'ICT2142', 'P', '2025-02-11', 'absent', NULL, 2, 'TCO002'),
+('AT00624', 'UG004', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00625', 'UG005', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00626', 'UG006', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00627', 'UG007', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00628', 'UG008', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00629', 'UG009', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00630', 'UG010', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00631', 'UG011', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00632', 'UG012', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00633', 'UG013', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00634', 'UG014', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00635', 'UG015', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00636', 'UG016', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00637', 'UG017', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00638', 'UG018', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00639', 'UG019', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002'),
+('AT00640', 'UG020', 'ICT2142', 'P', '2025-02-11', 'present', NULL, 2, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+ ('AT00641', 'UG001', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00642', 'UG002', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00643', 'UG003', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00644', 'UG004', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00645', 'UG005', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00646', 'UG006', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00647', 'UG007', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00648', 'UG008', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00649', 'UG009', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00650', 'UG010', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00651', 'UG011', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00652', 'UG012', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00653', 'UG013', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00654', 'UG014', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00655', 'UG015', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00656', 'UG016', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00657', 'UG017', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00658', 'UG018', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00659', 'UG019', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002'),
+ ('AT00660', 'UG020', 'ICT2142', 'P', '2025-02-18', 'present', NULL, 3, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+ ('AT00661', 'UG001', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00662', 'UG002', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00663', 'UG003', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00664', 'UG004', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00665', 'UG005', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00666', 'UG006', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00667', 'UG007', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00668', 'UG008', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00669', 'UG009', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00670', 'UG010', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00671', 'UG011', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00672', 'UG012', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00673', 'UG013', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00674', 'UG014', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00675', 'UG015', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00676', 'UG016', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00677', 'UG017', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00678', 'UG018', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00679', 'UG019', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002'),
+ ('AT00680', 'UG020', 'ICT2142', 'P', '2025-02-25', 'present', NULL, 4, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00681', 'UG001', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00682', 'UG002', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00683', 'UG003', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00684', 'UG004', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00685', 'UG005', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00686', 'UG006', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00687', 'UG007', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00688', 'UG008', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00689', 'UG009', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00690', 'UG010', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00691', 'UG011', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00692', 'UG012', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00693', 'UG013', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00694', 'UG014', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00695', 'UG015', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00696', 'UG016', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00697', 'UG017', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00698', 'UG018', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002'),
+('AT00699', 'UG019', 'ICT2142', 'P', '2025-03-04', 'absent', NULL, 5, 'TCO002'),
+('AT00700', 'UG020', 'ICT2142', 'P', '2025-03-04', 'present', NULL, 5, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+ ('AT00701', 'UG001', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00702', 'UG002', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00703', 'UG003', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00704', 'UG004', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00705', 'UG005', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00706', 'UG006', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00707', 'UG007', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00708', 'UG008', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00709', 'UG009', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00710', 'UG010', 'ICT2142', 'P', '2025-03-11', 'absent', NULL, 6, 'TCO002'),
+ ('AT00711', 'UG011', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00712', 'UG012', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00713', 'UG013', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00714', 'UG014', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00715', 'UG015', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00716', 'UG016', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00717', 'UG017', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00718', 'UG018', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00719', 'UG019', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002'),
+ ('AT00720', 'UG020', 'ICT2142', 'P', '2025-03-11', 'present', NULL, 6, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00721', 'UG001', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00722', 'UG002', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00723', 'UG003', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00724', 'UG004', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00725', 'UG005', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00726', 'UG006', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00727', 'UG007', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00728', 'UG008', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00729', 'UG009', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00730', 'UG010', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00731', 'UG011', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00732', 'UG012', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00733', 'UG013', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00734', 'UG014', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00735', 'UG015', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00736', 'UG016', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00737', 'UG017', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00738', 'UG018', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00739', 'UG019', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002'),
+('AT00740', 'UG020', 'ICT2142', 'P', '2025-03-18', 'present', NULL, 7, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00741', 'UG001', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00742', 'UG002', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00743', 'UG003', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00744', 'UG004', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00745', 'UG005', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00746', 'UG006', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00747', 'UG007', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00748', 'UG008', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00749', 'UG009', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00750', 'UG010', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00751', 'UG011', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00752', 'UG012', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00753', 'UG013', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00754', 'UG014', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00755', 'UG015', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00756', 'UG016', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00757', 'UG017', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00758', 'UG018', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00759', 'UG019', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002'),
+('AT00760', 'UG020', 'ICT2142', 'P', '2025-03-25', 'present', NULL, 8, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+ ('AT00761', 'UG001', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00762', 'UG002', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00763', 'UG003', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00764', 'UG004', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00765', 'UG005', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00766', 'UG006', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00767', 'UG007', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00768', 'UG008', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00769', 'UG009', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00770', 'UG010', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00771', 'UG011', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00772', 'UG012', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00773', 'UG013', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00774', 'UG014', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00775', 'UG015', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00776', 'UG016', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00777', 'UG017', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00778', 'UG018', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00779', 'UG019', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002'),
+ ('AT00780', 'UG020', 'ICT2142', 'P', '2025-04-01', 'present', NULL, 9, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00781', 'UG001', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00782', 'UG002', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00783', 'UG003', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00784', 'UG004', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00785', 'UG005', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00786', 'UG006', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00787', 'UG007', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00788', 'UG008', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00789', 'UG009', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00790', 'UG010', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00791', 'UG011', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00792', 'UG012', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00793', 'UG013', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00794', 'UG014', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00795', 'UG015', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00796', 'UG016', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00797', 'UG017', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00798', 'UG018', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00799', 'UG019', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002'),
+('AT00800', 'UG020', 'ICT2142', 'P', '2025-04-08', 'present', NULL, 10, 'TCO002');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00801', 'UG001', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00802', 'UG002', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00803', 'UG003', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00804', 'UG004', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00805', 'UG005', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00806', 'UG006', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00807', 'UG007', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00808', 'UG008', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00809', 'UG009', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00810', 'UG010', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00811', 'UG011', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00812', 'UG012', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00813', 'UG013', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00814', 'UG014', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00815', 'UG015', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00816', 'UG016', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00817', 'UG017', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00818', 'UG018', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00819', 'UG019', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002'),
+('AT00820', 'UG020', 'ICT2142', 'P', '2025-04-15', 'present', NULL, 11, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00281', 'UG001', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00282', 'UG002', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00283', 'UG003', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00284', 'UG004', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00285', 'UG005', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00286', 'UG006', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00287', 'UG007', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00288', 'UG008', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00289', 'UG009', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00290', 'UG010', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00291', 'UG011', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00292', 'UG012', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00293', 'UG013', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00294', 'UG014', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00295', 'UG015', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00296', 'UG016', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00297', 'UG017', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00298', 'UG018', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00299', 'UG019', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002'),
+('AT00300', 'UG020', 'ICT2142', 'P', '2025-04-22', 'present', NULL, 12, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00841', 'UG001', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00842', 'UG002', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00843', 'UG003', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00844', 'UG004', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00845', 'UG005', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00846', 'UG006', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00847', 'UG007', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00848', 'UG008', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00849', 'UG009', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00850', 'UG010', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00851', 'UG011', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00852', 'UG012', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00853', 'UG013', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00854', 'UG014', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00855', 'UG015', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00856', 'UG016', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00857', 'UG017', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00858', 'UG018', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00859', 'UG019', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002'),
+('AT00860', 'UG020', 'ICT2142', 'P', '2025-04-29', 'present', NULL, 13, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00861', 'UG001', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00862', 'UG002', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00863', 'UG003', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00864', 'UG004', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00865', 'UG005', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00866', 'UG006', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00867', 'UG007', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00868', 'UG008', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00869', 'UG009', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00870', 'UG010', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00871', 'UG011', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00872', 'UG012', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00873', 'UG013', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00874', 'UG014', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00875', 'UG015', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00876', 'UG016', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00877', 'UG017', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00878', 'UG018', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00879', 'UG019', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002'),
+('AT00880', 'UG020', 'ICT2142', 'P', '2025-05-06', 'present', NULL, 14, 'TCO002');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+('AT00281', 'UG001', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00282', 'UG002', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00283', 'UG003', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00284', 'UG004', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00285', 'UG005', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00286', 'UG006', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00287', 'UG007', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00288', 'UG008', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00289', 'UG009', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00290', 'UG010', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00291', 'UG011', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00292', 'UG012', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00293', 'UG013', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00294', 'UG014', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00295', 'UG015', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00296', 'UG016', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00297', 'UG017', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00298', 'UG018', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00299', 'UG019', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002'),
+('AT00300', 'UG020', 'ICT2142', 'P', '2025-05-13', 'present', NULL, 15, 'TCO002');
+
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT00901', 'UG001', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00902', 'UG002', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00903', 'UG003', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00904', 'UG004', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00905', 'UG005', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00906', 'UG006', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00907', 'UG007', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00908', 'UG008', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00909', 'UG009', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00910', 'UG010', 'ICT2133', 'TP', '2025-02-05', 'absent', 'MED014', 1, 'TCO003'),
+                                                                                                                                                        ('AT00911', 'UG011', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00912', 'UG012', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00913', 'UG013', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00914', 'UG014', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00915', 'UG015', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00916', 'UG016', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00917', 'UG017', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00918', 'UG018', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00919', 'UG019', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003'),
+                                                                                                                                                        ('AT00920', 'UG020', 'ICT2133', 'TP', '2025-02-05', 'present', NULL, 1, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT00921', 'UG001', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00922', 'UG002', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00923', 'UG003', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00924', 'UG004', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00925', 'UG005', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00926', 'UG006', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00927', 'UG007', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00928', 'UG008', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00929', 'UG009', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00930', 'UG010', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00931', 'UG011', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00932', 'UG012', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00933', 'UG013', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00934', 'UG014', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00935', 'UG015', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00936', 'UG016', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00937', 'UG017', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00938', 'UG018', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00939', 'UG019', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003'),
+                                                                                                                                                        ('AT00940', 'UG020', 'ICT2133', 'TP', '2025-02-12', 'present', NULL, 2, 'TCO003');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT00941', 'UG001', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00942', 'UG002', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00943', 'UG003', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00944', 'UG004', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00945', 'UG005', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00946', 'UG006', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00947', 'UG007', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00948', 'UG008', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00949', 'UG009', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00950', 'UG010', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00951', 'UG011', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00952', 'UG012', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00953', 'UG013', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00954', 'UG014', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00955', 'UG015', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00956', 'UG016', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00957', 'UG017', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00958', 'UG018', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00959', 'UG019', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003'),
+                                                                                                                                                        ('AT00960', 'UG020', 'ICT2133', 'TP', '2025-02-19', 'present', NULL, 3, 'TCO003');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT00961', 'UG001', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00962', 'UG002', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00963', 'UG003', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00964', 'UG004', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00965', 'UG005', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00966', 'UG006', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00967', 'UG007', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00968', 'UG008', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00969', 'UG009', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00970', 'UG010', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00971', 'UG011', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00972', 'UG012', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00973', 'UG013', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00974', 'UG014', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00975', 'UG015', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00976', 'UG016', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00977', 'UG017', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00978', 'UG018', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00979', 'UG019', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003'),
+                                                                                                                                                        ('AT00980', 'UG020', 'ICT2133', 'TP', '2025-02-26', 'present', NULL, 4, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT00981', 'UG001', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00982', 'UG002', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00983', 'UG003', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00984', 'UG004', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00985', 'UG005', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00986', 'UG006', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00987', 'UG007', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00988', 'UG008', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00989', 'UG009', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00990', 'UG010', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00991', 'UG011', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00992', 'UG012', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00993', 'UG013', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00994', 'UG014', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00995', 'UG015', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00996', 'UG016', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00997', 'UG017', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00998', 'UG018', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT00999', 'UG019', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003'),
+                                                                                                                                                        ('AT01000', 'UG020', 'ICT2133', 'TP', '2025-03-05', 'present', NULL, 5, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT1001', 'UG001', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1002', 'UG002', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1003', 'UG003', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1004', 'UG004', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1005', 'UG005', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1006', 'UG006', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1007', 'UG007', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1008', 'UG008', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1009', 'UG009', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1010', 'UG010', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1011', 'UG011', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1012', 'UG012', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1013', 'UG013', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1014', 'UG014', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1015', 'UG015', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1016', 'UG016', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1017', 'UG017', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1018', 'UG018', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1019', 'UG019', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003'),
+                                                                                                                                                        ('AT1020', 'UG020', 'ICT2133', 'TP', '2025-03-12', 'present', NULL, 6, 'TCO003');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT1021', 'UG001', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1022', 'UG002', 'ICT2133', 'TP', '2025-03-19', 'absent', 'MED015', 7, 'TCO003'),
+                                                                                                                                                        ('AT1023', 'UG003', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1024', 'UG004', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1025', 'UG005', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1026', 'UG006', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1027', 'UG007', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1028', 'UG008', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1029', 'UG009', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1030', 'UG010', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1031', 'UG011', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1032', 'UG012', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1033', 'UG013', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1034', 'UG014', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1035', 'UG015', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1036', 'UG016', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1037', 'UG017', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1038', 'UG018', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1039', 'UG019', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003'),
+                                                                                                                                                        ('AT1040', 'UG020', 'ICT2133', 'TP', '2025-03-19', 'present', NULL, 7, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT1041', 'UG001', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1042', 'UG002', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1043', 'UG003', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1044', 'UG004', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1045', 'UG005', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1046', 'UG006', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1047', 'UG007', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1048', 'UG008', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1049', 'UG009', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1050', 'UG010', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1051', 'UG011', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1052', 'UG012', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1053', 'UG013', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1054', 'UG014', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1055', 'UG015', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1056', 'UG016', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1057', 'UG017', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1058', 'UG018', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1059', 'UG019', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003'),
+                                                                                                                                                        ('AT1060', 'UG020', 'ICT2133', 'TP', '2025-03-26', 'present', NULL, 8, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01061', 'UG001', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01062', 'UG002', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01063', 'UG003', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01064', 'UG004', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01065', 'UG005', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01066', 'UG006', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01067', 'UG007', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01068', 'UG008', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01069', 'UG009', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01070', 'UG010', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01071', 'UG011', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01072', 'UG012', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01073', 'UG013', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01074', 'UG014', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01075', 'UG015', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01076', 'UG016', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01077', 'UG017', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01078', 'UG018', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01079', 'UG019', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003'),
+                                                                                                                                                        ('AT01080', 'UG020', 'ICT2133', 'TP', '2025-04-02', 'present', NULL, 9, 'TCO003');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01081', 'UG001', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01082', 'UG002', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01083', 'UG003', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01084', 'UG004', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01085', 'UG005', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01086', 'UG006', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01087', 'UG007', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01088', 'UG008', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01089', 'UG009', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01090', 'UG010', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01091', 'UG011', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01092', 'UG012', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01093', 'UG013', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01094', 'UG014', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01095', 'UG015', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01096', 'UG016', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01097', 'UG017', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01098', 'UG018', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01099', 'UG019', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003'),
+                                                                                                                                                        ('AT01100', 'UG020', 'ICT2133', 'TP', '2025-04-09', 'present', NULL, 10, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01101', 'UG001', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01102', 'UG002', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01103', 'UG003', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01104', 'UG004', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01105', 'UG005', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01106', 'UG006', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01107', 'UG007', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01108', 'UG008', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01109', 'UG009', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01110', 'UG010', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01111', 'UG011', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01112', 'UG012', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01113', 'UG013', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01114', 'UG014', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01115', 'UG015', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01116', 'UG016', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01117', 'UG017', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01118', 'UG018', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01119', 'UG019', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003'),
+                                                                                                                                                        ('AT01120', 'UG020', 'ICT2133', 'TP', '2025-04-16', 'present', NULL, 11, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01121', 'UG001', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01122', 'UG002', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01123', 'UG003', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01124', 'UG004', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01125', 'UG005', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01126', 'UG006', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01127', 'UG007', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01128', 'UG008', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01129', 'UG009', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01130', 'UG010', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01131', 'UG011', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01132', 'UG012', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01133', 'UG013', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01134', 'UG014', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01135', 'UG015', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01136', 'UG016', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01137', 'UG017', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01138', 'UG018', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01139', 'UG019', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003'),
+                                                                                                                                                        ('AT01140', 'UG020', 'ICT2133', 'TP', '2025-04-23', 'present', NULL, 12, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01141', 'UG001', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01142', 'UG002', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01143', 'UG003', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01144', 'UG004', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01145', 'UG005', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01146', 'UG006', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01147', 'UG007', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01148', 'UG008', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01149', 'UG009', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01150', 'UG010', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01151', 'UG011', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01152', 'UG012', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01153', 'UG013', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01154', 'UG014', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01155', 'UG015', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01156', 'UG016', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01157', 'UG017', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01158', 'UG018', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01159', 'UG019', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003'),
+                                                                                                                                                        ('AT01160', 'UG020', 'ICT2133', 'TP', '2025-04-30', 'present', NULL, 13, 'TCO003');
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01161', 'UG001', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01162', 'UG002', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01163', 'UG003', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01164', 'UG004', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01165', 'UG005', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01166', 'UG006', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01167', 'UG007', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01168', 'UG008', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01169', 'UG009', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01170', 'UG010', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01171', 'UG011', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01172', 'UG012', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01173', 'UG013', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01174', 'UG014', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01175', 'UG015', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01176', 'UG016', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01177', 'UG017', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01178', 'UG018', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01179', 'UG019', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003'),
+                                                                                                                                                        ('AT01180', 'UG020', 'ICT2133', 'TP', '2025-05-07', 'present', NULL, 14, 'TCO003');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01181', 'UG001', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01182', 'UG002', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01183', 'UG003', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01184', 'UG004', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01185', 'UG005', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01186', 'UG006', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01187', 'UG007', 'ICT2133', 'TP', '2025-05-14', 'absent', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01188', 'UG008', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01189', 'UG009', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01190', 'UG010', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01191', 'UG011', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01192', 'UG012', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01193', 'UG013', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01194', 'UG014', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01195', 'UG015', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01196', 'UG016', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01197', 'UG017', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01198', 'UG018', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01199', 'UG019', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003'),
+                                                                                                                                                        ('AT01200', 'UG020', 'ICT2133', 'TP', '2025-05-14', 'present', NULL, 15, 'TCO003');
+
+
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01201', 'UG001', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01202', 'UG002', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01203', 'UG003', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01204', 'UG004', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01205', 'UG005', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01206', 'UG006', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01207', 'UG007', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01208', 'UG008', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01209', 'UG009', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01210', 'UG010', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01211', 'UG011', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01212', 'UG012', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01213', 'UG013', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01214', 'UG014', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01215', 'UG015', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01216', 'UG016', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01217', 'UG017', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01218', 'UG018', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01219', 'UG019', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004'),
+                                                                                                                                                        ('AT01220', 'UG020', 'ICT2152', 'T', '2025-02-07', 'present', NULL, 1, 'TCO004');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01221', 'UG001', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01222', 'UG002', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01223', 'UG003', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01224', 'UG004', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01225', 'UG005', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01226', 'UG006', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01227', 'UG007', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01228', 'UG008', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01229', 'UG009', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01230', 'UG010', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01231', 'UG011', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01232', 'UG012', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01233', 'UG013', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01234', 'UG014', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01235', 'UG015', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01236', 'UG016', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01237', 'UG017', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01238', 'UG018', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01239', 'UG019', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004'),
+                                                                                                                                                        ('AT01240', 'UG020', 'ICT2152', 'T', '2025-02-13', 'present', NULL, 2, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01241', 'UG001', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01242', 'UG002', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01243', 'UG003', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01244', 'UG004', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01245', 'UG005', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01246', 'UG006', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01247', 'UG007', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01248', 'UG008', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01249', 'UG009', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01250', 'UG010', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01251', 'UG011', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01252', 'UG012', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01253', 'UG013', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01254', 'UG014', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01255', 'UG015', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01256', 'UG016', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01257', 'UG017', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01258', 'UG018', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01259', 'UG019', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004'),
+                                                                                                                                                        ('AT01260', 'UG020', 'ICT2152', 'T', '2025-02-20', 'present', NULL, 3, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01261', 'UG001', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01262', 'UG002', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01263', 'UG003', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01264', 'UG004', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01265', 'UG005', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01266', 'UG006', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01267', 'UG007', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01268', 'UG008', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01269', 'UG009', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01270', 'UG010', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01271', 'UG011', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01272', 'UG012', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01273', 'UG013', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01274', 'UG014', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01275', 'UG015', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01276', 'UG016', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01277', 'UG017', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01278', 'UG018', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01279', 'UG019', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004'),
+                                                                                                                                                        ('AT01280', 'UG020', 'ICT2152', 'T', '2025-02-27', 'present', NULL, 4, 'TCO004');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01281', 'UG001', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01282', 'UG002', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01283', 'UG003', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01284', 'UG004', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01285', 'UG005', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01286', 'UG006', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01287', 'UG007', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01288', 'UG008', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01289', 'UG009', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01290', 'UG010', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01291', 'UG011', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01292', 'UG012', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01293', 'UG013', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01294', 'UG014', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01295', 'UG015', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01296', 'UG016', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01297', 'UG017', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01298', 'UG018', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01299', 'UG019', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004'),
+                                                                                                                                                        ('AT01300', 'UG020', 'ICT2152', 'T', '2025-03-06', 'present', NULL, 5, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01301', 'UG001', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01302', 'UG002', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01303', 'UG003', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01304', 'UG004', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01305', 'UG005', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01306', 'UG006', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01307', 'UG007', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01308', 'UG008', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01309', 'UG009', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01310', 'UG010', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01311', 'UG011', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01312', 'UG012', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01313', 'UG013', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01314', 'UG014', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01315', 'UG015', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01316', 'UG016', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01317', 'UG017', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01318', 'UG018', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01319', 'UG019', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004'),
+                                                                                                                                                        ('AT01320', 'UG020', 'ICT2152', 'T', '2025-03-13', 'present', NULL, 6, 'TCO004');
+
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01321', 'UG001', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01322', 'UG002', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01323', 'UG003', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01324', 'UG004', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01325', 'UG005', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01326', 'UG006', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01327', 'UG007', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01328', 'UG008', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01329', 'UG009', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01330', 'UG010', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01331', 'UG011', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01332', 'UG012', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01333', 'UG013', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01334', 'UG014', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01335', 'UG015', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01336', 'UG016', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01337', 'UG017', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01338', 'UG018', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01339', 'UG019', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004'),
+                                                                                                                                                        ('AT01340', 'UG020', 'ICT2152', 'T', '2025-03-20', 'present', NULL, 7, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01341', 'UG001', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01342', 'UG002', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01343', 'UG003', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01344', 'UG004', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01345', 'UG005', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01346', 'UG006', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01347', 'UG007', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01348', 'UG008', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01349', 'UG009', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01350', 'UG010', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01351', 'UG011', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01352', 'UG012', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01353', 'UG013', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01354', 'UG014', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01355', 'UG015', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01356', 'UG016', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01357', 'UG017', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01358', 'UG018', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01359', 'UG019', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004'),
+                                                                                                                                                        ('AT01360', 'UG020', 'ICT2152', 'T', '2025-03-27', 'present', NULL, 8, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01361', 'UG001', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01362', 'UG002', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01363', 'UG003', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01364', 'UG004', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01365', 'UG005', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01366', 'UG006', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01367', 'UG007', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01368', 'UG008', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01369', 'UG009', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01370', 'UG010', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01371', 'UG011', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01372', 'UG012', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01373', 'UG013', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01374', 'UG014', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01375', 'UG015', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01376', 'UG016', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01377', 'UG017', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01378', 'UG018', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01379', 'UG019', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004'),
+                                                                                                                                                        ('AT01380', 'UG020', 'ICT2152', 'T', '2025-04-03', 'present', NULL, 9, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01381', 'UG001', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01382', 'UG002', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01383', 'UG003', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01384', 'UG004', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01385', 'UG005', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01386', 'UG006', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01387', 'UG007', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01388', 'UG008', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01389', 'UG009', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01390', 'UG010', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01391', 'UG011', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01392', 'UG012', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01393', 'UG013', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01394', 'UG014', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01395', 'UG015', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01396', 'UG016', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01397', 'UG017', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01398', 'UG018', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01399', 'UG019', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004'),
+                                                                                                                                                        ('AT01400', 'UG020', 'ICT2152', 'T', '2025-04-10', 'present', NULL, 10, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01401', 'UG001', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01402', 'UG002', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01403', 'UG003', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01404', 'UG004', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01405', 'UG005', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01406', 'UG006', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01407', 'UG007', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01408', 'UG008', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01409', 'UG009', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01410', 'UG010', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01411', 'UG011', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01412', 'UG012', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01413', 'UG013', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01414', 'UG014', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01415', 'UG015', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01416', 'UG016', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01417', 'UG017', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01418', 'UG018', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01419', 'UG019', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004'),
+                                                                                                                                                        ('AT01420', 'UG020', 'ICT2152', 'T', '2025-04-17', 'present', NULL, 11, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01421', 'UG001', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01422', 'UG002', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01423', 'UG003', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01424', 'UG004', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01425', 'UG005', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01426', 'UG006', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01427', 'UG007', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01428', 'UG008', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01429', 'UG009', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01430', 'UG010', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01431', 'UG011', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01432', 'UG012', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01433', 'UG013', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01434', 'UG014', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01435', 'UG015', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01436', 'UG016', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01437', 'UG017', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01438', 'UG018', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01439', 'UG019', 'ICT2152', 'T', '2025-04-24', 'present', NULL, 12, 'TCO004'),
+                                                                                                                                                        ('AT01440', 'UG020', 'ICT2152', 'T', '2025-04-24', 'absent', NULL, 12, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01441', 'UG001', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01442', 'UG002', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01443', 'UG003', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01444', 'UG004', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01445', 'UG005', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01446', 'UG006', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01447', 'UG007', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01448', 'UG008', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01449', 'UG009', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01450', 'UG010', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01451', 'UG011', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01452', 'UG012', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01453', 'UG013', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01454', 'UG014', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01455', 'UG015', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01456', 'UG016', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01457', 'UG017', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01458', 'UG018', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01459', 'UG019', 'ICT2152', 'T', '2025-04-01', 'present', NULL, 13, 'TCO004'),
+                                                                                                                                                        ('AT01460', 'UG020', 'ICT2152', 'T', '2025-04-01', 'absent', 'MED016', 13, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01461', 'UG001', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01462', 'UG002', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01463', 'UG003', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01464', 'UG004', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01465', 'UG005', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01466', 'UG006', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01467', 'UG007', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01468', 'UG008', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01469', 'UG009', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01470', 'UG010', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01471', 'UG011', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01472', 'UG012', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01473', 'UG013', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01474', 'UG014', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01475', 'UG015', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01476', 'UG016', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01477', 'UG017', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01478', 'UG018', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01479', 'UG019', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004'),
+                                                                                                                                                        ('AT01480', 'UG020', 'ICT2152', 'T', '2025-04-08', 'present', NULL, 14, 'TCO004');
+INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_course_type, date, attendance, medical_status, session_no, at_to_id) VALUES
+                                                                                                                                                        ('AT01481', 'UG001', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01482', 'UG002', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01483', 'UG003', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01484', 'UG004', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01485', 'UG005', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01486', 'UG006', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01487', 'UG007', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01488', 'UG008', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01489', 'UG009', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01490', 'UG010', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01491', 'UG011', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01492', 'UG012', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01493', 'UG013', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01494', 'UG014', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01495', 'UG015', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01496', 'UG016', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01497', 'UG017', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01498', 'UG018', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01499', 'UG019', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004'),
+                                                                                                                                                        ('AT01500', 'UG020', 'ICT2152', 'T', '2025-04-15', 'present', NULL, 15, 'TCO004');
