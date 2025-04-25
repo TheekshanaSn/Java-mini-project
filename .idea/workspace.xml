@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="merg to dev" />
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="merg to dev">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Java-mini-project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,12 +38,12 @@
     &quot;assignee&quot;: &quot;thishanherath&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TheekshanaSn/Java-mini-project.git",
-    "accountId": "85395d81-093a-464c-8a1d-008e0e07ad5c"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TheekshanaSn/Java-mini-project.git&quot;,
+    &quot;accountId&quot;: &quot;85395d81-093a-464c-8a1d-008e0e07ad5c&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -48,7 +55,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.LectureProfile.executor": "Run",
     "Application.LoginForm.executor": "Run",
+    "Application.Medical.executor": "Run",
     "Application.courseDetails.executor": "Run",
     "Application.undergraduateProfile.executor": "Run",
     "Application.undergraduate_Dash.executor": "Run",
@@ -57,15 +66,15 @@
     "git-widget-placeholder": "theekshana",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/theek/Desktop/Java-mini-project/LMS",
+    "last_opened_file_path": "C:/Users/theek/Downloads/rs2xml (1).jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
