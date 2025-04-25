@@ -320,6 +320,8 @@ public class Notice extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Notice());
+
+        SwingUtilities.invokeLater(() ->
+                new Notice());
     }
 }
