@@ -299,8 +299,85 @@ public class User_profile extends JFrame {
         }
     }
 
+    private boolean validateUserData() {
+        String userId = textField1.getText().trim();
+        String email = textField2.getText().trim();
+        String name = textField3.getText().trim();
+        String phone = textField4.getText().trim();
+        String username = textField5.getText().trim();
+        String password = textField6.getText().trim();
+        String role = textField7.getText().trim().toLowerCase();
+        String department = textField8.getText().trim();
+
+
+        if (userId.isEmpty() || email.isEmpty() || name.isEmpty() || phone.isEmpty()
+                || username.isEmpty() || password.isEmpty() || role.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All fields except department are required.");
+            return false;
+        }
+
+
+        boolean validId = false;
+        if (role.equals("undergraduate") && userId.matches("^UG\\d{3}$")) {
+            validId = true;
+        } else if (role.equals("lecturer") && userId.matches("^LEC\\d{3}$")) {
+            validId = true;
+        } else if (role.equals("technicalofficer") && userId.matches("^TCO\\d{3}$")) {
+            validId = true;
+        }
+
+        if (!validId) {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid ID format. Use UG### for undergraduate, LEC### for lecturer, or TCO### for technical officer.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            textField1.requestFocus();
+            return false;
+        }
+
+
+
+        if (!phone.matches("^[0-9]{10}$")) {
+            JOptionPane.showMessageDialog(this,
+                    "Phone number must be exactly 10 digits.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            textField4.requestFocus();
+            return false;
+        }
+
+
+        if (!role.equals("undergraduate") && !role.equals("lecturer") && !role.equals("technicalofficer")) {
+            JOptionPane.showMessageDialog(this,
+                    "Role must be 'undergraduate', 'lecturer', or 'technicalofficer'.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            textField7.requestFocus();
+            return false;
+        }
+
+
+        if (department.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Department is required.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            textField8.requestFocus();
+            return false;
+        } else if (!department.equals("ICT") && !department.equals("ET") && !department.equals("BST")) {
+            JOptionPane.showMessageDialog(this,
+                    "Department must be 'ICT', 'ET', or 'BST'.",
+                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+            textField8.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
 
     private void addNewUser() {
+
+        if (!validateUserData()) {
+            return;
+        }
+
         String userId = textField1.getText().trim();
         String email = textField2.getText().trim();
         String name = textField3.getText().trim();
@@ -311,15 +388,15 @@ public class User_profile extends JFrame {
         String department = textField8.getText().trim();
 
 
-        if (userId.isEmpty() || email.isEmpty() || role.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "User ID, Email, and Role are required fields.");
-            return;
-        }
-
-        if ((role.equals("undergraduate") || role.equals("lecturer")) && department.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Department is required.");
-            return;
-        }
+//        if (userId.isEmpty() || email.isEmpty() || phone.isEmpty() || username.isEmpty() || password.isEmpty() ||role.isEmpty() ) {
+//            JOptionPane.showMessageDialog(this, "User ID, Email,phone,username password  and Role are required fields.");
+//            return;
+//        }
+//
+//        if ((role.equals("undergraduate") || role.equals("lecturer")) && department.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Department is required.");
+//            return;
+//        }
 
         try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
@@ -407,6 +484,11 @@ public class User_profile extends JFrame {
 
 
     private void updateUser() {
+
+        if (!validateUserData()) {
+            return;
+        }
+
         String userId = textField1.getText().trim();
         String email = textField2.getText().trim();
         String name = textField3.getText().trim();
