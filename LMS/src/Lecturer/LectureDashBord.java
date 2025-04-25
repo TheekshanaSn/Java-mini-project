@@ -16,6 +16,8 @@ public class LectureDashBord extends JFrame {
     private JButton btnNotices;
     private JLabel labHi;
     private JPanel main;
+    private JPanel mainDash;
+
 
     private String username;
     private String password;
@@ -36,15 +38,22 @@ public class LectureDashBord extends JFrame {
      }
 
     LectureDashBord(String user_id, String password) {
+
         this.user_id = user_id;
         this.password = password;
 
+
+//        System.out.println("mainDash: " + mainDash);
+
+
+        System.out.println("hi");
         setTitle("Lecturer Dashboard");
-        setContentPane(main);
+        setContentPane(mainDash);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1000, 500);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         setResizable(false);
+
 
         getUsername(user_id);
         labHi.setText(" HI " + username);
@@ -79,6 +88,7 @@ public class LectureDashBord extends JFrame {
             }
         });
     }
+
 
     public void getUsername(String user_id) {
         try {

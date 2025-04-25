@@ -588,3 +588,5 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00298', 'UG018', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00299', 'UG019', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00300', 'UG020', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001');
+
+
