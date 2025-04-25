@@ -19,13 +19,13 @@ public class UndergraduateGrades extends JFrame {
     private JTable tblGradeMark;
     private JButton btnExit;
     private JButton btnBack;
-    // Add this field to match what the form file expects
+
     private JPanel Grade;
     private JTable table1;
 
     UndergraduateGrades() {
         setTitle("CA Mark Profile");
-        // Use the Grade panel from the form file
+
         setContentPane(Grade);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
@@ -223,6 +223,6 @@ public class UndergraduateGrades extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new UndergraduateGrades());
+         new UndergraduateGrades().setVisible(true);
     }
 }

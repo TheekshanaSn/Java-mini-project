@@ -37,7 +37,7 @@ public class CAMark extends JFrame {
         table_load();
 
 
-        setTitle("CA Mark Profile");
+        setTitle("| LectureDashBord | UploadMark | FinalMark | CAMark |");
         setContentPane(CAMark);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
@@ -73,11 +73,10 @@ public class CAMark extends JFrame {
         BACKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
-            }
+                    new UploadMark(user_id);
+                }
         });
     }
 
@@ -214,8 +213,9 @@ public class CAMark extends JFrame {
 
         try {
             Conn conn = new Conn();
-            pst = conn.c.prepareStatement("SELECT * FROM camarks WHERE undergraduate_id = ?");
+            pst = conn.c.prepareStatement("SELECT * FROM camarks WHERE undergraduate_id = ? and course_code=?");
             pst.setString(1, undergraduateID);
+            pst.setString(2, corse_code);
             ResultSet rs = pst.executeQuery();
 
             if (!rs.isBeforeFirst()) {

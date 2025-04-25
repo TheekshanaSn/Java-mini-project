@@ -27,13 +27,14 @@ public class FinalMark extends JFrame {
     private JLabel lblCourseName;
     private JPanel finalmark;
     private String user_id;
+
     private String corse_code;
-    FinalMark(String user_id ) {
+    public FinalMark(String user_id ) {
          this.user_id = user_id;
         getLecturerCorsecodeandName(user_id);
         table_load();
 
-        setTitle("CA Mark Profile");
+        setTitle("| LectureDashBord | UploadMark | FinalMark |");
         setContentPane(finalmark);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
@@ -68,9 +69,7 @@ public class FinalMark extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
+                new UploadMark(user_id);
             }
         });
 
@@ -227,8 +226,9 @@ public class FinalMark extends JFrame {
 
         try {
             Conn conn = new Conn();
-            PreparedStatement pst = conn.c.prepareStatement("SELECT * FROM finalmarks WHERE undergraduate_id = ?");
+            PreparedStatement pst = conn.c.prepareStatement("SELECT * FROM finalmarks WHERE undergraduate_id = ? AND course_code=?");
             pst.setString(1, undergraduateID);
+            pst.setString(2, corse_code);
             ResultSet rs = pst.executeQuery();
 
             if (!rs.isBeforeFirst()) {

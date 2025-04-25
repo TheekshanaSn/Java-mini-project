@@ -35,6 +35,8 @@ public class LectureDashBord extends JFrame {
     }
      public LectureDashBord() {
 
+
+
      }
 
      public  LectureDashBord(String user_id, String password) {
@@ -47,7 +49,7 @@ public class LectureDashBord extends JFrame {
 
 
         System.out.println("hi");
-        setTitle("Lecturer Dashboard");
+        setTitle("| LectureDashBord |");
         setContentPane(mainDash);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800, 600);
@@ -57,6 +59,15 @@ public class LectureDashBord extends JFrame {
 
         getUsername(user_id);
         labHi.setText(" HI " + username);
+
+         btnViewUndergraduate.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 setVisible(false);
+                 new ViewUndergraduate("").setVisible(true);
+             }
+         });
+
 
         btnProfile.addActionListener(new ActionListener() {
             @Override
@@ -84,9 +95,17 @@ public class LectureDashBord extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CAMark(user_id).setVisible(true);
+//                new CAMark(user_id).setVisible(true);
+                new UploadMark(user_id).setVisible(true);
             }
         });
+         btnNotices.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 setVisible(false);
+                 new Notice().setVisible(true);
+             }
+         });
     }
 
 
