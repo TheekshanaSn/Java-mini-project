@@ -57,7 +57,7 @@ public class A_Dash_Board extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     dispose(); // Close the current interface
                     SwingUtilities.invokeLater(() -> {
-                        new User_profile();
+                        User_profile userProfile = new User_profile();
                     });
                 }
             });
