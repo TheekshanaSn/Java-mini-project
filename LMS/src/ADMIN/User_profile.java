@@ -115,7 +115,10 @@ public class User_profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Course_unit();
+                //new Course_unit();
+                SwingUtilities.invokeLater(() -> {
+                    new Course_unit();
+                });
 
             }
         });
