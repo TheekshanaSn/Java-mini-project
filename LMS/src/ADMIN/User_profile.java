@@ -296,6 +296,91 @@ public class User_profile extends JFrame {
         }
     }
 
+//    private void addNewUser() {
+//        String userId = textField1.getText().trim();
+//        String email = textField2.getText().trim();
+//        String name = textField3.getText().trim();
+//        String phone = textField4.getText().trim();
+//        String username = textField5.getText().trim();
+//        String password = textField6.getText().trim();
+//        String role = textField7.getText().trim();
+//        String department = textField8.getText().trim();
+//
+//        if (userId.isEmpty() || email.isEmpty() || role.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "User ID, Email, and Role are required fields.");
+//            return;
+//        }
+//
+//        if(("undergraduate".equals(role)|| "lecturer".equals(role) && department.isEmpty())) {
+//            JOptionPane.showMessageDialog(this, "Department is required.");
+//            return;
+//        }
+//
+//        try (Connection conn = DatabaseConnect.getConnection()) {
+//            conn.setAutoCommit(false);
+//
+//            try {
+//                // Insert into User table
+//                PreparedStatement pstmt = conn.prepareStatement(
+//                        "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
+//
+//                pstmt.setString(1, userId);
+//                pstmt.setString(2, email);
+//                pstmt.setString(3, name);
+//                pstmt.setString(4, phone);
+//                pstmt.setString(5, username);
+//                pstmt.setString(6, password);
+//                pstmt.setString(7, role);
+//
+//                pstmt.executeUpdate();
+//                pstmt.close();
+//
+//                // Insert into role-specific table
+//                if ("undergraduate".equals(role)) {
+//                    // Always insert into undergraduate table when role is undergraduate
+//                    PreparedStatement ugStmt = conn.prepareStatement(
+//                            "INSERT INTO undergraduate (undergraduate_id, department) VALUES (?, ?)");
+//                    ugStmt.setString(1, userId);
+//                    ugStmt.setString(2, department);
+//                    ugStmt.executeUpdate();
+//                    ugStmt.close();
+//
+//                }else if ("lecturer".equals(role)) {
+//                    PreparedStatement lecStmt = conn.prepareStatement(
+//                            "INSERT INTO lecturer (lecturer_id, department) VALUES (?, ?)");
+//                    lecStmt.setString(1, userId);
+//                    lecStmt.setString(2, department);
+//                    lecStmt.executeUpdate();
+//                    lecStmt.close();
+//
+//                } else {
+//                        PreparedStatement toStmt = conn.prepareStatement(
+//                                "INSERT INTO technical_officer (to_id) VALUES (?)");
+//                        toStmt.setString(1, userId);
+//                        toStmt.executeUpdate();
+//                        toStmt.close();
+//                    }
+//
+//                conn.commit();
+//                JOptionPane.showMessageDialog(this, "User added successfully.");
+//                loadUsersByRole(role);
+//                clearFields();
+//
+//            } catch (SQLException ex) {
+//                conn.rollback();
+//                JOptionPane.showMessageDialog(this,
+//                        "Error adding user: " + ex.getMessage(),
+//                        "Database Error", JOptionPane.ERROR_MESSAGE);
+//                ex.printStackTrace();
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(this,
+//                    "Database connection error: " + ex.getMessage(),
+//                    "Database Error", JOptionPane.ERROR_MESSAGE);
+//            ex.printStackTrace();
+//        }
+//    }
+
     private void addNewUser() {
         String userId = textField1.getText().trim();
         String email = textField2.getText().trim();
@@ -303,11 +388,17 @@ public class User_profile extends JFrame {
         String phone = textField4.getText().trim();
         String username = textField5.getText().trim();
         String password = textField6.getText().trim();
-        String role = textField7.getText().trim();
+        String role = textField7.getText().trim().toLowerCase(); // Normalize case
         String department = textField8.getText().trim();
 
+        // Input validation
         if (userId.isEmpty() || email.isEmpty() || role.isEmpty()) {
             JOptionPane.showMessageDialog(this, "User ID, Email, and Role are required fields.");
+            return;
+        }
+
+        if ((role.equals("undergraduate") || role.equals("lecturer")) && department.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Department is required.");
             return;
         }
 
@@ -315,10 +406,22 @@ public class User_profile extends JFrame {
             conn.setAutoCommit(false);
 
             try {
+                // Check for duplicate User ID
+                PreparedStatement checkStmt = conn.prepareStatement("SELECT user_id FROM User WHERE user_id = ?");
+                checkStmt.setString(1, userId);
+                ResultSet rs = checkStmt.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(this, "User ID already exists.");
+                    rs.close();
+                    checkStmt.close();
+                    return;
+                }
+                rs.close();
+                checkStmt.close();
+
                 // Insert into User table
                 PreparedStatement pstmt = conn.prepareStatement(
                         "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
-
                 pstmt.setString(1, userId);
                 pstmt.setString(2, email);
                 pstmt.setString(3, name);
@@ -326,35 +429,42 @@ public class User_profile extends JFrame {
                 pstmt.setString(5, username);
                 pstmt.setString(6, password);
                 pstmt.setString(7, role);
-
                 pstmt.executeUpdate();
                 pstmt.close();
 
-                // Insert into role-specific table
-                if ("undergraduate".equals(role)) {
-                    // Always insert into undergraduate table when role is undergraduate
-                    PreparedStatement ugStmt = conn.prepareStatement(
-                            "INSERT INTO undergraduate (undergraduate_id, department) VALUES (?, ?)");
-                    ugStmt.setString(1, userId);
-                    ugStmt.setString(2, department);
-                    ugStmt.executeUpdate();
-                    ugStmt.close();
+                // Role-specific inserts
+                switch (role) {
+                    case "undergraduate":
+                        PreparedStatement ugStmt = conn.prepareStatement(
+                                "INSERT INTO undergraduate (undergraduate_id, department) VALUES (?, ?)");
+                        ugStmt.setString(1, userId);
+                        ugStmt.setString(2, department);
+                        ugStmt.executeUpdate();
+                        ugStmt.close();
+                        break;
 
-                }else if ("lecturer".equals(role)) {
-                    PreparedStatement lecStmt = conn.prepareStatement(
-                            "INSERT INTO lecturer (lecturer_id, department) VALUES (?, ?)");
-                    lecStmt.setString(1, userId);
-                    lecStmt.setString(2, department);
-                    lecStmt.executeUpdate();
-                    lecStmt.close();
+                    case "lecturer":
+                        PreparedStatement lecStmt = conn.prepareStatement(
+                                "INSERT INTO lecturer (lecturer_id, department) VALUES (?, ?)");
+                        lecStmt.setString(1, userId);
+                        lecStmt.setString(2, department);
+                        lecStmt.executeUpdate();
+                        lecStmt.close();
+                        break;
 
-                } else {
+                    case "technicalofficer":
                         PreparedStatement toStmt = conn.prepareStatement(
                                 "INSERT INTO technical_officer (to_id) VALUES (?)");
                         toStmt.setString(1, userId);
                         toStmt.executeUpdate();
                         toStmt.close();
-                    }
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(this, "Invalid role provided.");
+                        conn.rollback();
+                        return;
+                }
 
                 conn.commit();
                 JOptionPane.showMessageDialog(this, "User added successfully.");
@@ -375,6 +485,7 @@ public class User_profile extends JFrame {
             ex.printStackTrace();
         }
     }
+
 
     private void updateUser() {
         String userId = textField1.getText().trim();
