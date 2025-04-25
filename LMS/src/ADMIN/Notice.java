@@ -1,5 +1,6 @@
 package ADMIN;
 
+import Connection.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -118,7 +119,7 @@ public class Notice extends JFrame {
                 return;
             }
 
-            try (Connection conn = DatabaseConnect.getConnection()) {
+            try (Connection conn = MyConnection.getConnection()) {
                 int id = 1;
                 PreparedStatement findMissingID = conn.prepareStatement(
                         "SELECT t1.notice_id + 1 AS missing_id " +
@@ -174,7 +175,7 @@ public class Notice extends JFrame {
                     return;
                 }
 
-                try (Connection conn = DatabaseConnect.getConnection();
+                try (Connection conn = MyConnection.getConnection();
                      PreparedStatement stmt = conn.prepareStatement(
                              "UPDATE notice SET title = ?, content = ? WHERE notice_id = ?")) {
 
@@ -216,7 +217,7 @@ public class Notice extends JFrame {
                         "Confirm Delete", JOptionPane.YES_NO_OPTION);
                 if (confirm != JOptionPane.YES_OPTION) return;
 
-                try (Connection conn = DatabaseConnect.getConnection();
+                try (Connection conn = MyConnection.getConnection();
                      PreparedStatement stmt = conn.prepareStatement("DELETE FROM notice WHERE notice_id = ?")) {
 
                     stmt.setInt(1, id);
@@ -244,7 +245,7 @@ public class Notice extends JFrame {
     }
 
     private void loadNoticeById(int id) {
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice WHERE notice_id = ?")) {
 
             stmt.setInt(1, id);
@@ -291,7 +292,7 @@ public class Notice extends JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0);
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice");
              ResultSet rs = stmt.executeQuery()) {
 

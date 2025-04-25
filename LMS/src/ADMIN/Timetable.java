@@ -1,5 +1,6 @@
 package ADMIN;
 
+import Connection.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -49,6 +50,7 @@ public class Timetable extends JFrame {
         addNewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 addNewButtonActionPerformed(e);
             }
         });
@@ -56,6 +58,7 @@ public class Timetable extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 updateButtonActionPerformed(e);
             }
         });
@@ -63,6 +66,7 @@ public class Timetable extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 deleteButtonActionPerformed(e);
             }
         });
@@ -155,7 +159,7 @@ public class Timetable extends JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0); // Clear existing rows
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -179,7 +183,7 @@ public class Timetable extends JFrame {
     }
 
     private void loadTimetableById(String timetableId) {
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable WHERE Timetable_id = ?")) {
 
             stmt.setString(1, timetableId);
@@ -212,16 +216,17 @@ public class Timetable extends JFrame {
     private void addNewButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time_range= textField3.getText().trim();
+        String time_range = textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
 
-        if (timetableId.isEmpty() || day.isEmpty() ||  time_range.isEmpty() ||
+        if (timetableId.isEmpty() || day.isEmpty() || time_range.isEmpty() ||
                 courseCode.isEmpty() || courseType.isEmpty() || lecturerId.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
-        } if (!timetableId.matches("^Tt\\d{3}$")) {
+        }
+        if (!timetableId.matches("^Tt\\d{3}$")) {
             JOptionPane.showMessageDialog(this, "Invalid Timetable ID format.");
             return;
         }
@@ -241,7 +246,7 @@ public class Timetable extends JFrame {
 
         try {
             SimpleDateFormat parser = new SimpleDateFormat("h:mm a");
-            Date enteredTime = parser.parse( time_range);
+            Date enteredTime = parser.parse(time_range);
 
             Date eightAM = parser.parse("8:00 AM");
             Date fivePM = parser.parse("5:00 PM");
@@ -259,19 +264,20 @@ public class Timetable extends JFrame {
         if (!courseCode.matches("^ICT\\d{4}$")) {
             JOptionPane.showMessageDialog(this, "Invalid course code format.");
             return;
-        }if(!courseType.equals("T")&& !courseType.equals("P")&& !courseType.equals("TP")){
+        }
+        if (!courseType.equals("T") && !courseType.equals("P") && !courseType.equals("TP")) {
             JOptionPane.showMessageDialog(this, "Invalid course type format.");
             return;
-        }if (!lecturerId.matches("^LEC\\d{3}$")) {
+        }
+        if (!lecturerId.matches("^LEC\\d{3}$")) {
             JOptionPane.showMessageDialog(this, "Invalid Lec id format.");
             return;
         }
 
 
-
         String sql = "INSERT INTO Timetable (Timetable_id, day, time_range, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
@@ -311,7 +317,7 @@ public class Timetable extends JFrame {
 
         String sql = "UPDATE Timetable SET day = ?, time_range = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, day);
@@ -350,7 +356,7 @@ public class Timetable extends JFrame {
 
         String sql = "DELETE FROM Timetable WHERE Timetable_id = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
@@ -380,6 +386,7 @@ public class Timetable extends JFrame {
     }
 
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(Timetable::new);
     }
 }

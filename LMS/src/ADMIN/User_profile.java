@@ -1,5 +1,6 @@
 package ADMIN;
 
+import Connection.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -189,7 +190,7 @@ public class User_profile extends JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0); // Clear existing rows
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(
                      "SELECT u.*, COALESCE(ug.department, l.department, null) as department " +
                              "FROM User u " +
@@ -222,7 +223,7 @@ public class User_profile extends JFrame {
     }
 
     private void loadUserById(String userId) {
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(
                      "SELECT u.*, COALESCE(ug.department, l.department, null) as department " +
                              "FROM User u " +
@@ -262,7 +263,7 @@ public class User_profile extends JFrame {
     }
 
     private void loadDepartmentInfo(String userId, String role) {
-        try (Connection conn = DatabaseConnect.getConnection()) {
+        try (Connection conn = MyConnection.getConnection()) {
             PreparedStatement stmt = null;
 
             if ("undergraduate".equals(role)) {
@@ -318,7 +319,7 @@ public class User_profile extends JFrame {
             return;
         }
 
-        try (Connection conn = DatabaseConnect.getConnection()) {
+        try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
 
             try {
@@ -418,7 +419,7 @@ public class User_profile extends JFrame {
             return;
         }
 
-        try (Connection conn = DatabaseConnect.getConnection()) {
+        try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
 
             // Update User table
@@ -536,7 +537,7 @@ public class User_profile extends JFrame {
             return;
         }
 
-        try (Connection conn = DatabaseConnect.getConnection()) {
+        try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
 
             String role = currentRole;
@@ -593,6 +594,7 @@ public class User_profile extends JFrame {
     }
 
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(() -> new User_profile());
     }
 }

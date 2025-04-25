@@ -1,6 +1,6 @@
 package ADMIN;
 
-
+import Connection.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -159,7 +159,7 @@ public class Course_unit extends JFrame {
         model.setRowCount(0); // Clear existing data
 
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM course_unit");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -215,7 +215,7 @@ public class Course_unit extends JFrame {
 
         String sql = "INSERT INTO course_unit (course_code, name, type, credit, c_lecturer_id) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, course_code);
@@ -253,7 +253,7 @@ public class Course_unit extends JFrame {
 
         String sql = "UPDATE course_unit SET name = ?, type = ?, credit = ?, c_lecturer_id = ? WHERE course_code = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 
@@ -292,7 +292,7 @@ public class Course_unit extends JFrame {
 
         String sql = "DELETE FROM course_unit WHERE course_code = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, course_code);
