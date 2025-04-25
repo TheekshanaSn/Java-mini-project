@@ -1,5 +1,6 @@
 package ADMIN;
 
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -9,10 +10,10 @@ import java.awt.event.*;
 
 
 public class Course_unit extends JFrame {
-    private JPanel rootPanel; // This will be automatically linked with the form's root panel
-    private JTextField textField1; // course_code field
-    private JTextField textField2; // name field
-    private JTextField textField5; // c_lecturer_id field
+    private JPanel rootPanel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField5;
     private JButton addNewCourseButton;
     private JButton updateButton;
     private JButton deleteButton;
@@ -22,8 +23,8 @@ public class Course_unit extends JFrame {
     private JButton timetableButton;
     private JButton signOutButton;
     private JTable table1;
-    private JComboBox comboBox1; // type combobox
-    private JComboBox comboBox2; // credit combobox
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
     private JPanel JPanel1;
     private JPanel JPanel2;
     private JScrollPane JScrollPane;
