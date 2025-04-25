@@ -10,12 +10,11 @@ public class A_Dash_Board extends JFrame {
     private JButton courseButton;
     private JButton noticeButton;
     private JButton timetableButton;
-    private JPanel Botom;
     private JPanel Heder;
     private JPanel Midele;
     private JPanel Main;
-    private JButton profileEditButton;
-    private JLabel profile;
+    private JButton profileButton;
+    private JLabel Profile;
 
     // main constructor create and display dashboardpanel set values
     public A_Dash_Board() {
