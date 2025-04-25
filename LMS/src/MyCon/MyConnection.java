@@ -1,4 +1,4 @@
-package Connection;
+package MyCon;
 
 import java.sql.*;
 
