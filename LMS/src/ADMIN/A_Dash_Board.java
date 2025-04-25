@@ -17,34 +17,35 @@ public class A_Dash_Board extends JFrame {
     private JButton profileEditButton;
     private JLabel profile;
 
+    // main constructor create and display dashboardpanel set values
     public A_Dash_Board() {
-        // Set up the main frame properties
         setTitle("ADMIN Dashboard");
-        setSize(900, 600);
+        setSize(1080, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        initComponents();
+        initComponents(); // Initialize GUI
         setContentPane(Main);
 
-        addActionListeners();
+        addActionListeners(); //add event listeners to buttons
         setVisible(true);
     }
 
-    // Add this method to manually initialize components if needed
+    // manually initialize i created components
     private void initComponents() {
 
     }
 
+    // Set up all button actions here
     private void addActionListeners() {
 
         if (signOutButton != null) {
             signOutButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose();
+                    dispose(); // close current display window
                     SwingUtilities.invokeLater(() -> {
-                        new LoginForm();  //call the loginform interface
+                        new LoginForm();
                     });
                 }
             });
@@ -56,7 +57,7 @@ public class A_Dash_Board extends JFrame {
             userProfileButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current interface
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
                         new User_profile();
                     });
@@ -92,7 +93,7 @@ public class A_Dash_Board extends JFrame {
             timetableButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current display interface
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
                         new Timetable();
                     });
@@ -103,7 +104,7 @@ public class A_Dash_Board extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new A_Dash_Board();
+            new A_Dash_Board(); // call the  main constructor
         });
     }
 }

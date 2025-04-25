@@ -23,16 +23,16 @@ public class User_profile extends JFrame {
     private JButton timetableButton;
     private JButton singOutButton;
     private JTable table1;
-    private JTextField textField1; // user_id
-    private JTextField textField2; // email
+    private JTextField textField1;
+    private JTextField textField2;
     private JButton deleteButton;
     private JButton updateButton;
-    private JTextField textField3; // name
-    private JTextField textField4; // phone
-    private JTextField textField5; // username
-    private JTextField textField6; // password
-    private JTextField textField7; // role
-    private JTextField textField8; // department
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JTextField textField8;
 
     private String currentRole = "undergraduate"; // Default role
 
@@ -40,11 +40,11 @@ public class User_profile extends JFrame {
         setTitle("User Profile");
         setContentPane(JPanelMain);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1080, 600);
 
         setupTable();
 
-        // Set up button action listeners
+
         undergraduateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,7 +90,7 @@ public class User_profile extends JFrame {
             }
         });
 
-        // Load user when ID is entered
+        // Load user records given id
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -115,7 +115,6 @@ public class User_profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                //new Course_unit();
                 SwingUtilities.invokeLater(() -> {
                     new Course_unit();
                 });
@@ -154,19 +153,19 @@ public class User_profile extends JFrame {
         });
 
 
-        // Mouse click to populate fields
+
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0) {
-                    textField1.setText(table1.getValueAt(selectedRow, 0).toString()); // user_id
-                    textField2.setText(table1.getValueAt(selectedRow, 1).toString()); // email
-                    textField3.setText(table1.getValueAt(selectedRow, 2).toString()); // name
-                    textField4.setText(table1.getValueAt(selectedRow, 3).toString()); // phone
-                    textField5.setText(table1.getValueAt(selectedRow, 4).toString()); // username
-                    textField6.setText(table1.getValueAt(selectedRow, 5).toString()); // password
-                    textField7.setText(table1.getValueAt(selectedRow, 6).toString()); // role
+                    textField1.setText(table1.getValueAt(selectedRow, 0).toString());
+                    textField2.setText(table1.getValueAt(selectedRow, 1).toString());
+                    textField3.setText(table1.getValueAt(selectedRow, 2).toString());
+                    textField4.setText(table1.getValueAt(selectedRow, 3).toString());
+                    textField5.setText(table1.getValueAt(selectedRow, 4).toString());
+                    textField6.setText(table1.getValueAt(selectedRow, 5).toString());
+                    textField7.setText(table1.getValueAt(selectedRow, 6).toString());
 
                     // Load department information based on role
                     String userId = table1.getValueAt(selectedRow, 0).toString();
@@ -176,7 +175,7 @@ public class User_profile extends JFrame {
             }
         });
 
-        // Load undergraduate users by default
+        // Load undergraduate records
         loadUsersByRole("undergraduate");
 
         setLocationRelativeTo(null);
@@ -311,7 +310,7 @@ public class User_profile extends JFrame {
         String role = textField7.getText().trim().toLowerCase(); // Normalize case
         String department = textField8.getText().trim();
 
-        // Input validation
+
         if (userId.isEmpty() || email.isEmpty() || role.isEmpty()) {
             JOptionPane.showMessageDialog(this, "User ID, Email, and Role are required fields.");
             return;
@@ -339,7 +338,7 @@ public class User_profile extends JFrame {
                 rs.close();
                 checkStmt.close();
 
-                // Insert into User table
+                // Insert records into User table
                 PreparedStatement pstmt = conn.prepareStatement(
                         "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 pstmt.setString(1, userId);
@@ -352,7 +351,7 @@ public class User_profile extends JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
 
-                // Role-specific inserts
+                // below user insert records insert another table related its role
                 switch (role) {
                     case "undergraduate":
                         PreparedStatement ugStmt = conn.prepareStatement(
@@ -425,7 +424,7 @@ public class User_profile extends JFrame {
         try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
 
-            // Update User table
+
             try (PreparedStatement pstmt = conn.prepareStatement(
                     "UPDATE User SET email = ?, Name = ?, phone = ?, username = ?, password = ?, role = ? WHERE user_id = ?")) {
 
@@ -447,7 +446,6 @@ public class User_profile extends JFrame {
 
                 // If role changed, delete from old role table and insert into new role table
                 if (!oldRole.equals(newRole)) {
-                    // Delete from old role table
                     if ("undergraduate".equals(oldRole)) {
                         PreparedStatement deleteStmt = conn.prepareStatement(
                                 "DELETE FROM undergraduate WHERE undergraduate_id = ?");
@@ -598,6 +596,7 @@ public class User_profile extends JFrame {
 
     public static void main(String[] args) {
 
-        SwingUtilities.invokeLater(() -> new User_profile());
+        SwingUtilities.invokeLater(() ->
+                new User_profile());
     }
 }

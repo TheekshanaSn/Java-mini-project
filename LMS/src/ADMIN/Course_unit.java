@@ -1,6 +1,6 @@
 package ADMIN;
 
-import MyCon.MyConnection;
+import MyCon.MyConnection; // connect the connection in the another package access
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -28,17 +28,18 @@ public class Course_unit extends JFrame {
     private JPanel JPanel2;
     private JScrollPane JScrollPane;
 
-    // Constructor
+    // main  Constructor
     public Course_unit() {
         setTitle("Course Unit");
         setContentPane(rootPanel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1080, 600);
 
+        // combobox set values
         setupComboBoxes();
         setupTable();
 
-        loadCourseData();
+        loadCourseData(); // Load the records into the database
 
         addNewCourseButton.addActionListener(new ActionListener() {
             @Override
@@ -62,6 +63,7 @@ public class Course_unit extends JFrame {
         });
 
 
+        // navigate the  side buttons
         userButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,6 +114,7 @@ public class Course_unit extends JFrame {
             }
         });
 
+        // selected raw data is load to the textfeilds
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
@@ -133,13 +136,12 @@ public class Course_unit extends JFrame {
 
 
     private void setupComboBoxes() {
-        // Set up course type combobox
+        // Set valus for c_type combobox
         comboBox1.removeAllItems();
         String[] types = {"TP", "T", "P"};
         for (String type : types) {
             comboBox1.addItem(type);
         }
-
 
         comboBox2.removeAllItems();
         String[] credits = {"1", "2", "3"};
@@ -156,7 +158,7 @@ public class Course_unit extends JFrame {
 
     private Object loadCourseData() {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0); // Clear display feilds data
 
 
         try (Connection conn = MyConnection.getConnection();
@@ -184,12 +186,13 @@ public class Course_unit extends JFrame {
         return null;
     }
 
-
+  // use gui
     private void createUIComponents() {
         JPanel1 = new JPanel();
         JPanel2 = new JPanel();
     }
 
+    // insert records in to the database
     private void addNewCourseButtonActionPerformed(ActionEvent evt) {
         String course_code = textField1.getText().trim();
         String name = textField2.getText().trim();
@@ -204,6 +207,7 @@ public class Course_unit extends JFrame {
             JOptionPane.showMessageDialog(this, "Invalid course code format.");
             return;
         }
+
 
         char lastDigit =course_code.charAt(course_code.length() - 1);
         String lastDigitStr =String.valueOf(lastDigit);

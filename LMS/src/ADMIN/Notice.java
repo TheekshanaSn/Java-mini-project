@@ -28,7 +28,7 @@ public class Notice extends JFrame {
         setTitle("Notice");
         setContentPane(JPanelMain);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1080, 600);
 
         setupTable();
         loadNotices();
@@ -46,8 +46,7 @@ public class Notice extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-//                new Course_unit();
+                dispose(); // exit the currect display window
                 SwingUtilities.invokeLater(() -> {
                     new Course_unit();
                 });
@@ -94,7 +93,7 @@ public class Notice extends JFrame {
             }
         });
 
-        // Search by ID
+        // load the data after give the id
         textField3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,6 +121,7 @@ public class Notice extends JFrame {
                 return;
             }
 
+            //  user given any intiger if int value is automatically set the next int
             try (Connection conn = MyConnection.getConnection()) {
                 int id = 1;
                 PreparedStatement findMissingID = conn.prepareStatement(
