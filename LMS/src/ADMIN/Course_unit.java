@@ -3,6 +3,7 @@ package ADMIN;
 import MyCon.MyConnection; // connect the connection in the another package access
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.sql.*;
 import java.awt.event.*;
 
@@ -28,6 +29,9 @@ public class Course_unit extends JFrame {
     private JPanel JPanel2;
     private JScrollPane JScrollPane;
 
+    private final String PLACEHOLDER_COURSE_CODE = "ICT1234";
+    private final String PLACEHOLDER_C_LECTURER_ID = "LEC123";
+
     // main  Constructor
     public Course_unit() {
         setTitle("Course Unit");
@@ -35,10 +39,10 @@ public class Course_unit extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1080, 600);
 
-        // combobox set values
-        setupComboBoxes();
-        setupTable();
 
+        setupComboBoxes();
+        setupPlaceholders();
+        setupTable();
         loadCourseData(); // Load the records into the database
 
         addNewCourseButton.addActionListener(new ActionListener() {
@@ -119,6 +123,10 @@ public class Course_unit extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0) {
+
+                    removePlaceholder(textField1);
+                    removePlaceholder(textField5);
+
                     textField1.setText(table1.getValueAt(selectedRow, 0).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 1).toString());
                     comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 2).toString());
@@ -134,6 +142,67 @@ public class Course_unit extends JFrame {
         setVisible(true);
     }
 
+    private void setupPlaceholders() {
+        setPlaceholder(textField1, PLACEHOLDER_COURSE_CODE);
+        setPlaceholder(textField5, PLACEHOLDER_C_LECTURER_ID);
+
+    }
+
+
+    private void setPlaceholder(final JTextField textField, final String placeholder) {
+        if (textField == null) return; // Safety check
+
+        textField.setText(placeholder);
+        textField.setForeground(Color.GRAY);
+
+        // Remove existing focus listeners to avoid duplicates
+        for (FocusListener listener : textField.getFocusListeners()) {
+            if (listener instanceof FocusAdapter) {
+                textField.removeFocusListener(listener);
+            }
+        }
+
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent evt) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                    textField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent evt) {
+                if (textField.getText().isEmpty()) {
+                    textField.setForeground(Color.GRAY);
+                    textField.setText(placeholder);
+                }
+            }
+        });
+    }
+
+    private void removePlaceholder(JTextField textField) {
+        if (textField == null) return;
+
+        if (isPlaceholder(textField)) {
+            textField.setText("");
+            textField.setForeground(Color.BLACK);
+        }
+    }
+
+    private boolean isPlaceholder(JTextField textField) {
+        if (textField == null) return false;
+
+        return textField.getForeground().equals(Color.GRAY) &&
+                (textField.getText().equals(PLACEHOLDER_COURSE_CODE) ||
+                        textField.getText().equals(PLACEHOLDER_C_LECTURER_ID));
+    }
+
+    private String getTextIfNotPlaceholder(JTextField textField) {
+        if (textField == null) return "";
+
+        return isPlaceholder(textField) ? "" : textField.getText().trim();
+    }
 
     private void setupComboBoxes() {
         // Set valus for c_type combobox
@@ -166,7 +235,12 @@ public class Course_unit extends JFrame {
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
+
+                removePlaceholder(textField1);
+                removePlaceholder(textField5);
+
                 model.addRow(new Object[]{
+
                         rs.getString("course_code"),
                         rs.getString("name"),
                         rs.getString("type"),
@@ -194,11 +268,11 @@ public class Course_unit extends JFrame {
 
     // insert records in to the database
     private void addNewCourseButtonActionPerformed(ActionEvent evt) {
-        String course_code = textField1.getText().trim();
+        String course_code = getTextIfNotPlaceholder(textField1);
         String name = textField2.getText().trim();
         String type = comboBox1.getSelectedItem().toString();
         String credit = comboBox2.getSelectedItem().toString();
-        String lecturer_id = textField5.getText().trim();
+        String lecturer_id = getTextIfNotPlaceholder(textField5);
 
         if (course_code.isEmpty() || name.isEmpty() || lecturer_id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
@@ -244,11 +318,11 @@ public class Course_unit extends JFrame {
     }
 
     private void updateButtonActionPerformed(ActionEvent evt) {
-        String course_code = textField1.getText().trim();
+        String course_code =  getTextIfNotPlaceholder(textField1);
         String name = textField2.getText().trim();
         String type = comboBox1.getSelectedItem().toString();
         String credit = comboBox2.getSelectedItem().toString();
-        String lecturer_id = textField5.getText().trim();
+        String lecturer_id = getTextIfNotPlaceholder(textField5);
 
         if (course_code.isEmpty() ) {
             JOptionPane.showMessageDialog(this, "Select a course to update.");
@@ -317,11 +391,11 @@ public class Course_unit extends JFrame {
     }
 
     private void clearFields() {
-        textField1.setText("");
         textField2.setText("");
-        textField5.setText("");
         comboBox1.setSelectedIndex(0);
         comboBox2.setSelectedIndex(0);
+
+        setupPlaceholders();
     }
 
     public static void main(String[] args) {
