@@ -312,12 +312,13 @@ public class User_profile extends JFrame {
 
         if (userId.isEmpty() || email.isEmpty() || name.isEmpty() || phone.isEmpty()
                 || username.isEmpty() || password.isEmpty() || role.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "All fields except department are required.");
+            JOptionPane.showMessageDialog(this, "All fields are required.");
             return false;
         }
 
 
-        boolean validId = false;
+        boolean validId = false;// set value false
+
         if (role.equals("undergraduate") && userId.matches("^UG\\d{3}$")) {
             validId = true;
         } else if (role.equals("lecturer") && userId.matches("^LEC\\d{3}$")) {
@@ -354,13 +355,22 @@ public class User_profile extends JFrame {
         }
 
 
-        if (department.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Department is required.",
+        if ((role.equals("undergraduate") || role.equals("lecturer")) && department.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Department is required.",
                     "Validation Error", JOptionPane.ERROR_MESSAGE);
             textField8.requestFocus();
             return false;
-        } else if (!department.equals("ICT") && !department.equals("ET") && !department.equals("BST")) {
+        }
+
+
+//            if (department.isEmpty()) {
+//            JOptionPane.showMessageDialog(this,
+//                    "Department is required.",
+//                    "Validation Error", JOptionPane.ERROR_MESSAGE);
+//            textField8.requestFocus();
+//            return false;
+//        }
+            else if (!department.equals("ICT") && !department.equals("ET") && !department.equals("BST")) {
             JOptionPane.showMessageDialog(this,
                     "Department must be 'ICT', 'ET', or 'BST'.",
                     "Validation Error", JOptionPane.ERROR_MESSAGE);
