@@ -42,7 +42,7 @@
           </component>
           <component id="2bf21" class="javax.swing.JButton" binding="profileButton" default-binding="true">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="14" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="12" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-11702325"/>
@@ -61,7 +61,7 @@
           </component>
         </children>
       </grid>
-      <grid id="ce87c" binding="Midele" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ce87c" binding="Midele" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="1" vgap="0">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="7" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -73,7 +73,7 @@
         <children>
           <component id="d956d" class="javax.swing.JButton" binding="userProfileButton" default-binding="true">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false">
                 <minimum-size width="-1" height="35"/>
                 <preferred-size width="-1" height="35"/>
                 <maximum-size width="-1" height="35"/>
@@ -87,7 +87,7 @@
           </component>
           <component id="e45f8" class="javax.swing.JButton" binding="courseButton" default-binding="true">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false">
                 <minimum-size width="-1" height="35"/>
                 <preferred-size width="-1" height="35"/>
                 <maximum-size width="-1" height="35"/>
@@ -101,7 +101,7 @@
           </component>
           <component id="ffeae" class="javax.swing.JButton" binding="noticeButton" default-binding="true">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false">
                 <minimum-size width="-1" height="35"/>
                 <preferred-size width="-1" height="35"/>
                 <maximum-size width="-1" height="35"/>
@@ -115,7 +115,7 @@
           </component>
           <component id="43b64" class="javax.swing.JButton" binding="timetableButton" default-binding="true">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="1" use-parent-layout="false">
                 <minimum-size width="-1" height="35"/>
                 <preferred-size width="-1" height="35"/>
                 <maximum-size width="-1" height="35"/>
