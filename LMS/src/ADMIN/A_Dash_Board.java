@@ -15,6 +15,10 @@ public class A_Dash_Board extends JFrame {
     private JPanel Main;
     private JButton profileButton;
     private JLabel Profile;
+    private JLabel UserManage;
+    private JLabel Coursemanage;
+    private JLabel Noticemanage;
+    private JLabel Timetablemanage;
 
     // main constructor create and display dashboardpanel set values
     public A_Dash_Board() {
@@ -26,6 +30,11 @@ public class A_Dash_Board extends JFrame {
         initComponents(); // Initialize GUI
         setContentPane(Main);
         Profile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("profile.png")));
+        UserManage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("user.png")));
+        Coursemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("course.png")));
+        Noticemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("notice.png")));
+        Timetablemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("timetable.png")));
+
 
         addActionListeners(); //add event listeners to buttons
         setVisible(true);

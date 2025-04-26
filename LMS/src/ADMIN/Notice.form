@@ -83,7 +83,7 @@
         </constraints>
         <properties>
           <background color="-3152658"/>
-          <font name="Fira Code" size="28" style="1"/>
+          <font/>
           <foreground color="-11776948"/>
         </properties>
         <border type="none"/>
