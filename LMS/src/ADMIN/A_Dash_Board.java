@@ -4,6 +4,9 @@ import MyCon.MyConnection;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class A_Dash_Board extends JFrame {
     private JButton signOutButton;
@@ -39,7 +42,9 @@ public class A_Dash_Board extends JFrame {
         Noticemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("notice.png")));
         Timetablemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("timetable.png")));
 
-        Admin_profile_name.setText("kri");
+        loadAdminName();
+
+//        loadAdminName(Admin_profile_name);
 
         addActionListeners();
         setVisible(true);
@@ -50,6 +55,28 @@ public class A_Dash_Board extends JFrame {
 
     }
 
+    private void loadAdminName() {
+        try {
+            Connection con = MyConnection.getConnection();
+            String sql = "SELECT name FROM user WHERE role = 'admin' LIMIT 1";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String adminName = rs.getString("name");
+                Admin_profile_name.setText("Hi "+adminName);
+            } else {
+                Admin_profile_name.setText("No Admin Found");
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Admin_profile_name.setText("Error Loading Admin");
+        }
+    }
 
     private void addActionListeners() {
 
