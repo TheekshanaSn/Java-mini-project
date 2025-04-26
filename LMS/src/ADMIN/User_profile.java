@@ -34,7 +34,7 @@ public class User_profile extends JFrame {
     private JTextField textField7;
     private JTextField textField8;
 
-    private String currentRole = "undergraduate"; // Default role
+    private String currentRole = "undergraduate";
 
     public User_profile() {
         setTitle("User Profile");
@@ -177,7 +177,7 @@ public class User_profile extends JFrame {
             }
         });
 
-        // Load undergraduate records
+
         loadUsersByRole("undergraduate");
 
         setLocationRelativeTo(null);
@@ -250,7 +250,7 @@ public class User_profile extends JFrame {
                 textField7.setText(rs.getString("role"));
                 textField8.setText(rs.getString("department"));
 
-                // Update current role
+
                 currentRole = rs.getString("role");
             } else {
                 clearFields();
@@ -366,14 +366,6 @@ public class User_profile extends JFrame {
             return false;
         }
 
-
-//            if (department.isEmpty()) {
-//            JOptionPane.showMessageDialog(this,
-//                    "Department is required.",
-//                    "Validation Error", JOptionPane.ERROR_MESSAGE);
-//            textField8.requestFocus();
-//            return false;
-//        }
             else if (!department.equals("ICT") && !department.equals("ET") && !department.equals("BST")) {
             JOptionPane.showMessageDialog(this,
                     "Department must be 'ICT', 'ET', or 'BST'.",
@@ -402,16 +394,6 @@ public class User_profile extends JFrame {
         String department = textField8.getText().trim();
 
 
-//        if (userId.isEmpty() || email.isEmpty() || phone.isEmpty() || username.isEmpty() || password.isEmpty() ||role.isEmpty() ) {
-//            JOptionPane.showMessageDialog(this, "User ID, Email,phone,username password  and Role are required fields.");
-//            return;
-//        }
-//
-//        if ((role.equals("undergraduate") || role.equals("lecturer")) && department.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Department is required.");
-//            return;
-//        }
-
         try (Connection conn = MyConnection.getConnection()) {
             conn.setAutoCommit(false);
 
@@ -429,7 +411,7 @@ public class User_profile extends JFrame {
                 rs.close();
                 checkStmt.close();
 
-                // Insert records into User table
+
                 PreparedStatement pstmt = conn.prepareStatement(
                         "INSERT INTO User (user_id, email, Name, phone, username, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 pstmt.setString(1, userId);
@@ -442,7 +424,7 @@ public class User_profile extends JFrame {
                 pstmt.executeUpdate();
                 pstmt.close();
 
-                // below user insert records insert another table related its role
+
                 switch (role) {
                     case "undergraduate":
                         PreparedStatement ugStmt = conn.prepareStatement(
@@ -535,7 +517,7 @@ public class User_profile extends JFrame {
                 pstmt.executeUpdate();
             }
 
-            // Update department in role-specific table
+
             if (!department.isEmpty()) {
                 String oldRole = currentRole;
                 String newRole = role;
@@ -562,7 +544,7 @@ public class User_profile extends JFrame {
                         deleteStmt.close();
                     }
 
-                    // Insert into new role table
+
                     PreparedStatement insertStmt = null;
                     if ("undergraduate".equals(newRole)) {
                         insertStmt = conn.prepareStatement(
@@ -582,7 +564,7 @@ public class User_profile extends JFrame {
                         insertStmt.close();
                     }
                 } else {
-                    // Update department in existing role table
+
                     PreparedStatement updateStmt = null;
                     if ("undergraduate".equals(role)) {
                         updateStmt = conn.prepareStatement(
@@ -639,7 +621,7 @@ public class User_profile extends JFrame {
 
             String role = currentRole;
 
-            // Delete from role-specific table first
+
             if ("undergraduate".equals(role)) {
                 PreparedStatement deleteStmt = conn.prepareStatement(
                         "DELETE FROM undergraduate WHERE undergraduate_id = ?");
@@ -660,7 +642,7 @@ public class User_profile extends JFrame {
                 deleteStmt.close();
             }
 
-            // Delete from User table
+
             PreparedStatement deleteUserStmt = conn.prepareStatement(
                     "DELETE FROM User WHERE user_id = ?");
             deleteUserStmt.setString(1, userId);

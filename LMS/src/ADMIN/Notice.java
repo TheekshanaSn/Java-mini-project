@@ -121,7 +121,7 @@ public class Notice extends JFrame {
                 return;
             }
 
-            //  user given any intiger if int value is automatically set the next int
+
             try (Connection conn = MyConnection.getConnection()) {
                 int id = 1;
                 PreparedStatement findMissingID = conn.prepareStatement(
@@ -137,7 +137,6 @@ public class Notice extends JFrame {
                 if (rs.next()) {
                     id = rs.getInt("missing_id");
                 } else {
-                    // If no missing IDs, use max(notice_id) + 1
                     PreparedStatement getMaxID = conn.prepareStatement("SELECT IFNULL(MAX(notice_id), 0) + 1 AS next_id FROM notice");
                     ResultSet rsMax = getMaxID.executeQuery();
                     if (rsMax.next()) {
@@ -204,7 +203,7 @@ public class Notice extends JFrame {
             }
         });
 
-        // Delete notice
+
         deleteButton.addActionListener(e -> {
             String idText = textField3.getText().trim();
             if (idText.isEmpty()) {
@@ -274,7 +273,7 @@ public class Notice extends JFrame {
                         "Notice Not Found",
                         JOptionPane.INFORMATION_MESSAGE);
                 clearFields();
-                textField3.setText(String.valueOf(id)); // Keep the ID for potential new entry
+                textField3.setText(String.valueOf(id));
             }
 
         } catch (SQLException ex) {

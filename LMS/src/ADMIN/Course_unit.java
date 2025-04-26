@@ -1,6 +1,6 @@
 package ADMIN;
 
-import MyCon.MyConnection; // connect the connection in the another package access
+import MyCon.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -29,7 +29,7 @@ public class Course_unit extends JFrame {
     private JScrollPane JScrollPane;
 
 
-    // main  Constructor
+
     public Course_unit() {
         setTitle("Course Unit");
         setContentPane(rootPanel);
@@ -41,7 +41,7 @@ public class Course_unit extends JFrame {
         setupTable();
 
 
-        loadCourseData(); // Load the records into the database
+        loadCourseData();
 
         addNewCourseButton.addActionListener(new ActionListener() {
             @Override
@@ -65,7 +65,7 @@ public class Course_unit extends JFrame {
         });
 
 
-        // navigate the  side buttons
+
         userButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -140,7 +140,6 @@ public class Course_unit extends JFrame {
 
 
     private void setupComboBoxes() {
-        // Set valus for c_type combobox
         comboBox1.removeAllItems();
         String[] types = {"TP", "T", "P"};
         for (String type : types) {
@@ -196,7 +195,7 @@ public class Course_unit extends JFrame {
         JPanel2 = new JPanel();
     }
 
-    // insert records in to the database
+
     private void addNewCourseButtonActionPerformed(ActionEvent evt) {
         String course_code = textField1.getText().trim();
         String name = textField2.getText().trim();

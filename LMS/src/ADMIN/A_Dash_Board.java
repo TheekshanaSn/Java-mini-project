@@ -146,7 +146,7 @@ public class A_Dash_Board extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new A_Dash_Board(); // call the  main constructor
+            new A_Dash_Board();
         });
     }
 }

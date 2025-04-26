@@ -1,6 +1,6 @@
 package ADMIN;
 
-import MyCon.MyConnection; // another packege include connection class call
+import MyCon.MyConnection;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -42,8 +42,8 @@ public class Timetable extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1080, 600);
 
-        setupTable(); // Set the Jtable heder coloms
-        loadTimetableData(); // select * data in the database
+        setupTable();
+        loadTimetableData();
 
         addNewButton.addActionListener(new ActionListener() {
             @Override
@@ -128,7 +128,7 @@ public class Timetable extends JFrame {
         });
 
 
-        // Mouse click to  fields
+
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
@@ -154,7 +154,7 @@ public class Timetable extends JFrame {
         table1.setModel(model);
     }
 
-    // load the timetable data into the databse
+
     private void loadTimetableData() {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0); // Clear current rows
@@ -182,7 +182,7 @@ public class Timetable extends JFrame {
         }
     }
 
-    // load the data into the search id
+
     private void loadTimetableById(String timetableId) {
         try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable WHERE Timetable_id = ?")) {
@@ -198,8 +198,8 @@ public class Timetable extends JFrame {
                 textField5.setText(rs.getString("course_type"));
                 textField6.setText(rs.getString("lecturer_id"));
             } else {
-                clearFields(); // No record found with this ID
-                textField1.setText(timetableId); // set ID for textfeild1
+                clearFields();
+                textField1.setText(timetableId);
                 JOptionPane.showMessageDialog(this,
                         "No timetable record found with ID: " + timetableId,
                         "Record Not Found", JOptionPane.INFORMATION_MESSAGE);
@@ -213,7 +213,7 @@ public class Timetable extends JFrame {
         }
     }
 
-    // add a new data into the timetable
+
     private void addNewButtonActionPerformed(ActionEvent evt) {
 
         String timetableId = textField1.getText().trim();
@@ -223,7 +223,7 @@ public class Timetable extends JFrame {
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
 
-        // check the feild is empty
+
         if (timetableId.isEmpty() || day.isEmpty() || time_range.isEmpty() ||
                 courseCode.isEmpty() || courseType.isEmpty() || lecturerId.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
@@ -247,7 +247,7 @@ public class Timetable extends JFrame {
             return;
         }
 
-        // check given data is into the range
+
         try {
             SimpleDateFormat parser = new SimpleDateFormat("h:mm a");
             Date enteredTime = parser.parse(time_range); // Accept single time for now
@@ -306,7 +306,7 @@ public class Timetable extends JFrame {
         }
     }
 
-    // Update  timetable records
+
     private void updateButtonActionPerformed(ActionEvent evt) {
 
         String timetableId = textField1.getText().trim();
@@ -348,7 +348,7 @@ public class Timetable extends JFrame {
         }
     }
 
-    // Delete selected timetable records
+
     private void deleteButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
 
@@ -397,7 +397,7 @@ public class Timetable extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new Timetable(); // call the main constructor
+            new Timetable();
         });
     }
 }
