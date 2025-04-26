@@ -1,5 +1,6 @@
 package ADMIN;
 
+import MyCon.MyConnection;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +20,9 @@ public class A_Dash_Board extends JFrame {
     private JLabel Coursemanage;
     private JLabel Noticemanage;
     private JLabel Timetablemanage;
+    private JLabel Admin_profile_name;
 
-    // main constructor create and display dashboardpanel set values
+
     public A_Dash_Board() {
         setTitle("ADMIN Dashboard");
         setSize(1080, 600);
@@ -29,14 +31,17 @@ public class A_Dash_Board extends JFrame {
 
         initComponents(); // Initialize GUI
         setContentPane(Main);
+
+
         Profile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("profile.png")));
         UserManage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("user.png")));
         Coursemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("course.png")));
         Noticemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("notice.png")));
         Timetablemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("timetable.png")));
 
+        Admin_profile_name.setText("kri");
 
-        addActionListeners(); //add event listeners to buttons
+        addActionListeners();
         setVisible(true);
     }
 
@@ -45,7 +50,7 @@ public class A_Dash_Board extends JFrame {
 
     }
 
-    // Set up all button actions here
+
     private void addActionListeners() {
 
         if (signOutButton != null) {
@@ -58,6 +63,7 @@ public class A_Dash_Board extends JFrame {
                     });
                 }
             });
+
         } else {
             System.err.println("signOutButton is null - check your form field name");
         }
