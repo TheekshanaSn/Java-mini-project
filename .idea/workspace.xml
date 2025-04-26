@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="ugnotice and ug time table">
-      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.java" afterDir="false" />
+    <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="added ug medical">
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateResults.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateResults.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,22 +40,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "thishanherath"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thishanherath&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TheekshanaSn/Java-mini-project.git",
-    "accountId": "4b1a6cb6-1377-41a2-9b3d-e3cd2e0f4f98"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TheekshanaSn/Java-mini-project.git&quot;,
+    &quot;accountId&quot;: &quot;4b1a6cb6-1377-41a2-9b3d-e3cd2e0f4f98&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2wDSWLXkobkylfkIOVq5DLIeupd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,14 +65,18 @@
   "keyToString": {
     "Application.Attendance.executor": "Run",
     "Application.LoginForm.executor": "Run",
+    "Application.Medical.executor": "Run",
     "Application.attendanceIndividuals.executor": "Run",
     "Application.undergraduateAttendence.executor": "Run",
+    "Application.undergraduateMedical.executor": "Run",
     "Application.undergraduateNotices.executor": "Run",
+    "Application.undergraduateProfile.executor": "Run",
+    "Application.undergraduateResults.executor": "Run",
     "Application.undergraduateTimetable.executor": "Run",
     "Application.undergraduate_Dash.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Dinidu",
+    "git-widget-placeholder": "#50 on Dinidu",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Softwares/extracted/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
     "node.js.detected.package.eslint": "true",
@@ -88,7 +106,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745574684034</updated>
-      <workItem from="1745574684852" duration="19724000" />
+      <workItem from="1745574684852" duration="26275000" />
+      <workItem from="1745686960054" duration="20434000" />
     </task>
     <task id="LOCAL-00001" summary="After added .ida file">
       <option name="closed" value="true" />
@@ -106,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745603861221</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added ug attendece">
+      <option name="closed" value="true" />
+      <created>1745613986215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745613986215</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added ug medical">
+      <option name="closed" value="true" />
+      <created>1745640589297</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745640589297</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +150,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="After added .ida file" />
     <MESSAGE value="ugnotice and ug time table" />
-    <option name="LAST_COMMIT_MESSAGE" value="ugnotice and ug time table" />
+    <MESSAGE value="added ug attendece" />
+    <MESSAGE value="added ug medical" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ug medical" />
   </component>
 </project>
