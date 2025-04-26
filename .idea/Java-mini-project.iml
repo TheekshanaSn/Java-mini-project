@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/java project/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LMS/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LMS/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

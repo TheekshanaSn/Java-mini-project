@@ -25,6 +25,7 @@ public class A_Dash_Board extends JFrame {
 
         initComponents(); // Initialize GUI
         setContentPane(Main);
+        Profile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("profile.png")));
 
         addActionListeners(); //add event listeners to buttons
         setVisible(true);
