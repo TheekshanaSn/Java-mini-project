@@ -13,9 +13,11 @@ public class ViewUndergraduate extends JFrame {
     private JButton btnExit;
     private JPanel View;
     private String user_id;
+    private String password;
 
-    public ViewUndergraduate(String user_id) {
+    public ViewUndergraduate(String user_id,String password) {
     this.user_id = user_id;
+    this.password = password;
         setTitle("|LectureDashBord|UploadMark|");
         setContentPane(View);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,7 +53,7 @@ public class ViewUndergraduate extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new UndergraduateGrades().setVisible(true);
+                new UndergraduateGrades(user_id,password).setVisible(true);
             }
         });
         btnDetails.addActionListener(new ActionListener() {
@@ -65,14 +67,14 @@ public class ViewUndergraduate extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
+//                String User_id=new LectureDashBord().getUser_id();
+//                String Password=new LectureDashBord().getPassword();
+                new LectureDashBord(user_id,password).setVisible(true);
             }
         });
     }
 
     public static void main(String[] args) {
-        new ViewUndergraduate("").setVisible(true);
+        new ViewUndergraduate(""," ").setVisible(true);
     }
 }

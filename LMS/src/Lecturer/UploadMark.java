@@ -11,12 +11,13 @@ public class UploadMark extends JFrame {
     private JButton btnExit;
     private JPanel MarkUpload;
     private String user_id;
+    private String password;
 
-    public UploadMark(String user_id) {
+    public UploadMark(String user_id,String password) {
 
 
         this.user_id = user_id;
-
+         this.password = password;
 
         setTitle("|LectureDashBord|UploadMark|");
         setContentPane(MarkUpload);
@@ -28,23 +29,23 @@ public class UploadMark extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
+//                String User_id=new LectureDashBord().getUser_id();
+//                String Password=new LectureDashBord().getPassword();
+                new LectureDashBord(user_id,password).setVisible(true);
             }
         });
         btnCaMark.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CAMark(user_id).setVisible(true);
+                new CAMARKN(user_id,password).setVisible(true);
             }
         });
         btnFinalMark.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new FinalMark(user_id).setVisible(true);
+                new FinalMark(user_id,password).setVisible(true);
             }
         });
         btnExit.addActionListener(new ActionListener() {
@@ -57,6 +58,6 @@ public class UploadMark extends JFrame {
     }
 
     public static void main(String[] args) {
-       // new UploadMark("");
+       new UploadMark("LEC004"," pass123").setVisible(true);
     }
 }

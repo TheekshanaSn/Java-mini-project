@@ -27,10 +27,23 @@ public class FinalMark extends JFrame {
     private JLabel lblCourseName;
     private JPanel finalmark;
     private String user_id;
+    private String password;
 
     private String corse_code;
-    public FinalMark(String user_id ) {
+    public FinalMark(String user_id ,String password ) {
+
+    CAMARKN camarkn= new CAMARKN(user_id,password);
+    camarkn.setVisible(false);
+    camarkn.ENG2122codeca();
+    camarkn.ICT2113codeca();
+    camarkn.ICT2122codeca();
+    camarkn.ICT2133codeca();
+    camarkn.ICT2142codeca();
+    camarkn.ICT2152codeca();
+
+
          this.user_id = user_id;
+         this.password = password;
         getLecturerCorsecodeandName(user_id);
         table_load();
 
@@ -69,7 +82,7 @@ public class FinalMark extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new UploadMark(user_id);
+                new UploadMark(user_id,password).setVisible(true);
             }
         });
 
@@ -265,7 +278,12 @@ public void ICT2113codefinal(){
 
 
             double FEMark = ft * 0.40 + fp * 0.30;
-
+            sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+            pst = conn.c.prepareStatement(sql);
+            pst.setDouble(1, FEMark);
+            pst.setString(2, code);
+            pst.setString(3, id);
+            pst.executeUpdate();
 
 
             model.addRow(new Object[]{id, code,ft,fp, FEMark });
@@ -297,7 +315,12 @@ public void ICT2113codefinal(){
                double ft=rs.getDouble("Finaltheory");
 
                double FEMark = ft * 0.60 ;
-
+               sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+               pst = conn.c.prepareStatement(sql);
+               pst.setDouble(1, FEMark);
+               pst.setString(2, code);
+               pst.setString(3, id);
+               pst.executeUpdate();
                model.addRow(new Object[]{id, code,ft, FEMark });
            }
 
@@ -330,6 +353,12 @@ public void ICT2113codefinal(){
 
                double FEMark = ft * 0.40+fp * 0.30 ;
 
+               sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+               pst = conn.c.prepareStatement(sql);
+               pst.setDouble(1, FEMark);
+               pst.setString(2, code);
+               pst.setString(3, id);
+               pst.executeUpdate();
                model.addRow(new Object[]{id, code,ft,fp, FEMark });
            }
 
@@ -350,16 +379,23 @@ public void ICT2113codefinal(){
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
-                    new String[]{"Undergraduate ID", "Course Code", "Finaltheory", "Final exam Mark", }, 0
+                    new String[]{"Undergraduate ID", "Course Code", "Finalpracticaly", "Final exam Mark", }, 0
             );
 
             while (rs.next()) {
                 String id = rs.getString("undergraduate_id");
                 String code = rs.getString("course_code");
-                double fp=rs.getDouble("Finaltheory");
+                double fp=rs.getDouble("Finalpracticaly");
 
 
                 double FEMark = fp * 0.60;
+
+                sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+                pst = conn.c.prepareStatement(sql);
+                pst.setDouble(1, FEMark);
+                pst.setString(2, code);
+                pst.setString(3, id);
+                pst.executeUpdate();
 
                 model.addRow(new Object[]{id, code,fp,FEMark });
             }
@@ -392,6 +428,14 @@ public void ICT2152codefinal(){
 
 
             double FEMark = ft * 0.70;
+          sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+          pst = conn.c.prepareStatement(sql);
+          pst.setDouble(1, FEMark);
+          pst.setString(2, code);
+          pst.setString(3, id);
+          pst.executeUpdate();
+
+
 
             model.addRow(new Object[]{id, code,ft,FEMark });
         }
@@ -424,6 +468,12 @@ public void ICT2152codefinal(){
 
 
                 double FEMark = ft * 0.70;
+                sql="update finalmarks set finalmarks=? where course_code=? and undergraduate_id=?";
+                pst = conn.c.prepareStatement(sql);
+                pst.setDouble(1, FEMark);
+                pst.setString(2, code);
+                pst.setString(3, id);
+                pst.executeUpdate();
 
                 model.addRow(new Object[]{id, code,ft,FEMark });
             }
@@ -440,7 +490,7 @@ public void ICT2152codefinal(){
 
 
     public static void main(String[] args) {
-        FinalMark frame = new FinalMark("LEC002");
+        FinalMark frame = new FinalMark("LEC006","pass123");
     }
 
     }

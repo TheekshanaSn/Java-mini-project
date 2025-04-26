@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CAMark extends JFrame {
+public class CAMARKN extends JFrame {
     private JTextField txtUndergraduateID;
     private JComboBox cmbMarkType;
     private JTextField txtMark;
@@ -27,11 +27,12 @@ public class CAMark extends JFrame {
     private JLabel lblCourseName;
     PreparedStatement pst;
     private String user_id;
-    private String corse_code;;
+    private String corse_code;
+
     private String name;
 
 
-    CAMark(String user_id) {
+    CAMARKN(String user_id, String password) {
         this.user_id = user_id;
         getLecturerCorsecodeandName(user_id);
         table_load();
@@ -43,7 +44,6 @@ public class CAMark extends JFrame {
         setSize(1000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
-
 
 
         uploadButton.addActionListener(new ActionListener() {
@@ -75,8 +75,8 @@ public class CAMark extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 setVisible(false);
-                    new UploadMark(user_id);
-                }
+                new UploadMark(user_id, password).setVisible(true);
+            }
         });
     }
 
@@ -89,17 +89,17 @@ public class CAMark extends JFrame {
 //            ResultSet rs;
 //            DefaultTableModel model;
 //            String CASTATUS;
-            switch (corse_code){
+            switch (corse_code) {
                 case "ICT2113":
                     ICT2113codeca();
 
                     break;
                 case "ICT2122":
                     ICT2122codeca();
-                     break;
+                    break;
                 case "ICT2133":
                     ICT2133codeca();
-                     break;
+                    break;
                 case "ICT2142":
                     ICT2142codeca();
 
@@ -119,10 +119,8 @@ public class CAMark extends JFrame {
     }
 
 
-
-
     void table_update() {
-        String courseCode =corse_code;
+        String courseCode = corse_code;
         String undergraduateID = txtUndergraduateID.getText();
         String markType = cmbMarkType.getSelectedItem().toString();
         String mark = txtMark.getText();
@@ -163,6 +161,7 @@ public class CAMark extends JFrame {
             JOptionPane.showMessageDialog(this, "Error uploading mark: " + e.getMessage());
         }
     }
+
     void updateMarkOnly() {
         String courseCode = corse_code; // you can make this dynamic if needed
         String undergraduateID = txtUndergraduateID.getText();
@@ -230,18 +229,17 @@ public class CAMark extends JFrame {
     }
 
 
-
     private void getLecturerCorsecodeandName(String user_id) {
 
         try {
             Conn conn = new Conn();
-            pst=conn.c.prepareStatement("select course_code,name from course_unit where c_lecturer_id=?");
+            pst = conn.c.prepareStatement("select course_code,name from course_unit where c_lecturer_id=?");
             pst.setString(1, user_id);
             ResultSet rs = pst.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 corse_code = rs.getString(1);
                 lblCourseCode.setText(corse_code);
-                name=rs.getString(2);
+                name = rs.getString(2);
                 lblCourseName.setText(name);
 
 
@@ -250,18 +248,19 @@ public class CAMark extends JFrame {
 
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
 
     public void ICT2113codeca() {
+        String courseCode ="ICT2113";
         String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Midterm FROM camarks WHERE course_code = ?";
         Conn conn = new Conn();
         try {
             PreparedStatement pst = conn.c.prepareStatement(sql);
-            pst.setString(1, corse_code);
+            pst.setString(1, courseCode);
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
@@ -283,6 +282,17 @@ public class CAMark extends JFrame {
 
                 String caStatus = (caMark >= 15) ? "Pass" : "Fail";
 
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, caMark);
+                updatePst.setString(2, caStatus);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
+
+
+
                 model.addRow(new Object[]{id, code, q1, q2, q3, mid, caMark, caStatus});
             }
 
@@ -294,13 +304,15 @@ public class CAMark extends JFrame {
             JOptionPane.showMessageDialog(null, "Error loading CA marks.");
         }
     }
+
     public void ICT2122codeca() {
+        String courseCode ="ICT2122";
         String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Quizze04, Assessments01, Midterm FROM camarks WHERE course_code = ?";
         Conn conn = new Conn();
 
         try {
             PreparedStatement pst = conn.c.prepareStatement(sql);
-            pst.setString(1, corse_code);
+            pst.setString(1, courseCode);
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
@@ -326,6 +338,14 @@ public class CAMark extends JFrame {
 
                 double caMark = quizPart + assessmentPart + midtermPart;
                 String caStatus = (caMark >= 20) ? "Pass" : "Fail";
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, caMark);
+                updatePst.setString(2, caStatus);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
 
                 model.addRow(new Object[]{id, code, q1, q2, q3, q4, assessments01, mid, caMark, caStatus});
             }
@@ -340,12 +360,13 @@ public class CAMark extends JFrame {
     }
 
 
-    public void ICT2142codeca () {
+    public void ICT2142codeca() {
+        String courseCode ="ICT2142";
         String sql = "SELECT undergraduate_id, course_code, Assessments01, Midterm FROM camarks WHERE course_code = ?"; // Declare 'sql'
         Conn conn = new Conn();
         try {
             pst = conn.c.prepareStatement(sql);
-            pst.setString(1, corse_code);
+            pst.setString(1, courseCode);
             ResultSet rs = pst.executeQuery();
 
 
@@ -363,6 +384,15 @@ public class CAMark extends JFrame {
                 double CAMARK = assessments01 * 0.20 + mid * 0.20;
                 String CASTATUS = (CAMARK > 20) ? "Pass" : "Fail";
 
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, CAMARK);
+                updatePst.setString(2, CASTATUS);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
+
                 model.addRow(new Object[]{id, code, assessments01, mid, CAMARK, CASTATUS});
             }
 
@@ -375,63 +405,20 @@ public class CAMark extends JFrame {
     }
 
 
-        public void ICT2152codeca() {
-
-            String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Assessments01 FROM camarks WHERE course_code = ?";
-            Conn conn = new Conn();
-            try {
-
-                pst = conn.c.prepareStatement(sql);
-                pst.setString(1, corse_code);
-                ResultSet rs = pst.executeQuery();
-
-                DefaultTableModel model = new DefaultTableModel(
-                        new String[]{"Undergraduate ID", "Course Code", "Quizze01", "Quizze02", "Quizze03", "Assessments01", "Assessments02", "CAMARK", "CASTATUS"}, 0
-                );
-
-
-                while (rs.next()) {
-                    String id = rs.getString("undergraduate_id");
-                    String code = rs.getString("course_code");
-                    double q1 = rs.getDouble("Quizze01");
-                    double q2 = rs.getDouble("Quizze02");
-                    double q3 = rs.getDouble("Quizze03");
-                    double assessments01 = rs.getDouble("Assessments01");
-                    double assessments02 = rs.getDouble("Assessments01"); // Should probably be "Assessments02" instead
-
-                    Double[] Mark = {q1, q2, q3};
-                    Arrays.sort(Mark, Collections.reverseOrder());
-
-                    double qm = ((Mark[0] + Mark[1] / 2) * 10 / 100);
-                    double am = ((assessments01 + assessments02) / 2) * 20 / 100;
-
-                    double CAMARK = qm + am;
-                    String CASTATUS = (CAMARK >= 15) ? "Pass" : "Fail";
-
-                    model.addRow(new Object[]{id, code, q1, q2, q3, assessments01, assessments02, CAMARK, CASTATUS});
-                }
-
-                tblMark.setModel(model);
-                System.out.println("Loading table for course_code: " + corse_code);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error loading CA marks.");
-            }
-        }
-
-    public void ENG2122codeca() {
-
-        String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Assessments01, Assessments02 FROM camarks WHERE course_code = ?";
-      Conn conn = new Conn();
+    public void ICT2152codeca() {
+        String courseCode ="ICT2152";
+        String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Assessments01 FROM camarks WHERE course_code = ?";
+        Conn conn = new Conn();
         try {
+
             pst = conn.c.prepareStatement(sql);
-            pst.setString(1, corse_code);
+            pst.setString(1, courseCode);
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
-                    new String[]{"Undergraduate ID", "Course Code", "Quizze01", "Quizze02", "Quizze03", "Assessments01", "Assessments02", "CAMARK", "CASTATUS"}, 0
+                    new String[]{"Undergraduate ID", "Course Code", "Quizze01", "Quizze02", "Quizze03", "Assessments01", "CAMARK", "CASTATUS"}, 0
             );
+
 
             while (rs.next()) {
                 String id = rs.getString("undergraduate_id");
@@ -440,18 +427,26 @@ public class CAMark extends JFrame {
                 double q2 = rs.getDouble("Quizze02");
                 double q3 = rs.getDouble("Quizze03");
                 double assessments01 = rs.getDouble("Assessments01");
-                double assessments02 = rs.getDouble("Assessments02");  // Corrected this line
+             // Should probably be "Assessments02" instead
 
                 Double[] Mark = {q1, q2, q3};
                 Arrays.sort(Mark, Collections.reverseOrder());
 
                 double qm = ((Mark[0] + Mark[1] / 2) * 10 / 100);
-                double am = ((assessments01 + assessments02) / 2) * 20 / 100;
+                double am = (assessments01) * 20 / 100;
 
                 double CAMARK = qm + am;
                 String CASTATUS = (CAMARK >= 15) ? "Pass" : "Fail";
 
-                model.addRow(new Object[]{id, code, q1, q2, q3, assessments01, assessments02, CAMARK, CASTATUS});
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, CAMARK);
+                updatePst.setString(2, CASTATUS);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
+                model.addRow(new Object[]{id, code, q1, q2, q3, assessments01, CAMARK, CASTATUS});
             }
 
             tblMark.setModel(model);
@@ -462,12 +457,64 @@ public class CAMark extends JFrame {
             JOptionPane.showMessageDialog(null, "Error loading CA marks.");
         }
     }
-    public void ICT2133codeca(){
+
+    public void ENG2122codeca() {
+        String courseCode = "ENG2122";
         String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Assessments01, Assessments02 FROM camarks WHERE course_code = ?";
         Conn conn = new Conn();
         try {
             pst = conn.c.prepareStatement(sql);
-            pst.setString(1, corse_code);
+            pst.setString(1, courseCode);
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel model = new DefaultTableModel(
+                    new String[]{"Undergraduate ID", "Course Code", "Quizze01", "Quizze02", "Quizze03", "Assessments01", "CAMARK", "CASTATUS"}, 0
+            );
+
+            while (rs.next()) {
+                String id = rs.getString("undergraduate_id");
+                String code = rs.getString("course_code");  // Fixed: changed from "courseCode" to "course_code"
+                double q1 = rs.getDouble("Quizze01");
+                double q2 = rs.getDouble("Quizze02");
+                double q3 = rs.getDouble("Quizze03");
+                double assessments01 = rs.getDouble("Assessments01");
+                double assessments02 = rs.getDouble("Assessments02");
+
+                Double[] Mark = {q1, q2, q3};
+                Arrays.sort(Mark, Collections.reverseOrder());
+
+                double qm = ((Mark[0] + Mark[1] / 2) * 10 / 100);
+                double am = ((assessments01 + assessments02) / 2) * 20 / 100;
+
+                double CAMARK = qm + am;
+                String CASTATUS = (CAMARK >= 15) ? "Pass" : "Fail";
+
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, CAMARK);
+                updatePst.setString(2, CASTATUS);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
+                model.addRow(new Object[]{id, code, q1, q2, q3, assessments01, CAMARK, CASTATUS});
+            }
+
+            tblMark.setModel(model);
+            System.out.println("Loading table for course_code: " + corse_code);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error loading CA marks.");
+        }
+    }
+    public void ICT2133codeca() {
+        String courseCode ="ICT2133";
+        String sql = "SELECT undergraduate_id, course_code, Quizze01, Quizze02, Quizze03, Assessments01, Assessments02 FROM camarks WHERE course_code = ?";
+        Conn conn = new Conn();
+        try {
+            pst = conn.c.prepareStatement(sql);
+            pst.setString(1, courseCode);
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
@@ -495,6 +542,15 @@ public class CAMark extends JFrame {
                 String CASTATUS = (CAMARK > 15) ? "Pass" : "Fail";
 
 
+                String updateSQL = "UPDATE camarks SET camarks = ?, status = ? WHERE undergraduate_id = ? AND course_code = ?";
+                PreparedStatement updatePst = conn.c.prepareStatement(updateSQL);
+                updatePst.setDouble(1, CAMARK);
+                updatePst.setString(2, CASTATUS);
+                updatePst.setString(3, id);
+                updatePst.setString(4, code);
+                updatePst.executeUpdate();
+
+
                 model.addRow(new Object[]{id, code, q1, q2, q3, assessments01, assessments02, CAMARK, CASTATUS});
             }
 
@@ -509,12 +565,8 @@ public class CAMark extends JFrame {
     }
 
 
-
     public static void main(String[] args) {
 
-        new CAMark("").setVisible(true);
+        new CAMARKN("LEC006", " pass123").setVisible(true);
     }
-
-
 }
-

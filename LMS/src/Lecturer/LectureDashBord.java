@@ -33,11 +33,11 @@ public class LectureDashBord extends JFrame {
     public String getUser_id() {
         return user_id;
     }
-     public LectureDashBord() {
-
-
-
-     }
+//     public LectureDashBord() {
+//
+//
+//
+//     }
 
      public  LectureDashBord(String user_id, String password) {
 
@@ -64,7 +64,7 @@ public class LectureDashBord extends JFrame {
              @Override
              public void actionPerformed(ActionEvent e) {
                  setVisible(false);
-                 new ViewUndergraduate("").setVisible(true);
+                 new ViewUndergraduate(user_id,password).setVisible(true);
              }
          });
 
@@ -88,22 +88,23 @@ public class LectureDashBord extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CourseMaterials(user_id).setVisible(true);
+                new CourseMaterials(user_id,password).setVisible(true);
             }
         });
         btnUploadMark.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
 //                new CAMark(user_id).setVisible(true);
-                new UploadMark(user_id).setVisible(true);
+                new UploadMark(user_id,password).setVisible(true);
             }
         });
          btnNotices.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e) {
                  setVisible(false);
-                 new Notice().setVisible(true);
+                 new Notice(user_id,password).setVisible(true);
              }
          });
     }

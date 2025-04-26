@@ -18,10 +18,12 @@ public class Notice extends JFrame {
     private JButton btnExit;
     private JPanel notice;
     private Map<String, String> noticeContents;
+    private String user_id;
+    private String password;
 
-    public Notice() {
-
-
+    public Notice(String user_id,String password) {
+        this.user_id = user_id;
+        this.password = password;
 
         noticeContents = new HashMap<>();
 
@@ -54,9 +56,9 @@ public class Notice extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
+//                String User_id=new LectureDashBord(user_id,).getUser_id();
+//                String Password=new LectureDashBord().getPassword();
+                new LectureDashBord(user_id,password).setVisible(true);
             }
         });
     }
@@ -100,6 +102,6 @@ public class Notice extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Notice();
+        new Notice("","");
     }
 }
