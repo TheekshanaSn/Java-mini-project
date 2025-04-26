@@ -48,6 +48,7 @@ public class User_profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentRole = "undergraduate";
+                clearFields();
                 loadUsersByRole(currentRole);
             }
         });
@@ -56,6 +57,7 @@ public class User_profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentRole = "lecturer";
+                clearFields();
                 loadUsersByRole(currentRole);
             }
         });
@@ -64,6 +66,7 @@ public class User_profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 currentRole = "technicalOfficer";
+                clearFields();
                 loadUsersByRole(currentRole);
             }
         });

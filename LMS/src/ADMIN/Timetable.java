@@ -34,10 +34,6 @@ public class Timetable extends JFrame {
     private JTextField textField5;
     private JTextField textField6;
 
-    private final String PLACEHOLDER_ID = "Tt123";
-    private final String PLACEHOLDER_TYPE = "T, P,TP";
-    private final String PLACEHOLDER_LECTURER = "LEC123";
-
 
     //main constructor create
     public Timetable() {
@@ -47,7 +43,6 @@ public class Timetable extends JFrame {
         setSize(1080, 600);
 
         setupTable(); // Set the Jtable heder coloms
-        setupPlaceholders();
         loadTimetableData(); // select * data in the database
 
         addNewButton.addActionListener(new ActionListener() {
@@ -139,10 +134,6 @@ public class Timetable extends JFrame {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0) {
 
-                    removePlaceholder(textField1);
-                    removePlaceholder(textField5);
-                    removePlaceholder(textField6);
-
                     textField1.setText(table1.getValueAt(selectedRow, 0).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 1).toString());
                     textField3.setText(table1.getValueAt(selectedRow, 2).toString());
@@ -156,55 +147,6 @@ public class Timetable extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
-
-    private void setupPlaceholders() {
-        setPlaceholder(textField1, PLACEHOLDER_ID);
-        setPlaceholder(textField5, PLACEHOLDER_TYPE);
-        setPlaceholder(textField6, PLACEHOLDER_LECTURER);
-    }
-
-
-    private void setPlaceholder(final JTextField textField, final String placeholder) {
-        textField.setText(placeholder);
-        textField.setForeground(Color.GRAY);
-
-        textField.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent evt) {
-                if (textField.getText().equals(placeholder)) {
-                    textField.setText("");
-                    textField.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent evt) {
-                if (textField.getText().isEmpty()) {
-                    textField.setForeground(Color.GRAY);
-                    textField.setText(placeholder);
-                }
-            }
-        });
-    }
-
-
-    private void removePlaceholder(JTextField textField) {
-        textField.setText("");
-        textField.setForeground(Color.BLACK);
-    }
-
-
-    private boolean isPlaceholder(JTextField textField) {
-        return textField.getForeground() == Color.GRAY;
-    }
-
-
-    private String getTextIfNotPlaceholder(JTextField textField) {
-        return isPlaceholder(textField) ? "" : textField.getText().trim();
-    }
-
-
-
 
     private void setupTable() {
         DefaultTableModel model = new DefaultTableModel(
@@ -249,11 +191,6 @@ public class Timetable extends JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-
-                removePlaceholder(textField1);
-                removePlaceholder(textField5);
-                removePlaceholder(textField6);
-
                 // load records eith this feilds
                 textField2.setText(rs.getString("day"));
                 textField3.setText(rs.getString("time_range"));
@@ -448,11 +385,13 @@ public class Timetable extends JFrame {
 
 
     private void clearFields() {
-        setupPlaceholders();
 
+        textField1.setText("");
         textField2.setText("");
         textField3.setText("");
         textField4.setText("");
+        textField5.setText("");
+        textField6.setText("");
 
     }
 
