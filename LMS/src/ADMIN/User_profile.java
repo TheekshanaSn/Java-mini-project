@@ -44,7 +44,6 @@ public class User_profile extends JFrame {
 
         setupTable();
 
-
         undergraduateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -181,6 +180,8 @@ public class User_profile extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
+
 
     private void setupTable() {
         DefaultTableModel model = new DefaultTableModel(
