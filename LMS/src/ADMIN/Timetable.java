@@ -116,7 +116,7 @@ public class Timetable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Login();
+                    new LoginForm();
                 });
             }
         });
