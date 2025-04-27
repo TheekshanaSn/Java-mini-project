@@ -45,7 +45,6 @@ public class To_Profile extends JFrame {
         EDITFROFILEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 frame.dispose();
                 TO_Profile_Update frame = new TO_Profile_Update();
 

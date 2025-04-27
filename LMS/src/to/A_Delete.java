@@ -49,7 +49,7 @@ public class A_Delete extends JFrame {
 
         try {
             Connection conn = MyConnection.getConnection();
-            String query = "select attendance_id from Attendance";
+            String query = "select attendance_id from Attendance ORDER BY attendance_id ";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             // stmt = conn.createStatement();
