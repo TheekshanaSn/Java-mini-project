@@ -162,7 +162,7 @@ public class Timetable extends JFrame {
                 model.addRow(new Object[]{
                         rs.getString("Timetable_id"),
                         rs.getString("day"),
-                        rs.getString("time"),
+                        rs.getString("time_range"),
                         rs.getString("course_code"),
                         rs.getString("course_type"),
                         rs.getString("lecturer_id")
@@ -187,7 +187,7 @@ public class Timetable extends JFrame {
             if (rs.next()) {
                 // Populate fields with data
                 textField2.setText(rs.getString("day"));
-                textField3.setText(rs.getString("time"));
+                textField3.setText(rs.getString("time_range"));
                 textField4.setText(rs.getString("course_code"));
                 textField5.setText(rs.getString("course_type"));
                 textField6.setText(rs.getString("lecturer_id"));
@@ -211,25 +211,25 @@ public class Timetable extends JFrame {
     private void addNewButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time = textField3.getText().trim();
+        String time_range = textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
 
-        if (timetableId.isEmpty() || day.isEmpty() || time.isEmpty() ||
+        if (timetableId.isEmpty() || day.isEmpty() || time_range.isEmpty() ||
                 courseCode.isEmpty() || courseType.isEmpty() || lecturerId.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
         }
 
-        String sql = "INSERT INTO Timetable (Timetable_id, day, time, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Timetable (Timetable_id, day, time_range, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
             pstmt.setString(2, day);
-            pstmt.setString(3, time);
+            pstmt.setString(3, time_range);
             pstmt.setString(4, courseCode);
             pstmt.setString(5, courseType);
             pstmt.setString(6, lecturerId);
@@ -252,7 +252,7 @@ public class Timetable extends JFrame {
     private void updateButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time = textField3.getText().trim();
+        String time_range= textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
@@ -262,13 +262,13 @@ public class Timetable extends JFrame {
             return;
         }
 
-        String sql = "UPDATE Timetable SET day = ?, time = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
+        String sql = "UPDATE Timetable SET day = ?, time_range = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
 
         try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, day);
-            pstmt.setString(2, time);
+            pstmt.setString(2, time_range);
             pstmt.setString(3, courseCode);
             pstmt.setString(4, courseType);
             pstmt.setString(5, lecturerId);

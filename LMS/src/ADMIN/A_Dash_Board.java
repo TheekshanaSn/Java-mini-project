@@ -59,9 +59,9 @@ public class A_Dash_Board extends JFrame {
 
     private void loadAdminName() {
         try {
-            Connection con = MyConnection.getConnection();
+            Connection conn = MyConnection.getConnection();
             String sql = "SELECT name FROM user WHERE role = 'admin' LIMIT 1";
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -73,7 +73,7 @@ public class A_Dash_Board extends JFrame {
 
             rs.close();
             ps.close();
-            con.close();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
             Admin_profile_name.setText("Error Loading Admin");
