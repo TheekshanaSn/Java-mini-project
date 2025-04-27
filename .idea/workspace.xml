@@ -4,48 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update to attendance and medical classs">
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/Attendance.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/Attendance.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/exactly_80_attendance.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/exactly_80_attendance.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithMedical.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithMedical.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithout_Medical.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithout_Medical.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendance.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendance.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendanceWithMedicals.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendanceWithMedicals.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/A_Delete.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/A_Delete.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/A_Insert.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/A_Insert.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/A_Update.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/A_Update.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Insert.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Insert.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Update.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Update.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/LoginForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/exactly_80_attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/exactly_80_attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithMedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithMedical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithout_Medical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithout_Medical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendanceWithMedicals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendanceWithMedicals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="theekshana" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,8 +68,8 @@
     "Application.undergraduate_Dash.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "356",
-    "git-widget-placeholder": "theekshana",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "362",
+    "git-widget-placeholder": "Merging theekshana",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/theek/Downloads/rs2xml (1).jar",
@@ -256,31 +216,7 @@
       <option name="project" value="LOCAL" />
       <updated>1745612501702</updated>
     </task>
-    <task id="LOCAL-00013" summary="update to attendance and medical classs">
-      <option name="closed" value="true" />
-      <created>1745732420256</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1745732420258</updated>
-    </task>
-    <task id="LOCAL-00014" summary="update to attendance and medical classs">
-      <option name="closed" value="true" />
-      <created>1745732538645</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1745732538645</updated>
-    </task>
-    <task id="LOCAL-00015" summary="update to attendance and medical classs">
-      <option name="closed" value="true" />
-      <created>1745732760481</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1745732760481</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +234,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/theekshana' into theekshana" />
     <MESSAGE value="update" />
     <MESSAGE value="update to database and update to medical class" />
-    <MESSAGE value="update to attendance and medical classs" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to attendance and medical classs" />
+    <MESSAGE value="update the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the code" />
   </component>
 </project>
