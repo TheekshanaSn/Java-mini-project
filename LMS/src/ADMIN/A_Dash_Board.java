@@ -1,54 +1,96 @@
 package ADMIN;
 
+import MyCon.MyConnection;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class A_Dash_Board extends JFrame {
-    // These should match EXACTLY the names in your form file
-    private JButton signOutButton; // Note: Check if it's signOutButton or singOutButton in your form
+    private JButton signOutButton;
     private JButton userProfileButton;
     private JButton courseButton;
     private JButton noticeButton;
     private JButton timetableButton;
-    private JPanel Botom;
     private JPanel Heder;
     private JPanel Midele;
     private JPanel Main;
-    private JButton profileEditButton;
+    private JButton profileButton;
+    private JLabel Profile;
+    private JLabel UserManage;
+    private JLabel Coursemanage;
+    private JLabel Noticemanage;
+    private JLabel Timetablemanage;
+    private JLabel Admin_profile_name;
+
 
     public A_Dash_Board() {
-        // Set up the main frame properties
         setTitle("ADMIN Dashboard");
-        setSize(900, 600);
+        setSize(1080, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        initComponents();
+        initComponents(); // Initialize GUI
         setContentPane(Main);
+
+
+        Profile.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("profile.png")));
+        UserManage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("user.png")));
+        Coursemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("course.png")));
+        Noticemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("notice.png")));
+        Timetablemanage.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("timetable.png")));
+
+        loadAdminName();
+
+//        loadAdminName(Admin_profile_name);
 
         addActionListeners();
         setVisible(true);
     }
 
-    // Add this method to manually initialize components if needed
+    // manually initialize i created components
     private void initComponents() {
 
     }
 
+    private void loadAdminName() {
+        try {
+            Connection con = MyConnection.getConnection();
+            String sql = "SELECT name FROM user WHERE role = 'admin' LIMIT 1";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String adminName = rs.getString("name");
+                Admin_profile_name.setText("Hi "+adminName);
+            } else {
+                Admin_profile_name.setText("No Admin Found");
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Admin_profile_name.setText("Error Loading Admin");
+        }
+    }
+
     private void addActionListeners() {
-        // Check if button exists before adding listener
+
         if (signOutButton != null) {
             signOutButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
-                    // Open the login screen
+                    dispose(); // close current display window
                     SwingUtilities.invokeLater(() -> {
-                        new Login(); // Navigate to the Login class
+                        new LoginForm();
                     });
                 }
             });
+
         } else {
             System.err.println("signOutButton is null - check your form field name");
         }
@@ -57,9 +99,9 @@ public class A_Dash_Board extends JFrame {
             userProfileButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new User_profile(); // Navigate to your existing User_profile class
+                        new User_profile();
                     });
                 }
             });
@@ -69,9 +111,9 @@ public class A_Dash_Board extends JFrame {
             courseButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new Course_unit(); // Navigate to your existing Course class
+                        new Course_unit();
                     });
                 }
             });
@@ -81,9 +123,9 @@ public class A_Dash_Board extends JFrame {
             noticeButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new Notice(); // Navigate to your existing Notice class
+                        new Notice();
                     });
                 }
             });
@@ -93,9 +135,9 @@ public class A_Dash_Board extends JFrame {
             timetableButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    dispose(); // Close the current dashboard
+                    dispose();
                     SwingUtilities.invokeLater(() -> {
-                        new Timetable(); // Navigate to your existing Timetable class
+                        new Timetable();
                     });
                 }
             });

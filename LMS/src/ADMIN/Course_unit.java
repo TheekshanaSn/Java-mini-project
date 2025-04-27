@@ -1,18 +1,18 @@
 package ADMIN;
 
+import MyCon.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.sql.*;
 import java.awt.event.*;
 
 
 
 public class Course_unit extends JFrame {
-    private JPanel rootPanel; // This will be automatically linked with the form's root panel
-    private JTextField textField1; // course_code field
-    private JTextField textField2; // name field
-    private JTextField textField5; // c_lecturer_id field
+    private JPanel rootPanel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField5;
     private JButton addNewCourseButton;
     private JButton updateButton;
     private JButton deleteButton;
@@ -22,21 +22,24 @@ public class Course_unit extends JFrame {
     private JButton timetableButton;
     private JButton signOutButton;
     private JTable table1;
-    private JComboBox comboBox1; // type combobox
-    private JComboBox comboBox2; // credit combobox
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
     private JPanel JPanel1;
     private JPanel JPanel2;
     private JScrollPane JScrollPane;
 
-    // Constructor
+
+
     public Course_unit() {
         setTitle("Course Unit");
         setContentPane(rootPanel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1080, 600);
+
 
         setupComboBoxes();
         setupTable();
+
 
         loadCourseData();
 
@@ -60,6 +63,7 @@ public class Course_unit extends JFrame {
                 deleteButtonActionPerformed(e);
             }
         });
+
 
 
         userButton.addActionListener(new ActionListener() {
@@ -91,6 +95,8 @@ public class Course_unit extends JFrame {
             }
         });
 
+
+
         timetableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,15 +112,18 @@ public class Course_unit extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Login();
+                    new LoginForm();
                 });
             }
         });
 
+        // selected  data is load to the textfeilds
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0) {
+
+
                     textField1.setText(table1.getValueAt(selectedRow, 0).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 1).toString());
                     comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 2).toString());
@@ -132,13 +141,11 @@ public class Course_unit extends JFrame {
 
 
     private void setupComboBoxes() {
-        // Set up course type combobox
         comboBox1.removeAllItems();
         String[] types = {"TP", "T", "P"};
         for (String type : types) {
             comboBox1.addItem(type);
         }
-
 
         comboBox2.removeAllItems();
         String[] credits = {"1", "2", "3"};
@@ -155,10 +162,10 @@ public class Course_unit extends JFrame {
 
     private Object loadCourseData() {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.setRowCount(0); // Clear existing data
+        model.setRowCount(0); // Clear display feilds data
 
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM course_unit");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -183,12 +190,12 @@ public class Course_unit extends JFrame {
         return null;
     }
 
-
+  // use gui
     private void createUIComponents() {
-        // Initialize panels
         JPanel1 = new JPanel();
         JPanel2 = new JPanel();
     }
+
 
     private void addNewCourseButtonActionPerformed(ActionEvent evt) {
         String course_code = textField1.getText().trim();
@@ -200,11 +207,23 @@ public class Course_unit extends JFrame {
         if (course_code.isEmpty() || name.isEmpty() || lecturer_id.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
+        }else if (!course_code.matches("^ICT\\d{4}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid course code format.");
+            return;
+        }
+
+
+        char lastDigit =course_code.charAt(course_code.length() - 1);
+        String lastDigitStr =String.valueOf(lastDigit);
+
+        if(!lastDigitStr.equals(credit)) {
+            JOptionPane.showMessageDialog(this, "The last digit of course code not match the credit value ");
+            return;
         }
 
         String sql = "INSERT INTO course_unit (course_code, name, type, credit, c_lecturer_id) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, course_code);
@@ -223,7 +242,7 @@ public class Course_unit extends JFrame {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: LEC id is not initilize in DB" );
             e.printStackTrace();
         }
     }
@@ -235,14 +254,14 @@ public class Course_unit extends JFrame {
         String credit = comboBox2.getSelectedItem().toString();
         String lecturer_id = textField5.getText().trim();
 
-        if (course_code.isEmpty()) {
+        if (course_code.isEmpty() ) {
             JOptionPane.showMessageDialog(this, "Select a course to update.");
             return;
         }
 
         String sql = "UPDATE course_unit SET name = ?, type = ?, credit = ?, c_lecturer_id = ? WHERE course_code = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 
@@ -258,11 +277,11 @@ public class Course_unit extends JFrame {
                 loadCourseData();
                 clearFields();
             } else {
-                JOptionPane.showMessageDialog(this, "Update failed.");
+                JOptionPane.showMessageDialog(this, "Update failed.L");
             }
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: "+ e.getMessage());
             e.printStackTrace();
         }
     }
@@ -281,7 +300,7 @@ public class Course_unit extends JFrame {
 
         String sql = "DELETE FROM course_unit WHERE course_code = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, course_code);
@@ -310,7 +329,9 @@ public class Course_unit extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {new Course_unit();});
+        SwingUtilities.invokeLater(() -> {
+            new Course_unit();
+        });
 
     }
 

@@ -1,5 +1,6 @@
 package ADMIN;
 
+import MyCon.MyConnection;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -27,7 +28,7 @@ public class Notice extends JFrame {
         setTitle("Notice");
         setContentPane(JPanelMain);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1080, 600);
 
         setupTable();
         loadNotices();
@@ -45,8 +46,10 @@ public class Notice extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new Course_unit();
+                dispose(); // exit the currect display window
+                SwingUtilities.invokeLater(() -> {
+                    new Course_unit();
+                });
             }
         });
 
@@ -64,7 +67,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Timetable();
+                    Timetable timetable = new Timetable();
                 });
             }
         });
@@ -74,7 +77,7 @@ public class Notice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Login();
+                    LoginForm loginForm = new LoginForm();
                 });
             }
         });
@@ -90,7 +93,7 @@ public class Notice extends JFrame {
             }
         });
 
-        // Search by ID
+        // load the data after give the id
         textField3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,7 +121,8 @@ public class Notice extends JFrame {
                 return;
             }
 
-            try (Connection conn = DatabaseConnect.getConnection()) {
+
+            try (Connection conn = MyConnection.getConnection()) {
                 int id = 1;
                 PreparedStatement findMissingID = conn.prepareStatement(
                         "SELECT t1.notice_id + 1 AS missing_id " +
@@ -133,7 +137,6 @@ public class Notice extends JFrame {
                 if (rs.next()) {
                     id = rs.getInt("missing_id");
                 } else {
-                    // If no missing IDs, use max(notice_id) + 1
                     PreparedStatement getMaxID = conn.prepareStatement("SELECT IFNULL(MAX(notice_id), 0) + 1 AS next_id FROM notice");
                     ResultSet rsMax = getMaxID.executeQuery();
                     if (rsMax.next()) {
@@ -141,7 +144,6 @@ public class Notice extends JFrame {
                     }
                 }
 
-                // Insert notice
                 PreparedStatement stmt = conn.prepareStatement("INSERT INTO notice (notice_id, title, content) VALUES (?, ?, ?)");
                 stmt.setInt(1, id);
                 stmt.setString(2, title);
@@ -158,7 +160,6 @@ public class Notice extends JFrame {
             }
         });
 
-        // Update notice
         updateButton.addActionListener(e -> {
             String idText = textField3.getText().trim();
             if (idText.isEmpty()) {
@@ -176,7 +177,7 @@ public class Notice extends JFrame {
                     return;
                 }
 
-                try (Connection conn = DatabaseConnect.getConnection();
+                try (Connection conn = MyConnection.getConnection();
                      PreparedStatement stmt = conn.prepareStatement(
                              "UPDATE notice SET title = ?, content = ? WHERE notice_id = ?")) {
 
@@ -202,7 +203,7 @@ public class Notice extends JFrame {
             }
         });
 
-        // Delete notice
+
         deleteButton.addActionListener(e -> {
             String idText = textField3.getText().trim();
             if (idText.isEmpty()) {
@@ -218,7 +219,7 @@ public class Notice extends JFrame {
                         "Confirm Delete", JOptionPane.YES_NO_OPTION);
                 if (confirm != JOptionPane.YES_OPTION) return;
 
-                try (Connection conn = DatabaseConnect.getConnection();
+                try (Connection conn = MyConnection.getConnection();
                      PreparedStatement stmt = conn.prepareStatement("DELETE FROM notice WHERE notice_id = ?")) {
 
                     stmt.setInt(1, id);
@@ -246,7 +247,7 @@ public class Notice extends JFrame {
     }
 
     private void loadNoticeById(int id) {
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice WHERE notice_id = ?")) {
 
             stmt.setInt(1, id);
@@ -272,7 +273,7 @@ public class Notice extends JFrame {
                         "Notice Not Found",
                         JOptionPane.INFORMATION_MESSAGE);
                 clearFields();
-                textField3.setText(String.valueOf(id)); // Keep the ID for potential new entry
+                textField3.setText(String.valueOf(id));
             }
 
         } catch (SQLException ex) {
@@ -293,7 +294,7 @@ public class Notice extends JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0);
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM notice");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -322,6 +323,8 @@ public class Notice extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Notice());
+
+        SwingUtilities.invokeLater(() ->
+                new Notice());
     }
 }
