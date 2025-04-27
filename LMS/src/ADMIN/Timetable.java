@@ -1,5 +1,8 @@
 package ADMIN;
 
+import MyCon.MyConnection;
+import UserLogin.LoginForm;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -116,7 +119,7 @@ public class Timetable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new Login();
+                    new LoginForm();
                 });
             }
         });
@@ -151,7 +154,7 @@ public class Timetable extends JFrame {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setRowCount(0); // Clear existing rows
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -175,7 +178,7 @@ public class Timetable extends JFrame {
     }
 
     private void loadTimetableById(String timetableId) {
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable WHERE Timetable_id = ?")) {
 
             stmt.setString(1, timetableId);
@@ -221,7 +224,7 @@ public class Timetable extends JFrame {
 
         String sql = "INSERT INTO Timetable (Timetable_id, day, time, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
@@ -261,7 +264,7 @@ public class Timetable extends JFrame {
 
         String sql = "UPDATE Timetable SET day = ?, time = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, day);
@@ -300,7 +303,7 @@ public class Timetable extends JFrame {
 
         String sql = "DELETE FROM Timetable WHERE Timetable_id = ?";
 
-        try (Connection conn = DatabaseConnect.getConnection();
+        try (Connection conn = MyConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);

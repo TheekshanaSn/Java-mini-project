@@ -3,16 +3,12 @@ import ADMIN.Login;
 import ADMIN.Notice;
 import ADMIN.Timetable;
 import Medical.Medical;
-import MyCon.MyConnection;
+import UserLogin.LoginForm;
 import attendance.Attendance;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 
 //import static sun.tools.jconsole.inspector.XDataViewer.dispose;
 
@@ -50,7 +46,6 @@ public class To_Profile extends JFrame {
         EDITFROFILEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 frame.dispose();
                 TO_Profile_Update frame = new TO_Profile_Update();
 
@@ -145,7 +140,7 @@ public class To_Profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Login login = new Login();
+               LoginForm frame = new LoginForm();
             }
         });
     }

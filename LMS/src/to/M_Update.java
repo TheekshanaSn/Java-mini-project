@@ -21,6 +21,9 @@ public class M_Update {
     private JScrollPane Jpane;
     private JTable showTable;
     private JComboBox comboBox1;
+    private JTextField textField1;
+    private JTextField textField4;
+    private JTextField textField5;
 
     public M_Update() {
         frame = new JFrame();
@@ -68,8 +71,11 @@ public class M_Update {
 
 
                     while (rs2.next()) {
+                        textField1.setText(rs2.getString("reason"));
                         textField2.setText(rs2.getString("med_undergraduate_id"));
                         textField3.setText(rs2.getString("date"));
+                        textField4.setText(rs2.getString("med_course_code"));
+                        textField5.setText(rs2.getString("med_session_no"));
 
                     }
                 }catch (SQLException ex) {
@@ -84,6 +90,10 @@ public class M_Update {
                 String medical_id =comboBox1.getSelectedItem().toString() ;
                 String med_undergraduate_id = textField2.getText();
                 String date = textField3.getText();
+                String med_course_code = textField4.getText();
+                String reason = textField1.getText();
+                String med_session_no = textField5.getText();
+
 
                 try {
 
@@ -91,8 +101,12 @@ public class M_Update {
 
                     String query = "UPDATE Medical SET " +
                             "med_undergraduate_id = '" + med_undergraduate_id + "', " +
-                            "date = '" + date + "' " +
+                            "med_course_code = '" + med_course_code + "', " +
+                            "date = '" + date + "', " +
+                            "reason = '" + reason + "', " +
+                            "med_session_no = '" + med_session_no + "' " +
                             "WHERE medical_id = '" + medical_id + "'";
+
 
 
                     Statement stmt = conn.createStatement();
@@ -104,13 +118,13 @@ public class M_Update {
 
                     if (model.getColumnCount() == 0) {
                         String[] columnNames = {
-                                "medical_id", "med_undergraduate_id", "date"
+                                "medical_id", "med_undergraduate_id", "date", "reason", "med_session_no"
                         };
                         model.setColumnIdentifiers(columnNames);
                     }
 
                     Object[] rowData = {
-                            medical_id, med_undergraduate_id, date
+                            medical_id, med_undergraduate_id, date, med_course_code, med_session_no
                     };
 
                     model.addRow(rowData); // inside the try block neither not working

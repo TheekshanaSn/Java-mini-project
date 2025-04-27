@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class M_Insert {
+public class M_Insert extends JFrame {
 
     JFrame frame;
     private JPanel Main_panel;
@@ -24,6 +24,9 @@ public class M_Insert {
     private JButton INSERTButton;
     private JTable showTable;
     private JScrollPane Jpane;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
 
 
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,9 +54,12 @@ public class M_Insert {
             public void actionPerformed(ActionEvent e) {
                 String medical_id = textField1.getText();
                 String med_undergraduate_id = textField2.getText();
+                String med_course_code = textField4.getText();
                 String date = textField3.getText();
+                String reason = textField5.getText();
+                String med_session_no = textField6.getText();
 
-                if (medical_id.isEmpty() || med_undergraduate_id.isEmpty() || date.isEmpty()) {
+                if (medical_id.isEmpty() || med_undergraduate_id.isEmpty() || date.isEmpty()||reason.isEmpty() || med_course_code.isEmpty()||med_session_no.isEmpty()) {
                     JOptionPane.showMessageDialog(frame, "Please fill all the fields");
                     return;
                 }
@@ -63,13 +69,13 @@ public class M_Insert {
 
                 if (model.getColumnCount() == 0) {
                     String[] columnNames = {
-                            "Medical_id","Med_undergraduate_id","Date"
+                            "Medical_id","Med_undergraduate_id","Course_code","Date","Reason","Med_session_no"
                     };
                     model.setColumnIdentifiers(columnNames);
                 }
 
                 Object[] rowData = {
-                        medical_id, med_undergraduate_id, date
+                        medical_id, med_undergraduate_id, med_course_code, date, reason, med_session_no
                 };
 
 
@@ -77,8 +83,9 @@ public class M_Insert {
                 try {
                     Connection conn = MyConnection.getConnection();
 
-                    String query = "INSERT INTO Medical (medical_id, med_undergraduate_id, date) " +
-                            "VALUES ('" + medical_id + "', '" + med_undergraduate_id + "', '" + date + "')";
+                    String query = "INSERT INTO Medical (medical_id, med_undergraduate_id, med_course_code, date, reason, med_session_no) " +
+                            "VALUES ('" + medical_id + "', '" + med_undergraduate_id + "', '" + med_course_code + "', '" + date + "', '" + reason + "', '" + med_session_no + "')";
+
 
                     Statement stmt = conn.createStatement();
                     int result = stmt.executeUpdate(query);
@@ -95,6 +102,9 @@ public class M_Insert {
                 textField1.setText("");
                 textField2.setText("");
                 textField3.setText("");
+                textField4.setText("");
+                textField5.setText("");
+                textField6.setText("");
 
             }
         });
