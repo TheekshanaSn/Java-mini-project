@@ -185,7 +185,7 @@
                     <properties>
                       <background color="-14176672"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPLOAD"/>
                     </properties>
                   </component>
@@ -196,7 +196,7 @@
                     <properties>
                       <background color="-14057287"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPDATE"/>
                     </properties>
                   </component>
@@ -207,7 +207,7 @@
                     <properties>
                       <background color="-6969946"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="BACK"/>
                     </properties>
                   </component>
@@ -218,7 +218,7 @@
                     <properties>
                       <background color="-1618884"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="EXIT"/>
                     </properties>
                   </component>
