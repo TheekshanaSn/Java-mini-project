@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="delete datbase Connection" />
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="delete datbase Connection">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,12 +33,12 @@
     &quot;assignee&quot;: &quot;thishanherath&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/TheekshanaSn/Java-mini-project.git&quot;,
-    &quot;accountId&quot;: &quot;85395d81-093a-464c-8a1d-008e0e07ad5c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TheekshanaSn/Java-mini-project.git",
+    "accountId": "d6988154-caf1-43d3-9202-01d5f670a23f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -46,42 +48,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.A_Delete.executor": "Run",
-    "Application.A_Insert.executor": "Run",
-    "Application.Attendance.executor": "Run",
-    "Application.LectureDashBord.executor": "Run",
-    "Application.LectureProfile.executor": "Run",
-    "Application.LoginForm.executor": "Run",
-    "Application.M_Delete.executor": "Run",
-    "Application.M_Insert.executor": "Run",
-    "Application.M_Update.executor": "Run",
-    "Application.Medical.executor": "Run",
-    "Application.To_Profile.executor": "Run",
-    "Application.UndergraduateDetails.executor": "Run",
-    "Application.attendanceIndividuals.executor": "Run",
-    "Application.courseDetails.executor": "Run",
-    "Application.undergraduateProfile.executor": "Run",
-    "Application.undergraduate_Dash.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "362",
-    "git-widget-placeholder": "Krishani",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/theek/Downloads/rs2xml (1).jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.A_Delete.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A_Insert.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Attendance.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LectureDashBord.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LectureProfile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LoginForm.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Delete.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Insert.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Update.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Medical.executor&quot;: &quot;Run&quot;,
+    &quot;Application.To_Profile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UndergraduateDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Application.attendanceIndividuals.executor&quot;: &quot;Run&quot;,
+    &quot;Application.courseDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Application.undergraduateProfile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.undergraduate_Dash.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;362&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Krishani&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/theek/Downloads/rs2xml (1).jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
@@ -117,6 +119,7 @@
       <workItem from="1745545422712" duration="265000" />
       <workItem from="1745558741451" duration="656000" />
       <workItem from="1745562947323" duration="2208000" />
+      <workItem from="1745740290951" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="trac">
       <option name="closed" value="true" />
@@ -302,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745739693389</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="delete datbase Connection">
+      <option name="closed" value="true" />
+      <created>1745740633581</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1745740633581</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
