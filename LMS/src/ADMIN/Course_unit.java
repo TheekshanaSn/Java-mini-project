@@ -116,7 +116,7 @@ public class Course_unit extends JFrame {
             }
         });
 
-        // selected raw data is load to the textfeilds
+        // selected  data is load to the textfeilds
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();

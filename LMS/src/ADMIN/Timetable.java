@@ -69,7 +69,7 @@ public class Timetable extends JFrame {
             }
         });
 
-        // Load timetable record after ID is serch
+        // Load the records after ID is serch
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,6 @@ public class Timetable extends JFrame {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                // load records eith this feilds
                 textField2.setText(rs.getString("day"));
                 textField3.setText(rs.getString("time_range"));
                 textField4.setText(rs.getString("course_code"));

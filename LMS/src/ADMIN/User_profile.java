@@ -92,7 +92,7 @@ public class User_profile extends JFrame {
             }
         });
 
-        // Load user records given id
+        // Load  records after given id
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -522,7 +522,7 @@ public class User_profile extends JFrame {
                 String oldRole = currentRole;
                 String newRole = role;
 
-                // If role changed, delete from old role table and insert into new role table
+                // If role changed it recods delete role related table and new rol enter and it records insert new roal match table
                 if (!oldRole.equals(newRole)) {
                     if ("undergraduate".equals(oldRole)) {
                         PreparedStatement deleteStmt = conn.prepareStatement(
