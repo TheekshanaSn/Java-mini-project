@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
+
     <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMS/src/ADMIN/A_Dash_Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/ADMIN/A_Dash_Board.java" afterDir="false" />
@@ -64,16 +64,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$1.class" afterDir="false" />
-=======
-    <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="modifications">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" beforeDir for="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" afterDir="false" />
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +104,6 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-<<<<<<< HEAD
     "Application.A_Dash_Board.executor": "Run",
     "Application.A_Delete.executor": "Run",
     "Application.A_Insert.executor": "Run",
@@ -142,24 +132,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "G:/Java-mini-project/LMS/lib/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar",
-=======
-    "Application.Attendance.executor": "Run",
-    "Application.LoginForm.executor": "Run",
-    "Application.Medical.executor": "Run",
-    "Application.attendanceIndividuals.executor": "Run",
-    "Application.undergraduateAttendence.executor": "Run",
-    "Application.undergraduateMedical.executor": "Run",
-    "Application.undergraduateNotices.executor": "Run",
-    "Application.undergraduateProfile.executor": "Run",
-    "Application.undergraduateResults.executor": "Run",
-    "Application.undergraduateTimetable.executor": "Run",
-    "Application.undergraduate_Dash.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#50 on Dinidu",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Softwares/extracted/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -171,7 +144,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
@@ -181,8 +153,7 @@
       <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\Undergraduate" />
     </key>
   </component>
-=======
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -198,7 +169,6 @@
       <created>1745574684034</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
       <updated>1744703230313</updated>
       <workItem from="1744703231640" duration="789000" />
       <workItem from="1744728687407" duration="1994000" />
@@ -212,11 +182,7 @@
       <workItem from="1745562947323" duration="2208000" />
       <workItem from="1745740290951" duration="786000" />
       <workItem from="1745750047493" duration="1827000" />
-=======
-      <updated>1745574684034</updated>
-      <workItem from="1745574684852" duration="26275000" />
-      <workItem from="1745686960054" duration="20434000" />
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
     </task>
     <task id="LOCAL-00001" summary="After added .ida file">
       <option name="closed" value="true" />
@@ -250,7 +216,6 @@
       <option name="project" value="LOCAL" />
       <updated>1745640589297</updated>
     </task>
-<<<<<<< HEAD
     <task id="LOCAL-00005" summary="login form code update">
       <option name="closed" value="true" />
       <created>1745041843908</created>
@@ -420,16 +385,13 @@
       <updated>1745744553537</updated>
     </task>
     <option name="localTasksCounter" value="26" />
-=======
-    <option name="localTasksCounter" value="5" />
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
     <MESSAGE value="trac" />
     <MESSAGE value="User login phase 1" />
     <MESSAGE value="added action listners" />
@@ -446,14 +408,6 @@
     <MESSAGE value="delete datbase Connection" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
-=======
-    <MESSAGE value="After added .ida file" />
-    <MESSAGE value="ugnotice and ug time table" />
-    <MESSAGE value="added ug attendece" />
-    <MESSAGE value="large code update" />
-    <MESSAGE value="added ug medical" />
-    <MESSAGE value="modifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="modifications" />
->>>>>>> 476d18cb45e5bac5f6ec6a170f2e7ef8e68323c7
+
   </component>
 </project>
