@@ -1,6 +1,7 @@
 package to;
 
 import MyCon.MyConnection;
+import UserLogin.LoginForm;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TO_Profile_Update extends JFrame {
+public class TO_Profile_Update  {
     private JPanel panel1;
     private JTextField textField2;
     private JTextField textField3;
@@ -34,6 +35,7 @@ public class TO_Profile_Update extends JFrame {
         this.panel1 = panel1;
     }
 
+
     public TO_Profile_Update() {
         frame = new JFrame();
         frame.setVisible(true);
@@ -42,6 +44,7 @@ public class TO_Profile_Update extends JFrame {
         frame.setContentPane(panel1);
         frame.setSize(1080, 600);
         frame.setResizable(false);
+
 
         //___________________________________________________________________________________
 
@@ -52,11 +55,13 @@ public class TO_Profile_Update extends JFrame {
          //}
         //___________________________________________________________________________________
 
+        LoginForm loginForm = new LoginForm();
+        String userId = loginForm.getUserId();
 
         try {
             // String selectedId = comboBox1.getSelectedItem().toString(); // Get selected ID
             Connection conn = MyConnection.getConnection();
-            String query = "SELECT * FROM technical_officer t INNER JOIN user u ON t.to_id = u.user_id where t.to_id ='TCO002'"; // i need the login page to id
+            String query = "SELECT * FROM technical_officer t INNER JOIN user u ON t.to_id = u.user_id where t.to_id = userId"; // i need the login page to id
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -113,7 +118,7 @@ public class TO_Profile_Update extends JFrame {
                     // JOptionPane.showMessageDialog(frame, result);
 
                     // Optional: run the SELECT if needed
-                    String query2 = "SELECT * FROM technical_officer t INNER JOIN user u ON t.to_id = u.user_id WHERE t.to_id = 'TCO002'";
+                    String query2 = "SELECT * FROM technical_officer t INNER JOIN user u ON t.to_id = u.user_id WHERE t.to_id = userId";
                     ResultSet rs = stmt.executeQuery(query2);
 
                     if (rs.next()) {
