@@ -37,7 +37,7 @@ public class attendanceIndividuals {
 
         try {
             Connection conn = MyConnection.getConnection();
-            String query = "select  DISTINCT at_undergraduate_id from Attendance order by at_undergraduate_id ";
+            String query = "SELECT  DISTINCT at_undergraduate_id from Attendance order by at_undergraduate_id ";
             Statement stmt1 = conn.createStatement();
             ResultSet rs1 = stmt1.executeQuery(query);
             comboBox1.removeAllItems();

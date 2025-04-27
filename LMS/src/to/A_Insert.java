@@ -81,7 +81,7 @@ public class A_Insert  extends JFrame {
                 String at_undergraduate_id = textField2.getText();
                 String at_corse_code = textField3.getText();
                 String date = textField4.getText();
-                String medical_status = textField5.getText();
+                String medical_status = textField5.getText(); // this time not include medical_status value -> default value is NULL , after medical Update table set the medical to attendance
                 String at_to_id = textField6.getText();
                 String at_corse_type = comboBox1.getSelectedItem().toString();
                 String attendance = comboBox2.getSelectedItem().toString();

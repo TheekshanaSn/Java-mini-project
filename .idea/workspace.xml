@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="modifications">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" beforeDir for="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "thishanherath"
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/TheekshanaSn/Java-mini-project.git",
+    "accountId": "d6988154-caf1-43d3-9202-01d5f670a23f"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  "customColor": "",
+  "associatedIndex": 8
+}</component>
+  <component name="ProjectId" id="2wDSWLXkobkylfkIOVq5DLIeupd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Attendance.executor": "Run",
+    "Application.LoginForm.executor": "Run",
+    "Application.Medical.executor": "Run",
+    "Application.attendanceIndividuals.executor": "Run",
+    "Application.undergraduateAttendence.executor": "Run",
+    "Application.undergraduateMedical.executor": "Run",
+    "Application.undergraduateNotices.executor": "Run",
+    "Application.undergraduateProfile.executor": "Run",
+    "Application.undergraduateResults.executor": "Run",
+    "Application.undergraduateTimetable.executor": "Run",
+    "Application.undergraduate_Dash.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#50 on Dinidu",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Softwares/extracted/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="" />
+      <created>1745574684034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745574684034</updated>
+      <workItem from="1745574684852" duration="26275000" />
+      <workItem from="1745686960054" duration="20434000" />
+    </task>
+    <task id="LOCAL-00001" summary="After added .ida file">
+      <option name="closed" value="true" />
+      <created>1745576051112</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745576051112</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ugnotice and ug time table">
+      <option name="closed" value="true" />
+      <created>1745603861220</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745603861221</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added ug attendece">
+      <option name="closed" value="true" />
+      <created>1745613986215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745613986215</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added ug medical">
+      <option name="closed" value="true" />
+      <created>1745640589297</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745640589297</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="After added .ida file" />
+    <MESSAGE value="ugnotice and ug time table" />
+    <MESSAGE value="added ug attendece" />
+    <MESSAGE value="large code update" />
+    <MESSAGE value="added ug medical" />
+    <MESSAGE value="modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifications" />
+  </component>
+</project>
