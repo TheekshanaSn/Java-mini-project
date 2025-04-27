@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.nio.file.Files;
 import java.sql.*;
 
 public class undergraduate_Dash extends JFrame {
@@ -30,26 +28,26 @@ public class undergraduate_Dash extends JFrame {
         this.userId = userId;
         this.password = password;
 
-
-        JFrame frame = new JFrame("Undergraduate Dashboard");
-        frame.setContentPane(ugDashBoard);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
+        setTitle("Undergraduate Dashboard");
+        setContentPane(ugDashBoard);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
 
         loadUserDetails();
 
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new undergraduateProfile(userId, password);
+                dispose();
+                new undergraduateProfile(userId, password).setVisible(true);
             }
         });
 
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new LoginForm(null).setVisible(true);
             }
         });
@@ -57,56 +55,97 @@ public class undergraduate_Dash extends JFrame {
         coursesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new courseDetails(userId, password);
+                dispose();
+                new courseDetails(userId, password).setVisible(true);
             }
         });
 
+        timeTableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new undergraduateTimetable(userId, password).setVisible(true);
+            }
+        });
 
-        //coursesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Courses feature coming soon..."));
-        timeTableButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Timetable feature coming soon..."));
-        noticesButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Notices feature coming soon..."));
-        medicalButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Medical records feature coming soon..."));
-        attendenceButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Attendance feature coming soon..."));
-        resultsButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Results feature coming soon..."));
+        noticesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new undergraduateNotices(userId, password).setVisible(true);
+            }
+        });
 
-        frame.setVisible(true);
+        attendenceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new undergraduateAttendence(userId, password).setVisible(true);
+            }
+        });
+
+        medicalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new undergraduateMedical(userId, password);
+            }
+        });
+
+        resultsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new undergraduateResults(userId, password);
+            }
+        });
+
+        setVisible(true);
     }
 
     private void loadUserDetails() {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techlms", "root", "");
-            String sql = "SELECT Name, profile_picture FROM user WHERE user_id = ?";
+
+            String sql = "SELECT u.username, ug.profile_picture FROM user u " +
+                    "LEFT JOIN Undergraduate ug ON u.user_id = ug.undergraduate_id " +
+                    "WHERE u.user_id = ?";
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, Session.userId);
+            pst.setString(1, userId);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                // Correctly retrieve the name from the database
-                String name = rs.getString("Name"); // Assuming "Name" is the correct column name
-                Session.name = name; // Store in session for use in other forms
+                String username = rs.getString("username");
+                Blob profilePictureBlob = rs.getBlob("profile_picture"); // from Undergraduate table
 
-                // Set the welcome label with the correct name
-                welcomeLable.setText("Welcome, " + Session.name + " (" + Session.userId + ")");
-
-                String imagePath = rs.getString("profile_picture");
-                if (imagePath != null && !imagePath.isEmpty()) {
-                    ImageIcon icon = new ImageIcon(imagePath);
-                    Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-                    profilePicLabel.setIcon(new ImageIcon(img));
+                // Set the Welcome Label text
+                if (username != null && !username.isEmpty()) {
+                    welcomeLable.setText("Welcome, " + username);
                 } else {
-                    profilePicLabel.setText("No Image");
+                    welcomeLable.setText("Welcome, User");
                 }
+
+                // Display profile picture if it exists
+                if (profilePictureBlob != null) {
+                    byte[] imageBytes = profilePictureBlob.getBytes(1, (int) profilePictureBlob.length());
+                    ImageIcon icon = new ImageIcon(imageBytes);
+                    Image img = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+                    prifilePic.setIcon(new ImageIcon(img));
+                } else {
+                    prifilePic.setText("No Image");
+                }
+
+            } else {
+                welcomeLable.setText("User not found");
             }
+
             conn.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-            welcomeLable.setText("Error loading user");
+            welcomeLable.setText("Error loading user details");
         }
     }
 
+
     public static void main(String[] args) {
-       // Session.userId = "UG001";
         new undergraduate_Dash("UG001", "pass123");
     }
 }
-

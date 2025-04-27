@@ -65,8 +65,7 @@ public class LoginForm extends JDialog {
         });
     }
 
-
-    public LoginForm() {
+    public LoginForm(){
 
     }
 
@@ -128,10 +127,6 @@ public class LoginForm extends JDialog {
              return;
         }
 
-//        dashboard.setSize(500, 400);
-//        dashboard.setLocationRelativeTo(null);
-//        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        dashboard.setVisible(true);
     }
 
 

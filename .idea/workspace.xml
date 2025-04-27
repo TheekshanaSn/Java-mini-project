@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="delete datbase Connection">
+    <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="modifications">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" beforeDir for="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,17 +26,12 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;thishanherath&quot;
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "thishanherath"
   }
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
@@ -40,59 +41,43 @@
   }
 }]]></component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  "customColor": "",
+  "associatedIndex": 8
 }</component>
-  <component name="ProjectId" id="2vkyBQWRV12QGsJBEISp5Z4LMYW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2wDSWLXkobkylfkIOVq5DLIeupd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.A_Delete.executor&quot;: &quot;Run&quot;,
-    &quot;Application.A_Insert.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Attendance.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LectureDashBord.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LectureProfile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoginForm.executor&quot;: &quot;Run&quot;,
-    &quot;Application.M_Delete.executor&quot;: &quot;Run&quot;,
-    &quot;Application.M_Insert.executor&quot;: &quot;Run&quot;,
-    &quot;Application.M_Update.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Medical.executor&quot;: &quot;Run&quot;,
-    &quot;Application.To_Profile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UndergraduateDetails.executor&quot;: &quot;Run&quot;,
-    &quot;Application.attendanceIndividuals.executor&quot;: &quot;Run&quot;,
-    &quot;Application.courseDetails.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateProfile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduate_Dash.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;362&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Krishani&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/theek/Downloads/rs2xml (1).jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Attendance.executor": "Run",
+    "Application.LoginForm.executor": "Run",
+    "Application.Medical.executor": "Run",
+    "Application.attendanceIndividuals.executor": "Run",
+    "Application.undergraduateAttendence.executor": "Run",
+    "Application.undergraduateMedical.executor": "Run",
+    "Application.undergraduateNotices.executor": "Run",
+    "Application.undergraduateProfile.executor": "Run",
+    "Application.undergraduateResults.executor": "Run",
+    "Application.undergraduateTimetable.executor": "Run",
+    "Application.undergraduate_Dash.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#50 on Dinidu",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Softwares/extracted/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
-      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\Undergraduate" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -104,237 +89,59 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="" />
-      <created>1744703230313</created>
+      <changelist id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="" />
+      <created>1745574684034</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744703230313</updated>
-      <workItem from="1744703231640" duration="789000" />
-      <workItem from="1744728687407" duration="1994000" />
-      <workItem from="1744927641008" duration="2298000" />
-      <workItem from="1744930812107" duration="3464000" />
-      <workItem from="1745034248917" duration="9388000" />
-      <workItem from="1745311353382" duration="16970000" />
-      <workItem from="1745488957061" duration="29613000" />
-      <workItem from="1745545422712" duration="265000" />
-      <workItem from="1745558741451" duration="656000" />
-      <workItem from="1745562947323" duration="2208000" />
-      <workItem from="1745740290951" duration="786000" />
+      <updated>1745574684034</updated>
+      <workItem from="1745574684852" duration="26275000" />
+      <workItem from="1745686960054" duration="20434000" />
     </task>
-    <task id="LOCAL-00001" summary="trac">
+    <task id="LOCAL-00001" summary="After added .ida file">
       <option name="closed" value="true" />
-      <created>1744927805212</created>
+      <created>1745576051112</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1744927805212</updated>
+      <updated>1745576051112</updated>
     </task>
-    <task id="LOCAL-00002" summary="User login phase 1">
+    <task id="LOCAL-00002" summary="ugnotice and ug time table">
       <option name="closed" value="true" />
-      <created>1744932461222</created>
+      <created>1745603861220</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1744932461222</updated>
+      <updated>1745603861221</updated>
     </task>
-    <task id="LOCAL-00003" summary="added action listners">
+    <task id="LOCAL-00003" summary="added ug attendece">
       <option name="closed" value="true" />
-      <created>1744937127542</created>
+      <created>1745613986215</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1744937127542</updated>
+      <updated>1745613986215</updated>
     </task>
-    <task id="LOCAL-00004" summary="login form code update">
+    <task id="LOCAL-00004" summary="added ug medical">
       <option name="closed" value="true" />
-      <created>1745040796419</created>
+      <created>1745640589297</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1745040796419</updated>
+      <updated>1745640589297</updated>
     </task>
-    <task id="LOCAL-00005" summary="login form code update">
-      <option name="closed" value="true" />
-      <created>1745041843908</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1745041843908</updated>
-    </task>
-    <task id="LOCAL-00006" summary="login form sql query update">
-      <option name="closed" value="true" />
-      <created>1745324599183</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1745324599183</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Lage Code changes">
-      <option name="closed" value="true" />
-      <created>1745508117488</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1745508117488</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Lage Code changes 2">
-      <option name="closed" value="true" />
-      <created>1745528665831</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1745528665831</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Lage Code changes 2">
-      <option name="closed" value="true" />
-      <created>1745559044169</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1745559044169</updated>
-    </task>
-    <task id="LOCAL-00010" summary="update">
-      <option name="closed" value="true" />
-      <created>1745576667035</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1745576667035</updated>
-    </task>
-    <task id="LOCAL-00011" summary="update to database and update to medical class">
-      <option name="closed" value="true" />
-      <created>1745612422112</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1745612422112</updated>
-    </task>
-    <task id="LOCAL-00012" summary="update to database and update to medical class">
-      <option name="closed" value="true" />
-      <created>1745612501702</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1745612501702</updated>
-    </task>
-    <task id="LOCAL-00013" summary="update to attendance and medical classs">
-      <option name="closed" value="true" />
-      <created>1745732420256</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1745732420258</updated>
-    </task>
-    <task id="LOCAL-00014" summary="update to attendance and medical classs">
-      <option name="closed" value="true" />
-      <created>1745732538645</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1745732538645</updated>
-    </task>
-    <task id="LOCAL-00015" summary="update">
-      <option name="closed" value="true" />
-      <created>1745736647041</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1745736647041</updated>
-    </task>
-    <task id="LOCAL-00016" summary="update database Sql">
-      <option name="closed" value="true" />
-      <created>1745737636154</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1745737636154</updated>
-    </task>
-    <task id="LOCAL-00017" summary="update">
-      <option name="closed" value="true" />
-      <created>1745738300450</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1745738300450</updated>
-    </task>
-    <task id="LOCAL-00018" summary="delete login Form">
-      <option name="closed" value="true" />
-      <created>1745738321489</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1745738321489</updated>
-    </task>
-    <task id="LOCAL-00019" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745739336667</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1745739336667</updated>
-    </task>
-    <task id="LOCAL-00020" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745739449099</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1745739449099</updated>
-    </task>
-    <task id="LOCAL-00021" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745739557645</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1745739557645</updated>
-    </task>
-    <task id="LOCAL-00022" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745739677078</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1745739677078</updated>
-    </task>
-    <task id="LOCAL-00023" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745739693389</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1745739693389</updated>
-    </task>
-    <task id="LOCAL-00024" summary="delete datbase Connection">
-      <option name="closed" value="true" />
-      <created>1745740633581</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1745740633581</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trac" />
-    <MESSAGE value="User login phase 1" />
-    <MESSAGE value="added action listners" />
-    <MESSAGE value="login form code update" />
-    <MESSAGE value="login form sql query update" />
-    <MESSAGE value="Lage Code changes" />
-    <MESSAGE value="merg to dev" />
-    <MESSAGE value="Lage Code changes 2" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/theekshana' into theekshana" />
-    <MESSAGE value="update to database and update to medical class" />
-    <MESSAGE value="update to attendance and medical classs" />
-    <MESSAGE value="update database Sql" />
-    <MESSAGE value="delete login Form" />
-    <MESSAGE value="update" />
-    <MESSAGE value="delete datbase Connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete datbase Connection" />
+    <MESSAGE value="After added .ida file" />
+    <MESSAGE value="ugnotice and ug time table" />
+    <MESSAGE value="added ug attendece" />
+    <MESSAGE value="large code update" />
+    <MESSAGE value="added ug medical" />
+    <MESSAGE value="modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifications" />
   </component>
 </project>
