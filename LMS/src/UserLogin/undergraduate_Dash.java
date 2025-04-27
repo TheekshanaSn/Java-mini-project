@@ -48,9 +48,10 @@ public class undergraduate_Dash extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new LoginForm(null).setVisible(true);
+                new LoginForm();
             }
         });
+
 
         coursesButton.addActionListener(new ActionListener() {
             @Override
