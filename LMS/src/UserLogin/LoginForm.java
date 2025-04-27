@@ -17,6 +17,14 @@ public class LoginForm extends JDialog {
     private String userId;
     private String password;
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public LoginForm(JFrame parent) {
 
         super(parent);
@@ -65,8 +73,7 @@ public class LoginForm extends JDialog {
         });
     }
 
-
-    public LoginForm() {
+    public LoginForm(){
 
     }
 
@@ -128,10 +135,6 @@ public class LoginForm extends JDialog {
              return;
         }
 
-//        dashboard.setSize(500, 400);
-//        dashboard.setLocationRelativeTo(null);
-//        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        dashboard.setVisible(true);
     }
 
 
