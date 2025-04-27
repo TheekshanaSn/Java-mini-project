@@ -120,6 +120,27 @@ CREATE TABLE marks (
 --     FOREIGN KEY (course_code) REFERENCES course_unit(course_code) ON DELETE CASCADE
 -- );
 
+CREATE TABLE notice (
+                        notice_id INT ,
+                        title VARCHAR(100),
+                        content VARCHAR(1000),
+                        PRIMARY KEY(notice_id)
+);
+
+
+
+CREATE TABLE Timetable (
+                           Timetable_id VARCHAR(15),
+                           day VARCHAR(10),
+                           time_range varchar(20),
+                           course_code VARCHAR(15),
+                           course_type VARCHAR(10),
+                           lecturer_id VARCHAR(15),
+                           PRIMARY KEY(Timetable_id)
+
+);
+
+
 -- note ******************************************************************************************************************************
 ALTER TABLE attendance
 CHANGE attendence attendance VARCHAR(20);
@@ -588,3 +609,17 @@ INSERT INTO Attendance (attendance_id, at_undergraduate_id, at_course_code, at_c
 ('AT00298', 'UG018', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00299', 'UG019', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001'),
 ('AT00300', 'UG020', 'ICT2113', 'TP', '2025-05-12', 'present', NULL, 15, 'TCO001');
+
+
+INSERT INTO notice VALUES (1, 'ICT Department', 'All first-year Information commiunication and Technology  students are invited to the Hackthon on Monday at 10:00 AM in Lab 1. Attendance is compulsory.'),
+                          (2, 'E money', 'Join us for a guest lecture on " how to earn E money" by Mr. Smith on Wednesday 4 PM in the main auditorium.'),
+                          (3, 'Exam registation', 'Students must be register for end examination before  may 30th.'),
+                          (4, '1 sem exam', 'ICT student it stat at 30 rd may'),
+                          (5, 'Aurudu Function', '30th april "AURUDU" Function  will be held on'),
+                          (6, 'lungi night', '3rd year student organized lungi night and Dj function');
+
+INSERT INTO Timetable VALUES ('Tt001', 'Monday', '08:00 AM -11:00 AM', 'ICT2113', 'TP', 'LEC001'),
+                             ('Tt002', 'Tuesday','09:00 AM -11:00 AM', 'ICT2122', 'T', 'LEC002'),
+                             ('Tt003', 'Wednesday','08:00 AM -10:00 AM', 'ICT2133', 'TP', 'LEC004'),
+                             ('Tt004', 'Thursday', '08:00 AM -12:00 PM', 'ICT2143', 'T', 'LEC005'),
+                             ('Tt005', 'Friday', '08:00 AM -10:00 AM', 'ICT2142', 'P', 'LEC003');
