@@ -3,7 +3,6 @@ package UserLogin;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
@@ -69,6 +68,7 @@ public class undergraduateProfile extends JFrame {
                 String fullname = rs.getString("Name");
                 String phoneStr = rs.getString("phone");
                 String username = rs.getString("username");
+                String passwordStr = rs.getString("password");
 
                 lbUgname.setText("Hi " + username);
                 uId.setText(userid);
@@ -76,6 +76,7 @@ public class undergraduateProfile extends JFrame {
                 fName.setText(fullname);
                 email.setText(emailStr);
                 phone.setText(phoneStr);
+                passwordField1.setText(passwordStr);
 
                 // Set profile picture
                 byte[] imgBytes = rs.getBytes("profile_picture");
@@ -101,21 +102,23 @@ public class undergraduateProfile extends JFrame {
         String fullname = fName.getText();
         String Phone = phone.getText();
         String username = uName.getText();
+        String newPassword = new String(passwordField1.getPassword());
 
-        if (Email.isEmpty() || fullname.isEmpty() || Phone.isEmpty() || username.isEmpty()) {
+        if (Email.isEmpty() || fullname.isEmpty() || Phone.isEmpty() || username.isEmpty() || newPassword.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill in all fields.");
             return;
         }
 
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techlms", "root", "");
-            String query = "UPDATE user SET email = ?, Name = ?, phone = ?, username = ? WHERE user_id = ?";
+            String query = "UPDATE user SET email = ?, Name = ?, phone = ?, username = ?, password = ? WHERE user_id = ?";
             pst = conn.prepareStatement(query);
             pst.setString(1, Email);
             pst.setString(2, fullname);
             pst.setString(3, Phone);
             pst.setString(4, username);
-            pst.setString(5, enteredUserId);
+            pst.setString(5, newPassword); // ✅ update password
+            pst.setString(6, enteredUserId);
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");

@@ -4,11 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.nio.file.Files;
 import java.sql.*;
-import javax.swing.ImageIcon;
 
 public class undergraduate_Dash extends JFrame {
     private JPanel ugDashBoard;
@@ -32,18 +28,18 @@ public class undergraduate_Dash extends JFrame {
         this.userId = userId;
         this.password = password;
 
-        JFrame frame = new JFrame("Undergraduate Dashboard");
-        frame.setContentPane(ugDashBoard);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
+        setTitle("Undergraduate Dashboard");
+        setContentPane(ugDashBoard);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
 
         loadUserDetails();
 
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateProfile(userId, password).setVisible(true);
             }
         });
@@ -51,7 +47,7 @@ public class undergraduate_Dash extends JFrame {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new LoginForm(null).setVisible(true);
             }
         });
@@ -59,7 +55,7 @@ public class undergraduate_Dash extends JFrame {
         coursesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new courseDetails(userId, password).setVisible(true);
             }
         });
@@ -67,7 +63,7 @@ public class undergraduate_Dash extends JFrame {
         timeTableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateTimetable(userId, password).setVisible(true);
             }
         });
@@ -75,7 +71,7 @@ public class undergraduate_Dash extends JFrame {
         noticesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateNotices(userId, password).setVisible(true);
             }
         });
@@ -83,7 +79,7 @@ public class undergraduate_Dash extends JFrame {
         attendenceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateAttendence(userId, password).setVisible(true);
             }
         });
@@ -91,7 +87,7 @@ public class undergraduate_Dash extends JFrame {
         medicalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateMedical(userId, password).setVisible(true);
             }
         });
@@ -99,12 +95,12 @@ public class undergraduate_Dash extends JFrame {
         resultsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                dispose();
                 new undergraduateResults(userId, password).setVisible(true);
             }
         });
 
-        frame.setVisible(true);
+        setVisible(true);
     }
 
     private void loadUserDetails() {
@@ -152,7 +148,6 @@ public class undergraduate_Dash extends JFrame {
 
 
     public static void main(String[] args) {
-        // Example userId and password
-        new undergraduate_Dash("UG002", "pass123");
+        new undergraduate_Dash("UG001", "pass123");
     }
 }
