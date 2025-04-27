@@ -1,5 +1,7 @@
 package Lecturer;
 
+import UserLogin.LoginForm;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -99,7 +101,14 @@ public class LectureDashBord extends JFrame {
                  new Notice(user_id,password).setVisible(true);
              }
          });
-    }
+         btnLogin.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 setVisible(false);
+                 new LoginForm().setVisible(true);
+             }
+         });
+     }
 
 
     public void getUsername(String user_id) {
