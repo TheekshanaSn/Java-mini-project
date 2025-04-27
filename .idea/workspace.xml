@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update to database and update to medical class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/Medical/Medical.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/Medical/Medical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/A_Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/A_Delete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/A_Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/A_Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Insert.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Insert.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Update.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Update.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/M_Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/M_Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/TO_Profile_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/TO_Profile_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile.class" afterDir="false" />
-    </list>
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update to attendance and medical classs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,42 +46,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.A_Delete.executor": "Run",
-    "Application.A_Insert.executor": "Run",
-    "Application.Attendance.executor": "Run",
-    "Application.LectureDashBord.executor": "Run",
-    "Application.LectureProfile.executor": "Run",
-    "Application.LoginForm.executor": "Run",
-    "Application.M_Delete.executor": "Run",
-    "Application.M_Insert.executor": "Run",
-    "Application.M_Update.executor": "Run",
-    "Application.Medical.executor": "Run",
-    "Application.To_Profile.executor": "Run",
-    "Application.UndergraduateDetails.executor": "Run",
-    "Application.attendanceIndividuals.executor": "Run",
-    "Application.courseDetails.executor": "Run",
-    "Application.undergraduateProfile.executor": "Run",
-    "Application.undergraduate_Dash.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "362",
-    "git-widget-placeholder": "theekshana",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/theek/Downloads/rs2xml (1).jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.A_Delete.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A_Insert.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Attendance.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LectureDashBord.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LectureProfile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LoginForm.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Delete.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Insert.executor&quot;: &quot;Run&quot;,
+    &quot;Application.M_Update.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Medical.executor&quot;: &quot;Run&quot;,
+    &quot;Application.To_Profile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UndergraduateDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Application.attendanceIndividuals.executor&quot;: &quot;Run&quot;,
+    &quot;Application.courseDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Application.undergraduateProfile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.undergraduate_Dash.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;362&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;theekshana&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/theek/Downloads/rs2xml (1).jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
@@ -252,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745612501702</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update to attendance and medical classs">
+      <option name="closed" value="true" />
+      <created>1745732420256</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745732420258</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update to attendance and medical classs">
+      <option name="closed" value="true" />
+      <created>1745732538645</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745732538645</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +248,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/theekshana' into theekshana" />
     <MESSAGE value="update" />
     <MESSAGE value="update to database and update to medical class" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to database and update to medical class" />
+    <MESSAGE value="update to attendance and medical classs" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to attendance and medical classs" />
   </component>
 </project>
