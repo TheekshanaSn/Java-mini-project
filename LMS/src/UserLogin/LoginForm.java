@@ -20,6 +20,7 @@ public class LoginForm extends JDialog {
 
     private String userId;
     private String password;
+    private String role;
 
     public String getUserId() {
         return userId;
@@ -34,15 +35,16 @@ public class LoginForm extends JDialog {
         super(parent);
         setTitle("Login");
         setContentPane(loginPanel);
-        setMinimumSize(new Dimension(450, 474));
-        setModal(true);
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(parent);
 
-        //combobox
+        setSize(450, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Center window
+        setResizable(false);
+
+
         comboBox1.addItem("Admin");
-        comboBox1.addItem("Lecture");
-        comboBox1.addItem("Technical Officer");
+        comboBox1.addItem("Lecturer");
+        comboBox1.addItem("Technical_officer");
         comboBox1.addItem("Undergraduate");
 
         loginButton.addActionListener(new ActionListener() {
@@ -57,12 +59,15 @@ public class LoginForm extends JDialog {
                     return;
                 }
 
-                // Validate login
-                if (validateLogin(userId, password, role)) {
+                if (validateLogin(userId, password,role)) {
+
                     JOptionPane.showMessageDialog(LoginForm.this, "Login successful!");
 
                     dispose();
-                    openDashboard(role); // open dashboard window based on role
+
+                    assert role != null;
+                    openDashboard(userId, password,role); // Pass userId and password manually
+
                 } else {
                     JOptionPane.showMessageDialog(LoginForm.this, "Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -88,8 +93,9 @@ public class LoginForm extends JDialog {
         String USERNAME = "root";
         String PASSWORD = "";
 
-        try {
-            Connection conn =  DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
+
             String sql = "SELECT * FROM user WHERE user_id = ? AND password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, userId);
@@ -125,11 +131,12 @@ public class LoginForm extends JDialog {
             case "Admin":
                 new A_Dash_Board();
                 break;
-            case "Lecture":
+
+            case "Lecturer":
 
                 new LectureDashBord(userId, password);
                 break;
-            case "Technical Officer":
+            case "Technical_officer":
                 new To_Profile();
                 break;
             case "Undergraduate":
