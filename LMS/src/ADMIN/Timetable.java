@@ -1,17 +1,16 @@
 package ADMIN;
 
-import MyCon.MyConnection;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
-import java.util.Date;
 
 public class Timetable extends JFrame {
     private JButton addNewButton;
@@ -35,12 +34,11 @@ public class Timetable extends JFrame {
     private JTextField textField6;
 
 
-    //main constructor create
     public Timetable() {
         setTitle("Timetable");
         setContentPane(JPanelMain);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1080, 600);
+        setSize(900, 600);
 
         setupTable();
         loadTimetableData();
@@ -48,7 +46,6 @@ public class Timetable extends JFrame {
         addNewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 addNewButtonActionPerformed(e);
             }
         });
@@ -56,7 +53,6 @@ public class Timetable extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 updateButtonActionPerformed(e);
             }
         });
@@ -64,12 +60,11 @@ public class Timetable extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 deleteButtonActionPerformed(e);
             }
         });
 
-        // Load the records after ID is serch
+        // Load timetable record when ID is entered
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,7 +80,7 @@ public class Timetable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    User_profile userProfile = new User_profile();
+                    new User_profile();
                 });
             }
         });
@@ -93,7 +88,6 @@ public class Timetable extends JFrame {
         courseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 new Course_unit();
             }
         });
@@ -103,7 +97,7 @@ public class Timetable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    Notice notice = new Notice();
+                    new Notice();
                 });
             }
         });
@@ -122,18 +116,17 @@ public class Timetable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 SwingUtilities.invokeLater(() -> {
-                    new LoginForm();
+                    new Login();
                 });
             }
         });
 
 
-
+        // Mouse click to populate fields
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow >= 0) {
-
                     textField1.setText(table1.getValueAt(selectedRow, 0).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 1).toString());
                     textField3.setText(table1.getValueAt(selectedRow, 2).toString());
@@ -150,16 +143,15 @@ public class Timetable extends JFrame {
 
     private void setupTable() {
         DefaultTableModel model = new DefaultTableModel(
-                new Object[]{"ID", "Day", "Time_range", "Course Code", "Type", "Lecturer ID"}, 0);
+                new Object[]{"ID", "Day", "Time", "Course Code", "Type", "Lecturer ID"}, 0);
         table1.setModel(model);
     }
 
-
     private void loadTimetableData() {
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.setRowCount(0); // Clear current rows
+        model.setRowCount(0); // Clear existing rows
 
-        try (Connection conn = MyConnection.getConnection();
+        try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable");
              ResultSet rs = stmt.executeQuery()) {
 
@@ -167,7 +159,7 @@ public class Timetable extends JFrame {
                 model.addRow(new Object[]{
                         rs.getString("Timetable_id"),
                         rs.getString("day"),
-                        rs.getString("time_range"),
+                        rs.getString("time"),
                         rs.getString("course_code"),
                         rs.getString("course_type"),
                         rs.getString("lecturer_id")
@@ -182,23 +174,24 @@ public class Timetable extends JFrame {
         }
     }
 
-
     private void loadTimetableById(String timetableId) {
-        try (Connection conn = MyConnection.getConnection();
+        try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Timetable WHERE Timetable_id = ?")) {
 
             stmt.setString(1, timetableId);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
+                // Populate fields with data
                 textField2.setText(rs.getString("day"));
-                textField3.setText(rs.getString("time_range"));
+                textField3.setText(rs.getString("time"));
                 textField4.setText(rs.getString("course_code"));
                 textField5.setText(rs.getString("course_type"));
                 textField6.setText(rs.getString("lecturer_id"));
             } else {
+                // No record found with this ID
                 clearFields();
-                textField1.setText(timetableId);
+                textField1.setText(timetableId); // Keep the ID for adding new entry
                 JOptionPane.showMessageDialog(this,
                         "No timetable record found with ID: " + timetableId,
                         "Record Not Found", JOptionPane.INFORMATION_MESSAGE);
@@ -212,80 +205,28 @@ public class Timetable extends JFrame {
         }
     }
 
-
     private void addNewButtonActionPerformed(ActionEvent evt) {
-
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time_range = textField3.getText().trim();
+        String time = textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
 
-
-        if (timetableId.isEmpty() || day.isEmpty() || time_range.isEmpty() ||
+        if (timetableId.isEmpty() || day.isEmpty() || time.isEmpty() ||
                 courseCode.isEmpty() || courseType.isEmpty() || lecturerId.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
             return;
         }
-        if (!timetableId.matches("^Tt\\d{3}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid Timetable ID format.");
-            return;
-        }
-        String[] validDays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
-        boolean validDay = false;
-        for (String validDayName : validDays) {
-            if (day.equalsIgnoreCase(validDayName)) {
-                validDay = true;
-                break;
-            }
-        }
-        if (!validDay) {
-            JOptionPane.showMessageDialog(this, "Invalid day. Must be a weekday (Monday to Friday).");
-            return;
-        }
+        String sql = "INSERT INTO Timetable (Timetable_id, day, time, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-
-        try {
-            SimpleDateFormat parser = new SimpleDateFormat("h:mm a");
-            Date enteredTime = parser.parse(time_range); // Accept single time for now
-
-            Date eightAM = parser.parse("8:00 AM");
-            Date fivePM = parser.parse("5:00 PM");
-
-            if (enteredTime.before(eightAM) || enteredTime.after(fivePM)) {
-                JOptionPane.showMessageDialog(this, "Invalid time. Must  lec on between 8:00 AM and 5:00 PM.");
-                return;
-            }
-
-        } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Invalid time format.format like 08:00 AM -17:00 PM.");
-            return;
-        }
-
-        if (!courseCode.matches("^ICT\\d{4}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid course code format.");
-            return;
-        }
-        if (!courseType.equals("T") && !courseType.equals("P") && !courseType.equals("TP")) {
-            JOptionPane.showMessageDialog(this, "Invalid course type format.");
-            return;
-        }
-        if (!lecturerId.matches("^LEC\\d{3}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid Lec id format.");
-            return;
-        }
-
-
-        String sql = "INSERT INTO Timetable (Timetable_id, day, time_range, course_code, course_type, lecturer_id) VALUES (?, ?, ?, ?, ?, ?)";
-
-        try (Connection conn = MyConnection.getConnection();
+        try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
             pstmt.setString(2, day);
-            pstmt.setString(3, time_range);
+            pstmt.setString(3, time);
             pstmt.setString(4, courseCode);
             pstmt.setString(5, courseType);
             pstmt.setString(6, lecturerId);
@@ -305,12 +246,10 @@ public class Timetable extends JFrame {
         }
     }
 
-
     private void updateButtonActionPerformed(ActionEvent evt) {
-
         String timetableId = textField1.getText().trim();
         String day = textField2.getText().trim();
-        String time_range = textField3.getText().trim();
+        String time = textField3.getText().trim();
         String courseCode = textField4.getText().trim();
         String courseType = textField5.getText().trim();
         String lecturerId = textField6.getText().trim();
@@ -320,13 +259,13 @@ public class Timetable extends JFrame {
             return;
         }
 
-        String sql = "UPDATE Timetable SET day = ?, time_range = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
+        String sql = "UPDATE Timetable SET day = ?, time = ?, course_code = ?, course_type = ?, lecturer_id = ? WHERE Timetable_id = ?";
 
-        try (Connection conn = MyConnection.getConnection();
+        try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, day);
-            pstmt.setString(2, time_range);
+            pstmt.setString(2, time);
             pstmt.setString(3, courseCode);
             pstmt.setString(4, courseType);
             pstmt.setString(5, lecturerId);
@@ -347,7 +286,6 @@ public class Timetable extends JFrame {
         }
     }
 
-
     private void deleteButtonActionPerformed(ActionEvent evt) {
         String timetableId = textField1.getText().trim();
 
@@ -362,7 +300,7 @@ public class Timetable extends JFrame {
 
         String sql = "DELETE FROM Timetable WHERE Timetable_id = ?";
 
-        try (Connection conn = MyConnection.getConnection();
+        try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, timetableId);
@@ -382,21 +320,16 @@ public class Timetable extends JFrame {
         }
     }
 
-
     private void clearFields() {
-
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
         textField4.setText("");
         textField5.setText("");
         textField6.setText("");
-
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Timetable();
-        });
+        SwingUtilities.invokeLater(Timetable::new);
     }
 }

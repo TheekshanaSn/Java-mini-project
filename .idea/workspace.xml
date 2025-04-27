@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="update to attendance and medical classs">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM_[Changes]2/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_25_2025_3_35_PM__Changes_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java Mini Project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/.idea/LMS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/ADMIN/DatabaseConnect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/CAMark.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/CAMark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/Conn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/CourseMaterials.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/CourseMaterials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/FinalMark.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/FinalMark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/LectureDashBord.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/LectureDashBord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/LectureProfile.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/LectureProfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/UndergraduateDetails.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/UndergraduateDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/UndergraduatePerformance.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/UndergraduatePerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/ViewUndergraduate.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/ViewUndergraduate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Lecturer/image/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Medical/Medical.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/Medical/Medical.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/courseDetails.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/courseDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/courses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/login img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/medical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/userimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/Attendance.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/attendanceIndividuals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/exactly_80_attendance.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/exactly_80_attendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithMedical.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithMedical.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithout_Medical.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/lessThan_80_AttendanceWithout_Medical.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendance.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendanceWithMedicals.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/attendance/moreThan_80_attendanceWithMedicals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_attendance-individuals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_exactly-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_less-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_less-than-attendance-without-medicals (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_more-than-attendance-with-medicals (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_more-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/resources/button_more-than-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Delete.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Insert.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Update.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/A_Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Delete.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Insert.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Insert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Update.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/M_Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/USER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_insert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_view (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/to/button_view (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/Conn.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/LectureDashBord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/G project/image/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/MyConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/LoginForm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/LoginForm$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/LoginForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/Session.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/courseDetails$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/courseDetails.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/courses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/login img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/medical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduateProfile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduateProfile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduateProfile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduateProfile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduate_Dash$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduate_Dash$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduate_Dash$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/undergraduate_Dash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/UserLogin/userimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/attendance/Attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java Mini Project/to/TO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/A_Dash_Board.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Course_unit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/DatabaseConnect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Login.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Notice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/Timetable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$13.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/User_profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/ADMIN/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/Class_Digram (1st).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/Medical/Medical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/Medical/Medical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/MyCon/MyConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/Attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/attendanceIndividuals$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/attendanceIndividuals$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/attendanceIndividuals.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/exactly_80_attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/exactly_80_attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/lessThan_80_AttendanceWithMedical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/lessThan_80_AttendanceWithMedical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/lessThan_80_AttendanceWithout_Medical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/lessThan_80_AttendanceWithout_Medical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/moreThan_80_attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/moreThan_80_attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/moreThan_80_attendanceWithMedicals$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/attendance/moreThan_80_attendanceWithMedicals.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_attendance-individuals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_exactly-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_less-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_less-than-attendance-without-medicals (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_more-than-attendance-with-medicals (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_more-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/resources/button_more-than-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Delete$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Delete$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Delete$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Delete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Insert$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Insert$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Insert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Update$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/A_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Delete$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Delete$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Delete$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Delete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Insert$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Insert$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Insert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Update$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/M_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/TO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/TO_Profile_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/TO_Profile_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/TO_Profile_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/To_Profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/USER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_insert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_view (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java-mini-project/to/button_view (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/A_Dash_Board.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Course_unit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/DatabaseConnect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Login.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Notice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/Timetable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$13.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/User_profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/ADMIN/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Class_Digram (1st).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CAMark.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/Conn.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/CourseMaterials.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/FinalMark.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureDashBord$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureDashBord$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureDashBord$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureDashBord$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureDashBord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureProfile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureProfile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureProfile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/LectureProfile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/UndergraduateDetails$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/UndergraduateDetails$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/UndergraduateDetails.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/UndergraduatePerformance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/ViewUndergraduate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Lecturer/image/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/Medical/Medical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/MyCon/MyConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/LoginForm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/LoginForm$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/LoginForm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/Session.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/courseDetails$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/courseDetails.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/courses.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/login img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/medical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/results.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduateProfile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduateProfile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduateProfile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduateProfile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduate_Dash$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduate_Dash$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduate_Dash$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/undergraduate_Dash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/UserLogin/userimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/Attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/attendanceIndividuals.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/exactly_80_attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/exactly_80_attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithMedical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithMedical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithout_Medical$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/lessThan_80_AttendanceWithout_Medical.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendance$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendanceWithMedicals$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/attendance/moreThan_80_attendanceWithMedicals.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_attendance-individuals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_exactly-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_less-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_less-than-attendance-without-medicals (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_more-than-attendance-with-medicals (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_more-than-attendance-with-medicals.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/resources/button_more-than-attendance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Delete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Insert$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Insert$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Insert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/A_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Delete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Insert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/M_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/TO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/TO_Profile_Update$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/TO_Profile_Update$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/TO_Profile_Update.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/To_Profile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/USER.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_insert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_view (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/New folder (5)/to/button_view (2).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Java-mini-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/New folder (5).iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/ADMIN/Timetable.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/ADMIN/Timetable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/MyCon/MyConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/MyCon/MyConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/attendance/Attendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/attendance/Attendance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/to/TO.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/TO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thishanherath&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TheekshanaSn/Java-mini-project.git&quot;,
+    &quot;accountId&quot;: &quot;85395d81-093a-464c-8a1d-008e0e07ad5c&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vkyBQWRV12QGsJBEISp5Z4LMYW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.A_Delete.executor": "Run",
+    "Application.A_Insert.executor": "Run",
+    "Application.Attendance.executor": "Run",
+    "Application.LectureDashBord.executor": "Run",
+    "Application.LectureProfile.executor": "Run",
+    "Application.LoginForm.executor": "Run",
+    "Application.M_Delete.executor": "Run",
+    "Application.M_Insert.executor": "Run",
+    "Application.M_Update.executor": "Run",
+    "Application.Medical.executor": "Run",
+    "Application.To_Profile.executor": "Run",
+    "Application.UndergraduateDetails.executor": "Run",
+    "Application.attendanceIndividuals.executor": "Run",
+    "Application.courseDetails.executor": "Run",
+    "Application.undergraduateProfile.executor": "Run",
+    "Application.undergraduate_Dash.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "362",
+    "git-widget-placeholder": "#56 on Merging Krishani",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/theek/Downloads/rs2xml (1).jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\UserLogin" />
+      <recent name="C:\Users\User\Desktop\Java Mini Project\LMS\src\Undergraduate" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="" />
+      <created>1744703230313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744703230313</updated>
+      <workItem from="1744703231640" duration="789000" />
+      <workItem from="1744728687407" duration="1994000" />
+      <workItem from="1744927641008" duration="2298000" />
+      <workItem from="1744930812107" duration="3464000" />
+      <workItem from="1745034248917" duration="9388000" />
+      <workItem from="1745311353382" duration="16970000" />
+      <workItem from="1745488957061" duration="29613000" />
+      <workItem from="1745545422712" duration="265000" />
+      <workItem from="1745558741451" duration="656000" />
+      <workItem from="1745562947323" duration="2208000" />
+    </task>
+    <task id="LOCAL-00001" summary="trac">
+      <option name="closed" value="true" />
+      <created>1744927805212</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744927805212</updated>
+    </task>
+    <task id="LOCAL-00002" summary="User login phase 1">
+      <option name="closed" value="true" />
+      <created>1744932461222</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744932461222</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added action listners">
+      <option name="closed" value="true" />
+      <created>1744937127542</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744937127542</updated>
+    </task>
+    <task id="LOCAL-00004" summary="login form code update">
+      <option name="closed" value="true" />
+      <created>1745040796419</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745040796419</updated>
+    </task>
+    <task id="LOCAL-00005" summary="login form code update">
+      <option name="closed" value="true" />
+      <created>1745041843908</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745041843908</updated>
+    </task>
+    <task id="LOCAL-00006" summary="login form sql query update">
+      <option name="closed" value="true" />
+      <created>1745324599183</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745324599183</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Lage Code changes">
+      <option name="closed" value="true" />
+      <created>1745508117488</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745508117488</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Lage Code changes 2">
+      <option name="closed" value="true" />
+      <created>1745528665831</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745528665831</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Lage Code changes 2">
+      <option name="closed" value="true" />
+      <created>1745559044169</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745559044169</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1745576667035</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745576667035</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update to database and update to medical class">
+      <option name="closed" value="true" />
+      <created>1745612422112</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745612422112</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update to database and update to medical class">
+      <option name="closed" value="true" />
+      <created>1745612501702</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745612501702</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update to attendance and medical classs">
+      <option name="closed" value="true" />
+      <created>1745732420256</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745732420258</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update to attendance and medical classs">
+      <option name="closed" value="true" />
+      <created>1745732538645</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745732538645</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="trac" />
+    <MESSAGE value="User login phase 1" />
+    <MESSAGE value="added action listners" />
+    <MESSAGE value="login form code update" />
+    <MESSAGE value="login form sql query update" />
+    <MESSAGE value="Lage Code changes" />
+    <MESSAGE value="merg to dev" />
+    <MESSAGE value="Lage Code changes 2" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/theekshana' into theekshana" />
+    <MESSAGE value="update" />
+    <MESSAGE value="update to database and update to medical class" />
+    <MESSAGE value="update to attendance and medical classs" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to attendance and medical classs" />
+  </component>
+</project>
