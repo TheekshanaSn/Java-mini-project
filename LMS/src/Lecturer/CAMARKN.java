@@ -581,6 +581,8 @@ public class CAMARKN extends JFrame {
 
 
     public static void main(String[] args) {
+
+        System.out.println("hi");
         new CAMARKN("LEC006", " pass123").setVisible(true);
     }
 }

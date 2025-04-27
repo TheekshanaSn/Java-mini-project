@@ -113,7 +113,7 @@
                     </constraints>
                     <properties>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-13877680"/>
+                      <foreground color="-16777216"/>
                       <model>
                         <item value="Quizze01"/>
                         <item value="Quizze02"/>
@@ -191,7 +191,7 @@
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPLOAD"/>
                     </properties>
                   </component>
@@ -202,7 +202,7 @@
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPDATE"/>
                     </properties>
                   </component>
@@ -214,7 +214,7 @@
                       <background color="-526086"/>
                       <enabled value="true"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="BACK"/>
                     </properties>
                   </component>
@@ -225,7 +225,7 @@
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="EXIT"/>
                     </properties>
                   </component>
@@ -249,7 +249,7 @@
                 <properties>
                   <background color="-526086"/>
                   <font name="Segoe Print" size="18" style="1"/>
-                  <foreground color="-1"/>
+                  <foreground color="-16777216"/>
                   <text value="SEARCH"/>
                 </properties>
               </component>
