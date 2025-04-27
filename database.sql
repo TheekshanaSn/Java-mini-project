@@ -2,61 +2,61 @@ CREATE DATABASE techlms;
 USE techlms;
 
 CREATE TABLE User (
-    user_id VARCHAR(15) PRIMARY KEY,
-    email VARCHAR(50) NOT NULL,
-    Name VARCHAR(50),
-    phone VARCHAR(255),
-    username VARCHAR(255),
-    password VARCHAR(255),
-    role ENUM('undergraduate','lecturer','admin','technicalOfficer') NOT NULL
+                      user_id VARCHAR(15) PRIMARY KEY,
+                      email VARCHAR(50) NOT NULL,
+                      Name VARCHAR(50),
+                      phone VARCHAR(255),
+                      username VARCHAR(255),
+                      password VARCHAR(255),
+                      role ENUM('undergraduate','lecturer','admin','technicalOfficer') NOT NULL
 );
 
 CREATE TABLE technical_officer (
-    to_id VARCHAR(15),
-    PRIMARY KEY(to_id),
-    FOREIGN KEY (to_id) REFERENCES user(user_id) ON DELETE CASCADE
+                                   to_id VARCHAR(15),
+                                   PRIMARY KEY(to_id),
+                                   FOREIGN KEY (to_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE lecturer
 (
     lecturer_id VARCHAR(15),
-    department VARCHAR(70), 
+    department VARCHAR(70),
     PRIMARY KEY(lecturer_id),
     FOREIGN KEY(lecturer_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE admin (
-    admin_id VARCHAR(15),
-    PRIMARY KEY(admin_id),
-    FOREIGN KEY (admin_id) REFERENCES user(user_id) ON DELETE CASCADE
+                       admin_id VARCHAR(15),
+                       PRIMARY KEY(admin_id),
+                       FOREIGN KEY (admin_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Undergraduate (
-    undergraduate_id VARCHAR(15),
-    department VARCHAR(10),
-    PRIMARY KEY(undergraduate_id),
-    FOREIGN KEY (undergraduate_id) REFERENCES user(user_id) ON DELETE CASCADE
+                               undergraduate_id VARCHAR(15),
+                               department VARCHAR(10),
+                               PRIMARY KEY(undergraduate_id),
+                               FOREIGN KEY (undergraduate_id) REFERENCES user(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE course_unit
 (
     course_code VARCHAR(15),
-    name VARCHAR(50), 
+    name VARCHAR(50),
     type VARCHAR(10) ,
-    credit INT CHECK (credit > 0 AND credit < 4), 
+    credit INT CHECK (credit > 0 AND credit < 4),
     c_lecturer_id VARCHAR(15),
-    PRIMARY KEY(course_code,type),    
+    PRIMARY KEY(course_code,type),
     FOREIGN KEY (c_lecturer_id) REFERENCES lecturer(lecturer_id) ON DELETE SET NULL
 );
 
 
 
 CREATE TABLE undergraduate_course_unit (
-    undergraduate_id VARCHAR(15),
-    course_code VARCHAR(15),
-    PRIMARY KEY (undergraduate_id, course_code),
-    FOREIGN KEY (undergraduate_id) REFERENCES Undergraduate(undergraduate_id) ON DELETE CASCADE,
-    FOREIGN KEY (course_code) REFERENCES course_unit(course_code) ON DELETE CASCADE
+                                           undergraduate_id VARCHAR(15),
+                                           course_code VARCHAR(15),
+                                           PRIMARY KEY (undergraduate_id, course_code),
+                                           FOREIGN KEY (undergraduate_id) REFERENCES Undergraduate(undergraduate_id) ON DELETE CASCADE,
+                                           FOREIGN KEY (course_code) REFERENCES course_unit(course_code) ON DELETE CASCADE
 );
 
 CREATE TABLE Medical (
@@ -68,43 +68,43 @@ CREATE TABLE Medical (
                          med_session_no VARCHAR(15),
                          PRIMARY KEY(medical_id),
                          FOREIGN KEY (med_course_code) REFERENCES course_unit(course_code) ,
-                         FOREIGN KEY (med_undergraduate_id) REFERENCES Undergraduate(undergraduate_id) 
+                         FOREIGN KEY (med_undergraduate_id) REFERENCES Undergraduate(undergraduate_id)
 );
 
 
 
 CREATE TABLE Attendance (
-    attendance_id VARCHAR(15),
-    at_undergraduate_id VARCHAR(15),
-    at_course_code VARCHAR(15),
-    at_course_type VARCHAR(10),
-    date DATE,
-    attendance VARCHAR(20),
-    medical_status VARCHAR(15),
-    session_no INT NOT NULL,
-    at_to_id VARCHAR(15),
-    PRIMARY KEY(attendance_id),
-    FOREIGN KEY (medical_status) REFERENCES medical(medical_id) ON DELETE CASCADE,
-    FOREIGN KEY (at_undergraduate_id) REFERENCES Undergraduate(undergraduate_id) ON DELETE CASCADE,
-    FOREIGN KEY (at_course_code, at_course_type) REFERENCES course_unit(course_code, type) ON DELETE CASCADE,
-    FOREIGN KEY (at_to_id) REFERENCES technical_officer(to_id) ON DELETE CASCADE
+                            attendance_id VARCHAR(15),
+                            at_undergraduate_id VARCHAR(15),
+                            at_course_code VARCHAR(15),
+                            at_course_type VARCHAR(10),
+                            date DATE,
+                            attendance VARCHAR(20),
+                            medical_status VARCHAR(15),
+                            session_no INT NOT NULL,
+                            at_to_id VARCHAR(15),
+                            PRIMARY KEY(attendance_id),
+                            FOREIGN KEY (medical_status) REFERENCES medical(medical_id) ON DELETE CASCADE,
+                            FOREIGN KEY (at_undergraduate_id) REFERENCES Undergraduate(undergraduate_id) ON DELETE CASCADE,
+                            FOREIGN KEY (at_course_code, at_course_type) REFERENCES course_unit(course_code, type) ON DELETE CASCADE,
+                            FOREIGN KEY (at_to_id) REFERENCES technical_officer(to_id) ON DELETE CASCADE
 );
 
 
 CREATE TABLE marks (
-    undergraduate_id VARCHAR(15),
-    course_code VARCHAR(15),
-    Q1 INT CHECK (Q1 BETWEEN 0 AND 100), 
-    Q2 INT CHECK (Q2 BETWEEN 0 AND 100),
-    Q3 INT CHECK (Q3 BETWEEN 0 AND 100),
-    assessment_mark INT CHECK (assessment_mark BETWEEN 0 AND 100),
-    mid_exam_theory INT CHECK (mid_exam_theory BETWEEN 0 AND 100),
-    mid_exam_practical INT CHECK (mid_exam_practical BETWEEN 0 AND 100),
-    final_exam_theory INT CHECK (final_exam_theory BETWEEN 0 AND 100),
-    final_exam_practical INT CHECK (final_exam_practical BETWEEN 0 AND 100),
-    PRIMARY KEY(undergraduate_id, course_code),
-    FOREIGN KEY (undergraduate_id) REFERENCES undergraduate(undergraduate_id) ON DELETE CASCADE,
-    FOREIGN KEY (undergraduate_id) REFERENCES course_unit(course_code) ON DELETE CASCADE
+                       undergraduate_id VARCHAR(15),
+                       course_code VARCHAR(15),
+                       Q1 INT CHECK (Q1 BETWEEN 0 AND 100),
+                       Q2 INT CHECK (Q2 BETWEEN 0 AND 100),
+                       Q3 INT CHECK (Q3 BETWEEN 0 AND 100),
+                       assessment_mark INT CHECK (assessment_mark BETWEEN 0 AND 100),
+                       mid_exam_theory INT CHECK (mid_exam_theory BETWEEN 0 AND 100),
+                       mid_exam_practical INT CHECK (mid_exam_practical BETWEEN 0 AND 100),
+                       final_exam_theory INT CHECK (final_exam_theory BETWEEN 0 AND 100),
+                       final_exam_practical INT CHECK (final_exam_practical BETWEEN 0 AND 100),
+                       PRIMARY KEY(undergraduate_id, course_code),
+                       FOREIGN KEY (undergraduate_id) REFERENCES undergraduate(undergraduate_id) ON DELETE CASCADE,
+                       FOREIGN KEY (undergraduate_id) REFERENCES course_unit(course_code) ON DELETE CASCADE
 );
 
 
