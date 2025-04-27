@@ -5,186 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="851eb851-1ce6-4951-8ef5-d1c64178922c" name="Changes" comment="modifications">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java Mini Project New.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java Mini Project New.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/TO_Profile_Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Course_unit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Notice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/Timetable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/User_profile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CAMark.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/Conn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/Conn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/CourseMaterials.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/FinalMark.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureDashBord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/LectureProfile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduateDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduatePerformance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/UndergraduatePerformance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/ViewUndergraduate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Lecturer/ViewUndergraduate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/MyCon/MyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/MyCon/MyConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateAttendence.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduate_Dash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateAttendence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateMedical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateMedical$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateMedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateMedical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" beforeDir for="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/Attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/attendanceIndividuals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/exactly_80_attendance$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/exactly_80_attendance$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/exactly_80_attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/exactly_80_attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithMedical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithMedical$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithMedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithMedical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithout_Medical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithout_Medical$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithout_Medical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/lessThan_80_AttendanceWithout_Medical.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendance$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendance$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendanceWithMedicals$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendanceWithMedicals$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendanceWithMedicals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/attendance/moreThan_80_attendanceWithMedicals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Delete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/A_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Delete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Insert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/M_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/TO_Profile_Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/to/To_Profile.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,70 +29,55 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;thishanherath&quot;
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "thishanherath"
   }
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/TheekshanaSn/Java-mini-project.git",
-    "accountId": "85395d81-093a-464c-8a1d-008e0e07ad5c"
+    "accountId": "d6988154-caf1-43d3-9202-01d5f670a23f"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
+  "customColor": "",
+  "associatedIndex": 8
 }</component>
   <component name="ProjectId" id="2wDSWLXkobkylfkIOVq5DLIeupd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Attendance.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LoginForm.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Medical.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TO_Profile_Update.executor&quot;: &quot;Run&quot;,
-    &quot;Application.To_Profile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.attendanceIndividuals.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateAttendence.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateMedical.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateNotices.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateProfile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateResults.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduateTimetable.executor&quot;: &quot;Run&quot;,
-    &quot;Application.undergraduate_Dash.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;theekshana&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/theek/Documents/mysql-connector-java-8.0.15.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Attendance.executor": "Run",
+    "Application.LoginForm.executor": "Run",
+    "Application.Medical.executor": "Run",
+    "Application.attendanceIndividuals.executor": "Run",
+    "Application.undergraduateAttendence.executor": "Run",
+    "Application.undergraduateMedical.executor": "Run",
+    "Application.undergraduateNotices.executor": "Run",
+    "Application.undergraduateProfile.executor": "Run",
+    "Application.undergraduateResults.executor": "Run",
+    "Application.undergraduateTimetable.executor": "Run",
+    "Application.undergraduate_Dash.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#50 on Dinidu",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Softwares/extracted/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Java-mini-project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Java-mini-project" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -284,7 +96,6 @@
       <updated>1745574684034</updated>
       <workItem from="1745574684852" duration="26275000" />
       <workItem from="1745686960054" duration="20434000" />
-      <workItem from="1745762337023" duration="6404000" />
     </task>
     <task id="LOCAL-00001" summary="After added .ida file">
       <option name="closed" value="true" />
