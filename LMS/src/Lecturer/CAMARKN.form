@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Lecturer.FinalMark">
-  <grid id="27dc6" binding="finalmark" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="10" left="10" bottom="10" right="10"/>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Lecturer.CAMARKN">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="733" height="459"/>
+      <xy x="20" y="20" width="725" height="459"/>
     </constraints>
-    <properties>
-      <background color="-3152658"/>
-    </properties>
+    <properties/>
     <border type="none"/>
     <children>
-      <grid id="937ff" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d7f" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1710619"/>
+        </properties>
         <border type="none"/>
         <children>
-          <grid id="441ee" binding="CAMark" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="64219" binding="CAMark" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -28,7 +28,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <grid id="8b789" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="dc4eb" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -38,18 +38,18 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="ca6ca" class="javax.swing.JLabel">
+                  <component id="c59ef" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font name="Segoe Print" size="48" style="1"/>
-                      <text value="Final Mark"/>
+                      <text value="CA Mark"/>
                     </properties>
                   </component>
                 </children>
               </grid>
-              <grid id="6eb1b" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="e9a93" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -60,7 +60,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="39646" class="javax.swing.JLabel">
+                  <component id="4e413" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -69,7 +69,7 @@
                       <text value="Course Cose"/>
                     </properties>
                   </component>
-                  <component id="7aa96" class="javax.swing.JLabel" binding="lblCourseCode">
+                  <component id="f9d1e" class="javax.swing.JLabel" binding="lblCourseCode">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -78,7 +78,7 @@
                       <text value="Course Code"/>
                     </properties>
                   </component>
-                  <component id="25e8a" class="javax.swing.JLabel">
+                  <component id="1a0b8" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -87,7 +87,7 @@
                       <text value="Undergraduate ID"/>
                     </properties>
                   </component>
-                  <component id="7d86f" class="javax.swing.JTextField" binding="txtUndergraduateID">
+                  <component id="6e0ae" class="javax.swing.JTextField" binding="txtUndergraduateID">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -95,9 +95,10 @@
                     </constraints>
                     <properties>
                       <font name="Segoe Print" size="18" style="1"/>
+                      <foreground color="-13877680"/>
                     </properties>
                   </component>
-                  <component id="2c86b" class="javax.swing.JLabel">
+                  <component id="235bd" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -106,19 +107,25 @@
                       <text value="Mark Type"/>
                     </properties>
                   </component>
-                  <component id="77b93" class="javax.swing.JComboBox" binding="cmbMarkType">
+                  <component id="61dcb" class="javax.swing.JComboBox" binding="cmbMarkType">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font name="Segoe Print" size="18" style="1"/>
+                      <foreground color="-13877680"/>
                       <model>
-                        <item value="Finaltheory"/>
-                        <item value="Finalpractical"/>
+                        <item value="Quizze01"/>
+                        <item value="Quizze02"/>
+                        <item value="Quizze03"/>
+                        <item value="Quizze04"/>
+                        <item value="Assessments01"/>
+                        <item value="Assessments02"/>
+                        <item value="Midterm"/>
                       </model>
                     </properties>
                   </component>
-                  <component id="43a2e" class="javax.swing.JLabel">
+                  <component id="aa917" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -127,7 +134,7 @@
                       <text value="Mark"/>
                     </properties>
                   </component>
-                  <component id="e14bc" class="javax.swing.JTextField" binding="txtMark">
+                  <component id="d1584" class="javax.swing.JTextField" binding="txtMark">
                     <constraints>
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -135,11 +142,12 @@
                     </constraints>
                     <properties>
                       <font name="Segoe Print" size="18" style="1"/>
+                      <foreground color="-13877680"/>
                     </properties>
                   </component>
                 </children>
               </grid>
-              <grid id="b8231" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="3c923" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="2" column="1" row-span="2" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -147,17 +155,16 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <scrollpane id="e527f">
+                  <scrollpane id="33bbf">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-3152658"/>
                       <font name="Segoe Print" size="18" style="1"/>
                     </properties>
                     <border type="none"/>
                     <children>
-                      <component id="102d4" class="javax.swing.JTable" binding="tblMark">
+                      <component id="a5fd3" class="javax.swing.JTable" binding="tblMark">
                         <constraints/>
                         <properties>
                           <font name="Segoe Print" size="18" style="1"/>
@@ -167,64 +174,64 @@
                   </scrollpane>
                 </children>
               </grid>
-              <grid id="618aa" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="a8b6" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-3152658"/>
-                  <foreground color="-1"/>
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="3c327" class="javax.swing.JButton" binding="btnUpdate">
+                  <component id="80476" class="javax.swing.JButton" binding="btnUpdate">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-1"/>
                       <text value="UPLOAD"/>
                     </properties>
                   </component>
-                  <component id="d337" class="javax.swing.JButton" binding="uploadButton">
+                  <component id="43114" class="javax.swing.JButton" binding="uploadButton">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-1"/>
                       <text value="UPDATE"/>
                     </properties>
                   </component>
-                  <component id="ecde4" class="javax.swing.JButton" binding="BACKButton" default-binding="true">
+                  <component id="87eb6" class="javax.swing.JButton" binding="BACKButton" default-binding="true">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-526086"/>
+                      <enabled value="true"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-1"/>
                       <text value="BACK"/>
                     </properties>
                   </component>
-                  <component id="526fb" class="javax.swing.JButton" binding="EXITButton" default-binding="true">
+                  <component id="f64c6" class="javax.swing.JButton" binding="EXITButton" default-binding="true">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-1"/>
                       <text value="EXIT"/>
                     </properties>
                   </component>
                 </children>
               </grid>
-              <component id="6cf08" class="javax.swing.JTextField" binding="txtSearch">
+              <component id="b38e8" class="javax.swing.JTextField" binding="txtSearch">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -232,20 +239,21 @@
                 </constraints>
                 <properties>
                   <font name="Segoe Print" size="18" style="1"/>
+                  <foreground color="-13877680"/>
                 </properties>
               </component>
-              <component id="76659" class="javax.swing.JButton" binding="btnSearch">
+              <component id="6fb6f" class="javax.swing.JButton" binding="btnSearch">
                 <constraints>
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-526086"/>
                   <font name="Segoe Print" size="18" style="1"/>
-                  <foreground color="-16777216"/>
+                  <foreground color="-1"/>
                   <text value="SEARCH"/>
                 </properties>
               </component>
-              <component id="1cae7" class="javax.swing.JLabel" binding="lblCourseName">
+              <component id="3bb1c" class="javax.swing.JLabel" binding="lblCourseName">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -254,20 +262,25 @@
                   <text value="Course Name"/>
                 </properties>
               </component>
-              <hspacer id="922a9">
+              <hspacer id="706a6">
                 <constraints>
                   <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
             </children>
           </grid>
-          <hspacer id="41cbe">
+          <hspacer id="d5833">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
         </children>
       </grid>
+      <vspacer id="48168">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

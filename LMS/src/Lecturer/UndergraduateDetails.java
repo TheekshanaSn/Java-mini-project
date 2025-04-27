@@ -21,8 +21,13 @@ public class UndergraduateDetails extends JFrame {
     private JComboBox cmbSearch;
     private JPanel UndergraduateDetails;
     PreparedStatement pst;
+   private String user_id;
+   private String password;
+    UndergraduateDetails(String user_id,String password) {
 
-    UndergraduateDetails() {
+        this.user_id = user_id;
+        this.password = password;
+
         setTitle("Undergraduate Details:");
         setContentPane(UndergraduateDetails);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -79,6 +84,13 @@ public class UndergraduateDetails extends JFrame {
                 table_load();
             }
         });
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new ViewUndergraduate(user_id,password).setVisible(true);
+            }
+        });
     }
 
     void  table_load(){
@@ -97,6 +109,7 @@ public class UndergraduateDetails extends JFrame {
 
 
     public static void main(String[] args) {
-        new UndergraduateDetails();
+
+        new UndergraduateDetails("","");
     }
 }

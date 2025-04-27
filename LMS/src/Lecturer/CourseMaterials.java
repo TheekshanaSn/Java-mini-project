@@ -24,8 +24,10 @@ public class CourseMaterials extends JFrame {
     private PreparedStatement pst;
     private String corse_code;
     private String corse_Name;
-    public CourseMaterials(String user_id) {
+    private String password;
+    public CourseMaterials(String user_id,String password) {
         this.user_id = user_id;
+        this.password = password;
 
         setTitle("Course Metirial");
         setContentPane(panelMain);
@@ -76,10 +78,16 @@ public class CourseMaterials extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                String User_id=new LectureDashBord().getUser_id();
-                String Password=new LectureDashBord().getPassword();
-                new LectureDashBord(User_id,Password).setVisible(true);
+//                String User_id=new LectureDashBord().getUser_id();
+//                String Password=new LectureDashBord().getPassword();
+                new LectureDashBord(user_id,password).setVisible(true);
 
+            }
+        });
+        Exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
             }
         });
     }
@@ -245,7 +253,8 @@ public class CourseMaterials extends JFrame {
 
 
     public static void main(String[] args) {
-        new CourseMaterials("");
+
+        new CourseMaterials(""," ");
     }
 }
 

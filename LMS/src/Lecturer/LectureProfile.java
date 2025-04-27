@@ -125,6 +125,7 @@ public class LectureProfile extends JFrame {
     }
 
     public static void main(String[] args) {
+
         new LectureProfile("LEC001", "pass123");
     }
 }
