@@ -36,7 +36,7 @@ public class CAMARKN extends JFrame {
         this.user_id = user_id;
         getLecturerCorsecodeandName(user_id);
         table_load();
-
+        System.out.println("Loading table");
 
         setTitle("| LectureDashBord | UploadMark | FinalMark | CAMark |");
         setContentPane(CAMark);
