@@ -87,16 +87,14 @@ public class undergraduate_Dash extends JFrame {
         medicalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new undergraduateMedical(userId, password).setVisible(true);
+                new undergraduateMedical(userId, password);
             }
         });
 
         resultsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                new undergraduateResults(userId, password).setVisible(true);
+                new undergraduateResults(userId, password);
             }
         });
 
