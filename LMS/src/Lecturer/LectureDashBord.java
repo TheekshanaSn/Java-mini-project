@@ -16,6 +16,8 @@ public class LectureDashBord extends JFrame {
     private JButton btnNotices;
     private JLabel labHi;
     private JPanel main;
+    private JPanel mainDash;
+
 
     private String username;
     private String password;
@@ -31,23 +33,33 @@ public class LectureDashBord extends JFrame {
     public String getUser_id() {
         return user_id;
     }
-     LectureDashBord() {
 
-     }
 
-    LectureDashBord(String user_id, String password) {
+     public  LectureDashBord(String user_id, String password) {
+
         this.user_id = user_id;
         this.password = password;
 
-        setTitle("Lecturer Dashboard");
-        setContentPane(main);
+
+        setTitle("| LectureDashBord |");
+        setContentPane(mainDash);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1000, 500);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         setResizable(false);
 
+
         getUsername(user_id);
         labHi.setText(" HI " + username);
+
+         btnViewUndergraduate.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 setVisible(false);
+                 new ViewUndergraduate(user_id,password).setVisible(true);
+             }
+         });
+
 
         btnProfile.addActionListener(new ActionListener() {
             @Override
@@ -68,17 +80,27 @@ public class LectureDashBord extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CourseMaterials(user_id).setVisible(true);
+                new CourseMaterials(user_id,password).setVisible(true);
             }
         });
         btnUploadMark.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new CAMark(user_id).setVisible(true);
+//                new CAMark(user_id).setVisible(true);
+                new UploadMark(user_id,password).setVisible(true);
             }
         });
+         btnNotices.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 setVisible(false);
+                 new Notice(user_id,password).setVisible(true);
+             }
+         });
     }
+
 
     public void getUsername(String user_id) {
         try {
@@ -96,7 +118,7 @@ public class LectureDashBord extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LectureDashBord("LEC006", "pass123");
+        new LectureDashBord("LEC003", "pass123");
     }
 
 
