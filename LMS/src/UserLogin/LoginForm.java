@@ -20,6 +20,7 @@ public class LoginForm extends JFrame {
 
     private String userId;
     private String password;
+    private String role;
 
     public String getUserId() {
         return userId;
@@ -37,10 +38,9 @@ public class LoginForm extends JFrame {
         setLocationRelativeTo(null); // Center window
         setResizable(false);
 
-
         comboBox1.addItem("Admin");
-        comboBox1.addItem("Lecture");
-        comboBox1.addItem("Technical Officer");
+        comboBox1.addItem("Lecturer");
+        comboBox1.addItem("Technical_officer");
         comboBox1.addItem("Undergraduate");
 
         loginButton.addActionListener(new ActionListener() {
@@ -55,10 +55,11 @@ public class LoginForm extends JFrame {
                     return;
                 }
 
-                if (validateLogin(userId, password, role)) {
+                if (validateLogin(userId, password,role)) {
                     JOptionPane.showMessageDialog(LoginForm.this, "Login successful!");
                     dispose();
-                    openDashboard(userId, password, role); // Pass userId and password manually
+                    assert role != null;
+                    openDashboard(userId, password,role); // Pass userId and password manually
                 } else {
                     JOptionPane.showMessageDialog(LoginForm.this, "Invalid credentials. Try again!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -78,11 +79,11 @@ public class LoginForm extends JFrame {
         String PASSWORD = "";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD)) {
-            String sql = "SELECT * FROM user WHERE user_id = ? AND password = ? AND role = ?";
+            String sql = "SELECT * FROM user WHERE user_id = ? AND password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, userId);
             ps.setString(2, password);
-            ps.setString(3, role);
+            //ps.setString(3, role);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -102,10 +103,10 @@ public class LoginForm extends JFrame {
             case "Admin":
                 new A_Dash_Board();
                 break;
-            case "Lecture":
+            case "Lecturer":
                 new LectureDashBord(userId, password);
                 break;
-            case "Technical Officer":
+            case "Technical_officer":
                 new To_Profile();
                 break;
             case "Undergraduate":
