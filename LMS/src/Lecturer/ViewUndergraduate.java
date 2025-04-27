@@ -31,16 +31,12 @@ public class ViewUndergraduate extends JFrame {
 
             }
         });
-        btnDetails.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         btnAttendence.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+              setVisible(false);
+              new Attendance(user_id,password).setVisible(true);
             }
         });
         btnMedical.addActionListener(new ActionListener() {
@@ -60,16 +56,28 @@ public class ViewUndergraduate extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new UndergraduateDetails().setVisible(true);
+                new UndergraduateDetails(user_id,password).setVisible(true);
             }
         });
         btnBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-//                String User_id=new LectureDashBord().getUser_id();
-//                String Password=new LectureDashBord().getPassword();
+
                 new LectureDashBord(user_id,password).setVisible(true);
+            }
+        });
+        btnMedical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new Medical(user_id,password).setVisible(true);
+            }
+        });
+        btnExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
             }
         });
     }

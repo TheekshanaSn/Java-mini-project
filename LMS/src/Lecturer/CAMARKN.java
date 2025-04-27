@@ -83,12 +83,7 @@ public class CAMARKN extends JFrame {
 
     void table_load() {
         try {
-//            Conn conn = new Conn();
-//            String sql;
-//            PreparedStatement pst;
-//            ResultSet rs;
-//            DefaultTableModel model;
-//            String CASTATUS;
+
             switch (corse_code) {
                 case "ICT2113":
                     ICT2113codeca();
@@ -131,8 +126,15 @@ public class CAMARKN extends JFrame {
         }
 
         try {
-            Conn conn = new Conn();
 
+            double markValue = Double.parseDouble(mark);
+
+            if (markValue < 0 || markValue > 100) {
+                JOptionPane.showMessageDialog(this, "Mark must be between 0 and 100.");
+                return;
+            }
+
+            Conn conn = new Conn();
 
             pst = conn.c.prepareStatement("SELECT * FROM camarks WHERE undergraduate_id = ? AND course_code = ?");
             pst.setString(1, undergraduateID);
@@ -157,6 +159,8 @@ public class CAMARKN extends JFrame {
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Mark uploaded successfully.");
             table_load();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid numeric value for the mark.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error uploading mark: " + e.getMessage());
         }
@@ -174,8 +178,15 @@ public class CAMARKN extends JFrame {
         }
 
         try {
-            Conn conn = new Conn();
 
+            double markValue = Double.parseDouble(mark);
+
+            if (markValue < 0 || markValue > 100) {
+                JOptionPane.showMessageDialog(this, "Mark must be between 0 and 100.");
+                return;
+            }
+
+            Conn conn = new Conn();
 
             pst = conn.c.prepareStatement("SELECT * FROM camarks WHERE undergraduate_id = ? AND course_code = ?");
             pst.setString(1, undergraduateID);
@@ -196,6 +207,8 @@ public class CAMARKN extends JFrame {
                 JOptionPane.showMessageDialog(this, "Record not found. Please upload the mark first.");
             }
 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid numeric value for the mark.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error updating mark: " + e.getMessage());
         }
@@ -360,6 +373,8 @@ public class CAMARKN extends JFrame {
     }
 
 
+
+
     public void ICT2142codeca() {
         String courseCode ="ICT2142";
         String sql = "SELECT undergraduate_id, course_code, Assessments01, Midterm FROM camarks WHERE course_code = ?"; // Declare 'sql'
@@ -427,7 +442,7 @@ public class CAMARKN extends JFrame {
                 double q2 = rs.getDouble("Quizze02");
                 double q3 = rs.getDouble("Quizze03");
                 double assessments01 = rs.getDouble("Assessments01");
-             // Should probably be "Assessments02" instead
+
 
                 Double[] Mark = {q1, q2, q3};
                 Arrays.sort(Mark, Collections.reverseOrder());
@@ -566,7 +581,6 @@ public class CAMARKN extends JFrame {
 
 
     public static void main(String[] args) {
-
         new CAMARKN("LEC006", " pass123").setVisible(true);
     }
 }

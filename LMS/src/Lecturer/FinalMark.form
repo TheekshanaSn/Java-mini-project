@@ -183,9 +183,9 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-14176672"/>
+                      <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPLOAD"/>
                     </properties>
                   </component>
@@ -194,9 +194,9 @@
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-14057287"/>
+                      <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="UPDATE"/>
                     </properties>
                   </component>
@@ -205,9 +205,9 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-6969946"/>
+                      <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="BACK"/>
                     </properties>
                   </component>
@@ -216,9 +216,9 @@
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-1618884"/>
+                      <background color="-526086"/>
                       <font name="Segoe Print" size="18" style="1"/>
-                      <foreground color="-1"/>
+                      <foreground color="-16777216"/>
                       <text value="EXIT"/>
                     </properties>
                   </component>
@@ -239,9 +239,9 @@
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-13330213"/>
+                  <background color="-526086"/>
                   <font name="Segoe Print" size="18" style="1"/>
-                  <foreground color="-1"/>
+                  <foreground color="-16777216"/>
                   <text value="SEARCH"/>
                 </properties>
               </component>

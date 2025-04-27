@@ -56,8 +56,7 @@ public class Notice extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-//                String User_id=new LectureDashBord(user_id,).getUser_id();
-//                String Password=new LectureDashBord().getPassword();
+
                 new LectureDashBord(user_id,password).setVisible(true);
             }
         });

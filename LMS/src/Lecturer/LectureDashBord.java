@@ -33,11 +33,7 @@ public class LectureDashBord extends JFrame {
     public String getUser_id() {
         return user_id;
     }
-//     public LectureDashBord() {
-//
-//
-//
-//     }
+
 
      public  LectureDashBord(String user_id, String password) {
 
@@ -45,10 +41,6 @@ public class LectureDashBord extends JFrame {
         this.password = password;
 
 
-//        System.out.println("mainDash: " + mainDash);
-
-
-        System.out.println("hi");
         setTitle("| LectureDashBord |");
         setContentPane(mainDash);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -126,7 +118,7 @@ public class LectureDashBord extends JFrame {
     }
 
     public static void main(String[] args) {
-        new LectureDashBord("LEC006", "pass123");
+        new LectureDashBord("LEC003", "pass123");
     }
 
 

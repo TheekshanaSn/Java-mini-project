@@ -106,9 +106,9 @@
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
-                              <background color="-13330213"/>
+                              <background color="-526086"/>
                               <font name="Segoe Print" style="0"/>
-                              <foreground color="-1"/>
+                              <foreground color="-16777216"/>
                               <text value="Profile"/>
                             </properties>
                           </component>
@@ -148,9 +148,9 @@
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <background color="-14176672"/>
+                          <background color="-526086"/>
                           <font name="Segoe Print" style="1"/>
-                          <foreground color="-1"/>
+                          <foreground color="-16777216"/>
                           <text value="Login"/>
                         </properties>
                       </component>
@@ -159,9 +159,9 @@
                           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <background color="-1618884"/>
+                          <background color="-526086"/>
                           <font name="Segoe Print" style="1"/>
-                          <foreground color="-1"/>
+                          <foreground color="-16777216"/>
                           <text value="Exit"/>
                         </properties>
                       </component>

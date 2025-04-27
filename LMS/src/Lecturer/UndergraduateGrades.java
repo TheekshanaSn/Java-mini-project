@@ -6,7 +6,9 @@ import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 public class UndergraduateGrades extends JFrame {
@@ -21,7 +23,11 @@ public class UndergraduateGrades extends JFrame {
     private String user_id;
     private String password;
 
+
+    private Map<String, Integer> courseCredits;
+
     UndergraduateGrades(String user_id, String password) {
+        initializeCourseCredits();
 
         CAMARKN camarkn= new CAMARKN(user_id,password);
         camarkn.setVisible(false);
@@ -63,6 +69,22 @@ public class UndergraduateGrades extends JFrame {
             setVisible(false);
             new UndergraduateGrades(user_id, password).setVisible(true);
         });
+    }
+
+
+    private void initializeCourseCredits() {
+        courseCredits = new HashMap<>();
+        courseCredits.put("ICT2113", 3);
+        courseCredits.put("ICT2122", 2);
+        courseCredits.put("ICT2133", 3);
+        courseCredits.put("ICT2142", 2);
+        courseCredits.put("ICT2152", 2);
+        courseCredits.put("ENG2122", 2);
+    }
+
+
+    private int getCourseCredit(String courseCode) {
+        return courseCredits.getOrDefault(courseCode, 0);
     }
 
     private void searchStudent() {
@@ -117,10 +139,10 @@ public class UndergraduateGrades extends JFrame {
                 row.add(studentId);
                 row.add(studentName);
 
-                double totalGradePoints = 0;
-                int courseCount = 0;
-                double cgpaGradePoints = 0;
-                int cgpaCourseCount = 0;
+                double totalWeightedPoints = 0;
+                int totalCredits = 0;
+                double cgpaWeightedPoints = 0;
+                int cgpaTotalCredits = 0;
 
                 for (String course : courses) {
                     PreparedStatement pst = conn.c.prepareStatement(
@@ -139,24 +161,27 @@ public class UndergraduateGrades extends JFrame {
                         double caMarks = rs.getDouble("camarks");
                         String caStatus = rs.getString("status");
                         double finalMarks = rs.getDouble("finalmarks");
+                        int credit = getCourseCredit(course);
 
                         if (caStatus != null && caStatus.equalsIgnoreCase("fail")) {
                             row.add("F");
+                            totalCredits += credit;
+                            if (!course.equalsIgnoreCase("ENG2122")) {
+                                cgpaTotalCredits += credit;
+                            }
                         } else {
                             double totalMarks = caMarks + finalMarks;
                             String letterGrade = getLetterGrade(totalMarks);
 
                             row.add(letterGrade);
 
-                            if (!letterGrade.equals("F")) {
-                                double gradePoint = getGradePoint(letterGrade);
-                                totalGradePoints += gradePoint;
-                                courseCount++;
+                            double gradePoint = getGradePoint(letterGrade);
+                            totalWeightedPoints += (gradePoint * credit);
+                            totalCredits += credit;
 
-                                if (!course.equalsIgnoreCase("ENG2122")) {
-                                    cgpaGradePoints += gradePoint;
-                                    cgpaCourseCount++;
-                                }
+                            if (!course.equalsIgnoreCase("ENG2122")) {
+                                cgpaWeightedPoints += (gradePoint * credit);
+                                cgpaTotalCredits += credit;
                             }
                         }
                     } else {
@@ -164,8 +189,8 @@ public class UndergraduateGrades extends JFrame {
                     }
                 }
 
-                double sgpa = (courseCount > 0) ? totalGradePoints / courseCount : 0.0;
-                double cgpa = (cgpaCourseCount > 0) ? cgpaGradePoints / cgpaCourseCount : 0.0;
+                double sgpa = (totalCredits > 0) ? totalWeightedPoints / totalCredits : 0.0;
+                double cgpa = (cgpaTotalCredits > 0) ? cgpaWeightedPoints / cgpaTotalCredits : 0.0;
 
                 row.add(String.format("%.2f", sgpa));
                 row.add(String.format("%.2f", cgpa));
@@ -228,10 +253,10 @@ public class UndergraduateGrades extends JFrame {
                 row.add(studentId);
                 row.add(studentName);
 
-                double totalGradePoints = 0;
-                int courseCount = 0;
-                double cgpaGradePoints = 0;
-                int cgpaCourseCount = 0;
+                double totalWeightedPoints = 0;
+                int totalCredits = 0;
+                double cgpaWeightedPoints = 0;
+                int cgpaTotalCredits = 0;
 
                 for (String course : courses) {
                     PreparedStatement pst = conn.c.prepareStatement(
@@ -250,24 +275,27 @@ public class UndergraduateGrades extends JFrame {
                         double caMarks = rs.getDouble("camarks");
                         String caStatus = rs.getString("status");
                         double finalMarks = rs.getDouble("finalmarks");
+                        int credit = getCourseCredit(course);
 
                         if (caStatus != null && caStatus.equalsIgnoreCase("fail")) {
                             row.add("F");
+                            totalCredits += credit;
+                            if (!course.equalsIgnoreCase("ENG2122")) {
+                                cgpaTotalCredits += credit;
+                            }
                         } else {
                             double totalMarks = caMarks + finalMarks;
                             String letterGrade = getLetterGrade(totalMarks);
 
                             row.add(letterGrade);
 
-                            if (!letterGrade.equals("F")) {
-                                double gradePoint = getGradePoint(letterGrade);
-                                totalGradePoints += gradePoint;
-                                courseCount++;
+                            double gradePoint = getGradePoint(letterGrade);
+                            totalWeightedPoints += (gradePoint * credit);
+                            totalCredits += credit;
 
-                                if (!course.equalsIgnoreCase("ENG2122")) {
-                                    cgpaGradePoints += gradePoint;
-                                    cgpaCourseCount++;
-                                }
+                            if (!course.equalsIgnoreCase("ENG2122")) {
+                                cgpaWeightedPoints += (gradePoint * credit);
+                                cgpaTotalCredits += credit;
                             }
                         }
                     } else {
@@ -275,8 +303,8 @@ public class UndergraduateGrades extends JFrame {
                     }
                 }
 
-                double sgpa = (courseCount > 0) ? totalGradePoints / courseCount : 0.0;
-                double cgpa = (cgpaCourseCount > 0) ? cgpaGradePoints / cgpaCourseCount : 0.0;
+                double sgpa = (totalCredits > 0) ? totalWeightedPoints / totalCredits : 0.0;
+                double cgpa = (cgpaTotalCredits > 0) ? cgpaWeightedPoints / cgpaTotalCredits : 0.0;
 
                 row.add(String.format("%.2f", sgpa));
                 row.add(String.format("%.2f", cgpa));
@@ -322,7 +350,7 @@ public class UndergraduateGrades extends JFrame {
         else if (totalMarks >= 40) return "C-";
         else if (totalMarks >= 35) return "D+";
         else if (totalMarks >= 30) return "D";
-        else return "F"; // Corrected here too (F instead of E)
+        else return "F";
     }
 
     private double getGradePoint(String letterGrade) {

@@ -38,7 +38,7 @@
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-1618884"/>
+              <background color="-526086"/>
               <font name="Segoe Print" size="18" style="1"/>
               <text value="EXIT"/>
             </properties>
@@ -48,7 +48,7 @@
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-14176672"/>
+              <background color="-526086"/>
               <font name="Segoe Print" size="18" style="1"/>
               <text value="BACK"/>
             </properties>
@@ -88,7 +88,7 @@
       </grid>
       <component id="8b366" class="javax.swing.JTextArea" binding="taDisplayNotice">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
