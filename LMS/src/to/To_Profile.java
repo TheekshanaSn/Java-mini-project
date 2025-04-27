@@ -3,6 +3,7 @@ import ADMIN.Login;
 import ADMIN.Notice;
 import ADMIN.Timetable;
 import Medical.Medical;
+import UserLogin.LoginForm;
 import attendance.Attendance;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -139,7 +140,7 @@ public class To_Profile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Login login = new Login();
+               LoginForm frame = new LoginForm();
             }
         });
     }

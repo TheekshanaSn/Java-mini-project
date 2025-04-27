@@ -65,6 +65,11 @@ public class LoginForm extends JDialog {
         });
     }
 
+
+    public LoginForm() {
+
+    }
+
     private boolean validateLogin(String userId, String password, String role) {
         boolean isValid = false;
 
