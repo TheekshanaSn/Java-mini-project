@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="wps xml file">
-      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateLectureNotes.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateLectureNotes.java" afterDir="false" />
+    <list default="true" id="63d58a8b-0bbb-498e-b050-e78cc88fc069" name="Changes" comment="margingn added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java Mini Project New.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java Mini Project New.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateNotices.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateNotices.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateProfile.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateResults.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/undergraduateResults.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/UserLogin/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/LMS/src/to/To_Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/ADMIN/A_Dash_Board$3.class" afterDir="false" />
@@ -88,11 +86,12 @@
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/Medical/Medical.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/LoginForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/courseDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateNotices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateProfile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateResults.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduateTimetable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Mini Project New/UserLogin/undergraduate_Dash$4.class" afterDir="false" />
@@ -167,6 +166,7 @@
     "Application.A_Dash_Board.executor": "Run",
     "Application.A_Delete.executor": "Run",
     "Application.A_Insert.executor": "Run",
+    "Application.A_Update.executor": "Run",
     "Application.Attendance.executor": "Run",
     "Application.CAMark.executor": "Run",
     "Application.Course_unit.executor": "Run",
@@ -178,9 +178,11 @@
     "Application.M_Update.executor": "Run",
     "Application.Medical.executor": "Run",
     "Application.Notice.executor": "Run",
+    "Application.TO_Profile_Update.executor": "Run",
     "Application.Timetable.executor": "Run",
     "Application.To_Profile.executor": "Run",
     "Application.UndergraduateDetails.executor": "Run",
+    "Application.User_profile.executor": "Run",
     "Application.attendanceIndividuals.executor": "Run",
     "Application.courseDetails.executor": "Run",
     "Application.undergraduateAttendence.executor": "Run",
@@ -189,6 +191,7 @@
     "Application.undergraduateNotices.executor": "Run",
     "Application.undergraduateProfile.executor": "Run",
     "Application.undergraduateResults.executor": "Run",
+    "Application.undergraduateTimetable.executor": "Run",
     "Application.undergraduate_Dash.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -462,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745765847449</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="margingn added">
+      <option name="closed" value="true" />
+      <created>1745768877571</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1745768877571</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,6 +496,7 @@
     <MESSAGE value="delete datbase Connection" />
     <MESSAGE value="update" />
     <MESSAGE value="wps xml file" />
-    <option name="LAST_COMMIT_MESSAGE" value="wps xml file" />
+    <MESSAGE value="margingn added" />
+    <option name="LAST_COMMIT_MESSAGE" value="margingn added" />
   </component>
 </project>
