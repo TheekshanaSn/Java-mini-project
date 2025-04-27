@@ -1,5 +1,7 @@
 package UserLogin;
 
+import ADMIN.A_Dash_Board;
+import Lecturer.LectureDashBord;
 import to.To_Profile;
 
 import javax.swing.*;
@@ -98,10 +100,10 @@ public class LoginForm extends JFrame {
     private void openDashboard(String userId, String password, String role) {
         switch (role) {
             case "Admin":
-                JOptionPane.showMessageDialog(this, "Admin Dashboard coming soon...");
+                new A_Dash_Board();
                 break;
             case "Lecture":
-                JOptionPane.showMessageDialog(this, "Lecture Dashboard coming soon...");
+                new LectureDashBord(userId, password);
                 break;
             case "Technical Officer":
                 new To_Profile();
